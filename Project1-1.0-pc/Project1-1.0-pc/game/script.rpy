@@ -11,7 +11,7 @@ label start:
 
     scene background
 
-    show I am Aurora
+    show aurora_test
     #DELETED TEST LINES
 
     "You wake up in a lush green field, unfamiliar flowers and scents surrounding you. The gentle sunlight, speckled by the trees, dances on your face."
