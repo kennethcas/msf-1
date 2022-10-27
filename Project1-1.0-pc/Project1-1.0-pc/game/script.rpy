@@ -9,7 +9,6 @@ define realitypoints = 0
 
 label start:
 
-
     scene background
 
     show I am Aurora
