@@ -13,9 +13,7 @@ label start:
     scene bg room
 
     show I am Aurora
-
-    s "Welcome to the game (this is a test line)"
-    "another test line"
+    #DELETED TEST LINES
 
     "You wake up in a lush green field, unfamiliar flowers and scents surrounding you. The gentle sunlight, speckled by the trees, dances on your face."
     "You blink awake, and as you turn your head to the side you spot a girl sitting next to you. She looks uninterested, spacing out, she traces the horizon with her eyes."
