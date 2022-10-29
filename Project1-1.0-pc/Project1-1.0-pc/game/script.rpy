@@ -1,5 +1,5 @@
-define a = Character("Aurora")
-define s = Character("Stella")
+define a = Character("Aurora") #the player character
+define s = Character("Stella") #the love interest
 
 define config.default_text_cps = 45
 
@@ -8,11 +8,34 @@ define fantasypoints = 0
 define realitypoints = 0
 
 label start:
+    scene background
+    show aurora_test
+
+    """
+    I wake up from that familiar dream, fluttering my eyelashes as the speckles of 
+    sunlight dance on my face.
+
+    I can hear the comforting bubbling, fizzling, and whistling of pots, potions, and cauldrons
+    in the humble cabin. Once my eyes are open I look at a figure sitting on the ledge of the window, 
+    sorting through books and pages and little knick-knacks.
+    """
+    a "Finally you're awake. I was starting to get worried."
+
+    "So she says, with an all-too-obviously sarcastic grin on her face."
+
+    s "You sound like someone who's still mad about always losing to me in Spell Duel."
+    a """
+    Spell Dual? That silly childhood game?
+
+    Why are you bringing this up all of a sudden. Did that nap mess with your cognitive function?
+
+    Haha, you're still the same as when we were kids.
+    """
+label start2:
 
     scene background
 
     show aurora_test
-    #DELETED TEST LINES
 
     "You wake up in a lush green field, unfamiliar flowers and scents surrounding you. The gentle sunlight, speckled by the trees, dances on your face."
     "You blink awake, and as you turn your head to the side you spot a girl sitting next to you. She looks uninterested, spacing out, she traces the horizon with her eyes."
