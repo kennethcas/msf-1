@@ -110,7 +110,32 @@ label gettingReadyForPotion
     jump pomegranatePotion
 
 label pomegranatePotion
-    #this is the start of the pomegranate potion event
+    """
+    We walk on the small dirt path through the woods that surrounds our humble cabin,
+    making light conversation and laughing like normal.
+
+    The lush green grass pads the ground along the path. Piles of fallen fruits sink into the cushiony foliage and the air smells deep and natural with a hint of sweetness from the fruits.
+
+    Stella's heels make small clouds of dirt as she walks forward with a clear destination in mind.
+
+    We walk along countless trees, their overextending branches and strong trunks providing a protective
+    presence, making me feel safe and comfortable within this large and unpredictable forest.
+
+    The fluffy grass climbs up the bases of the trees, and some fallen fruits lay nested in the nooks of the branches.
+
+    Small animals scurry around as if dancing along to the birds' songs. I've always been engrossed in the
+    complexity and beauty of this forest.
+
+    I stop my eyes from wandering around at the beautiful environment and focus my attention on Stella once more.
+    """
+
+    a "So, what was this potion for again?"
+    s "I don't know... that's what we're here to find out."
+    a "What do you mean you don't know?"
+
+    s "It's a new innovation I wanted to try. Here, I drew some inspiration from an old mythology book."
+
+    
 
 ####################################################END OF NEW VERSION
 ####################################################THE OLD VERSION!!!!
