@@ -15,8 +15,7 @@ label start:
     I wake up from that familiar dream, fluttering my eyelashes as the speckles of 
     sunlight dance on my face.
 
-    I can hear the comforting bubbling, fizzling, and whistling of pots, potions, and cauldrons
-    in the humble cabin. Once my eyes are open I look at a figure sitting on the ledge of the window, 
+    My eyes open and I look at a figure sitting on the ledge of the window, 
     sorting through books and pages and little knick-knacks.
     """
     a "Finally you're awake. I was starting to get worried."
@@ -31,6 +30,90 @@ label start:
 
     Haha, you're still the same as when we were kids.
     """
+    "Stella softly chuckles, glancing away."
+
+    a "Was it really that long ago?"
+    "That vivid dream made it seem like it was yesterday. A strange feeling is burning in my chest."
+    
+    s "Seriously, Aurora. That was so long ago. Move on and get a life"
+    """
+    She comes closer and reaches out to playfully hit me on the shoulder.
+
+    The small physical contact shocks me back into reality.
+
+    I can hear the comforting bubbling, fizzling, and whistling of pots, potions, and cauldrons
+    in the humble cabin. In every nook and cranny there is some kind of whimsical device. every
+    shelf is full of large spell books and every bottle is teeming with all kinds of colorful
+    and strange liquids. Two witch hats hang on the wall.
+
+    Stella stands by the door, putting garden pruners and some elixir bottles into her bag.
+    """
+
+    a "Those bottles... are you going to collect the ingredients for that potion today?"
+
+    "Stella's gaze stays on her bag."
+
+    s "Yeah, I can't just wait here all day for you to get ready."
+
+    a "What are the garden pruners for?"
+
+    s "I'm going to do some work in the rose garden later in the afternoon."
+
+    "This means Stella's going to be out all day, and I won't be able to spend as much time with her"
+
+    menu:
+        "Let me come with you!":
+            a "I want to go with you!"
+            s "Are you sure?" #SHOW HER SMIRKING
+            s "You seemed pretty tired earlier."
+            a "I'm not! I want to go with you. Let's go!"
+            jump gettingReadyForPotion
+            
+
+        "You're going to leave me here all day?":
+            a "You're not going to leave me here all day by myself are you?"
+            s "You're free to go out whenever you want! Haha, don't act like I own you or anything."
+            s "You realize you can go out and do things without me, right? We're not kids anymore."
+            "She gives me a symathetic smile"
+            a "Its not I can't go out without you or anything... I just like spending time with you."
+            s "Haha, alright. Come on then!"
+            jump gettingReadyForPotion
+
+label gettingReadyForPotion
+    "I get up quickly and brush off my dress before rushing to Stella's side by the door." #SHES WEARING A DRESS,, MAKE SURE TO UPDATE
+
+    """
+    Stella doesn't seem as enthusiastic as I would like her to be. Instead, she looks a little torn.
+
+    But that expression only lasts a few seconds before she looks at me and smiles.
+    """
+
+    s "You really can't live without me can you, Aurora? You don't to follow me around all day like a pet."
+    """
+    She lightly taps my nose with the tip of her finger.
+
+    She teases me, but I don't think she really understands the extent of my feelings for her.
+
+    Perhaps today I can make those feelings clear to her.
+    """
+    a "I'm coming with you."
+    """
+    I repeat my intent in a firmer tone. 
+            
+    Stella and I have known each other since we were very young, 
+    and even though she can appear dismissive sometimes, she's usually just shy.
+
+    Or perhaps there is some other reason why she's so anxious about our relationship.
+
+    We walk out the door.
+    """
+    jump pomegranatePotion
+
+label pomegranatePotion
+    #this is the start of the pomegranate potion event
+
+####################################################END OF NEW VERSION
+####################################################THE OLD VERSION!!!!
 label start2:
 
     scene background
