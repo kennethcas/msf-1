@@ -334,6 +334,11 @@ label pickRedRose:
     #picking a red rose for stella
     "I spend a few moments searching for the perfect rose until I finally pick a red one from the bushes."
     "Red roses... the classic symbol of love."
+    "I hold the rose and approach Stella, holding it out for her, expecting her to accept my gift the way she has always accepted my gifts."
+    a "This is for you."
+    s "..." #blushing expression ???
+    a "What's wrong?"
+    "Stella has never rejected me this way before. Even if she doesn't understand the intentions behind my actions."
 
 
 
