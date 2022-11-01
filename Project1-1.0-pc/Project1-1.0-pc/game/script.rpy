@@ -317,14 +317,11 @@ label roseGarden:
     "I watch as she takes a loose chunk of her silver hair and swipes it elegantly behind her ear. She looks so natural in a sea of roses, each flower enhancing her natural beauty."
     "The deep floral scent and the classic beauty of the roses combined with incoming sunset make for such a romantic environment."
     "I'll take advantage of this opportunity."
-    menu:
-        "Speak to Stella"
-        "'The roses are beautiful'":
-            #aaaaaaaaaaaa
-        "'The sky is lovely'"
-            a "Isn't the sky so lovely?"
-            "Stella looks up from her work and turns her gaze upwards."
-            
+    menu: #COME BACK TO THIS AND FIX IT
+        "You look beautiful":
+            "dbtutbubtbutubt"
+
+
     "I hold the rose and approach Stella, holding it out for her, expecting her to accept my gift the way she has always accepted my gifts."
 
 label pickRedRose:
@@ -673,7 +670,6 @@ label event2:
         "Stella continues walking forward, a small skip in her step. You both have seen all there is to see at the rose garden, and make your way back to town to rest."
 
 label event3:
-    # Event 3
     "..."
     "It's dusk, the sun is going down slowly on the horizon."
     a "Oh..."
@@ -735,6 +731,14 @@ label event3:
                 jump true
 
 label bad:
+    """
+    .....
+
+    I wake up once more to the sound of singing birds.
+
+    
+    """
+
     "......"
     "Birds are chirping."
     "It's dawn."
@@ -768,12 +772,12 @@ label true:
 
 label find:
     menu :
-        "There're something overthere..."
+        "There's something over there..."
         "Garnet earrings":
             a """
-            It’s a pair of beautiful garnet earrings.
+            A pair of earrings with inlaid garnet stones. The dark red color looks almost black.
 
-            These are not mine…
+            These aren\'t mine...
 
             These are...
             """
@@ -781,7 +785,9 @@ label find:
 
         "A notebook":
             a """
-            There\’s a dried white rose petal between the pages.
+            One of those small hardcover bound notebooks with a ribbon bookmark.
+
+            I open it up to the bookmarked page, revealing a pressed white rose.
 
             The fragrance of the rose has almost worn off.
 
@@ -789,17 +795,19 @@ label find:
             """
             $ x[1] = 1
             
-        "A poem by Dylan Thomas":
+        "A poem":
             a """
-            This line says... \"Do not go gentle into that good night\".
+            A poem from an author called Dylan Thomas.
 
-            She... she loved this poem, didn't she?
+            The title reads... \"Do not go gentle into that good night\".
+
+            She used to love this poem.
             """
             $ x[2] = 1
         
         "Old Card Deck":
             a """
-            The title of the game is printed on the back of the card.
+            An old hand-made card deck. The title of the game is written in water-based marker on the back of every card.
             
             \"Spell Dual\".
 
