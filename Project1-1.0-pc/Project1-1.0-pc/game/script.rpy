@@ -173,7 +173,7 @@ label pomegranatePotion
 
     She has already grabbed a ripe pomegranate off of one of the many fruit trees surrounding us.
 
-    Without waiting for me to agree she slices the fruit in half and starts squeezing the pomegranate juice into a few elixir bottles that she laid out on the ground.
+    Without waiting for me to agree she slices the fruit in half and starts squeezing the pomegranate juice into an exilir bottle that she had brought from the cabin.
     """
 
     menu:
@@ -209,22 +209,85 @@ label pomegranatePotion
 
     "It's like I can see galaxies swirling in her eyes, silver clouds spinning in a vast universe of secrets. Her cheeks are flushed, though hardly noticeable under her dark skin."
     "Even after all these years, her emotions can be so difficult to understand."
-    "Despite that, I have to do something to show her how I feel."
 
     menu:
         "Should I drink Stella's underworld potion?"
         "Drink the potion":
-            $ fantasypoints += 1
+            #$ fantasypoints += 1
             jump drinkThePotion
             
-        "Don't drink the potion":
-            $ realitypoints += 1
+        "'Miss-Worst-Cook'":
+            #$ realitypoints += 1
             jump dontDrinkThePotion
 
 label drinkThePotion:
     #start drinking potion
+    $ fantasypoints += 1
+    """
+    Without another second to delay, I snatch up the bottle from her hand and start chugging away.
+
+    With each gulp the potion becomes harder to swallow, but I am determined to finish every last drop.
+
+    I pull my lips away from the bottle, a burning sensation in my throat. The aftertaste is even more bitter, something I didn't even think was possible.
+    """
+    a "*COUGH* *COUGH* *COUGH*"
+    s "Aurora! What's wrong with you! I didn't expect you to actually drink it!"
+
+    """
+    As I continue with my coughing fit Stella hits me on the back repeatedly with a shy rage, trying to coax out the rest of the liquid trapped in my throat.
+
+    I finally calm down, wiping away the tears that built up on my eyelashes and clearing my throat.
+
+    Stella's eyes, worried and attentive, stare into mine. She's holding her breath waiting for what happens next.
+
+    But apart from the horrible taste in my mouth, I don't feel any different. 
+    """
+
+    menu:
+        "That was awful!":
+            a "Yuck! That tasted awful..."
+            s "Why did you drink it! Anyone in their right mind wouldn't try something like that!"
+            s "We're lucky it didn't actually do anything... what if you grew a tail or something?"
+            a "Then it would've been worth it to aid you in your experiments."
+            s "Oh, be serious! You're still so childish." #show her smiling
+
+        "Lie and say it tasted good":
+            a "Yummm... this is definetely one of your better potions."
+            s "Don't lie to me! You almost just choked to death!"
+            a "Hahaha. I would drink it all over again just for you!"
+            s "Don't say things like that! It's embarassing..."
+
+    """
+    Stella launches herself into my arms, trapping me in a tight embrace.
+
+    I must have really worried her, but judging by the way her usually calm self holds me close, I can tell our bond is even deeper than before.
+    """
+
 label dontDrinkThePotion:
     #start of not drinking the potion
+    $ realitypoints += 1
+    a "I'm not eating or drinking anything Miss-Worst-Cook makes."
+    s "..."
+    "There is an unbearable silence for a few moments. Stella looks at me blankly, as if I have somehow stopped time and frozen her in this moment."
+    "Why did I say that?"
+    "Where did that come from?"
+    a "Stella... I-"
+    "The usual soft whistles of the wind traveling through the trees' branches suddenly turns harsh and loud."
+    "The strange winds create an almost omniscient resonation within the pomegranate trees. Leaves fall down from the treetops and swirl like strange musical notes falling off the staff. The foliage dances a strange waltz mid air."
+    "I look around, unsure of what caused this interruption. Nothing like this ever happens in this peaceful, quiet world that Stella and I live in. It's unnerving, and I feel myself getting cold and clammy."
+    "I turn to Stella, wanting to see her reaction to this strange event... but she just stands there, smiling."
+    "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids when we had a good round of Spell Duals."
+    "Her reaction confuses me, it's as if she's completely unfazed by the sudden change in our environment."
+    "But before I can say anything else, she is already walking away, her wild silver waves bouncing slightly behind her."
+    "The wind has stopped."
+
+    #a "No way! No matter how much I love you, I'm not drinking that..."
+    #a "I don't even know what it's supposed to do."
+    #s "I thought so! You've been a bit of a coward ever since we were kids. Haha"
+    #"Her concerning expression goes away, and she has immediately gone back to teasing me."
+    #a "On second thought, maybe I will take a sip! You'll feel sorry when I become invisible or start to grow extra limbs."
+
+
 
 
 
