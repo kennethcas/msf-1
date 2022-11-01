@@ -299,10 +299,39 @@ label roseGarden:
 
     The silence is bearable. It's a small walk and we reach the garden in no time. I'm just happy to be by her side.
 
-    The sunlight reflects off of the pure-white roses and hits me in the eye.
-
-    
+    The sunlight reflects off of the pure-white roses and hits me in the eye. Without realizing it, a single tear streams down my face.
     """
+    s "What's wrong? Is the state of my garden that bad?" #shes smiling
+    "I wipe away the tear and laugh. The usual Stella is back."
+    a "It's nothing. It's probably just the pollen."
+    s "If you're allergic to the pollen you should just go inside. Don't put yourself in uncomfortable situations for me."
+    menu:
+        #"What should I do?"
+        "Grab the watering can":
+            "I grab the nearby watering can and start watering the rose bushes without missing another beat."
+            a "It's fine, see? I can still work."
+            s "Okay then, as long as you're useful." #smiling
+    "I keep watering the bushes, watching the clear dew form on top of the rose petals. The drops of water catch the light beautifully, absorbing the subtle sunset tones of the sky."
+    "Stella only grows red and white roses, no other flowers, unless she needs something for a specific spell or potion. She likes to keep her garden simple, which I find ironic considering the complexity of her emotions."
+    "While I water the roses, Stella mixes some of her potions in the soil. A while ago she figured out a way to make a potion that replaces fertilizer."
+    "I watch as she takes a loose chunk of her silver hair and swipes it elegantly behind her ear. She looks so natural in a sea of roses, each flower enhancing her natural beauty."
+
+    "The deep floral scent and the classic beauty of the roses combined with incoming sunset make for such a romantic environment."
+    "I think I should take advantage of this kind of opportunity."
+    menu:
+        "I should give her a flower..." 
+        "Pick a white rose for Stella"
+            jump pickWhiteRose
+        "Pick a red rose for Stella"
+            jump pickRedRose
+
+label pickWhiteRose:
+    #picking white rose
+
+label pickRedRose:
+    #picking a red rose for stella
+
+
 
 
 
