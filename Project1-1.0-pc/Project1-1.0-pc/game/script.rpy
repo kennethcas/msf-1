@@ -329,6 +329,7 @@ label pickWhiteRose:
     #picking white rose
     "I carefully cut a beautiful white rose from one of the bushes."
     a "Here."
+    jump event3
 
 label pickRedRose:
     #picking a red rose for stella
@@ -339,6 +340,7 @@ label pickRedRose:
     s "..." #blushing expression ???
     a "What's wrong?"
     "Stella has never rejected me this way before. Even if she doesn't understand the intentions behind my actions."
+    jump event3
 
 
 
@@ -660,7 +662,7 @@ label event2:
         "You notice the sun setting far behind the arch of roses."
         "Stella continues walking forward, a small skip in her step. You both have seen all there is to see at the rose garden, and make your way back to town to rest."
 
-
+label event3:
     # Event 3
     "..."
     "It's dusk, the sun is going down slowly on the horizon."
