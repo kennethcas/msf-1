@@ -327,9 +327,13 @@ label roseGarden:
 
 label pickWhiteRose:
     #picking white rose
+    "I carefully cut a beautiful white rose from one of the bushes."
+    a "Here."
 
 label pickRedRose:
     #picking a red rose for stella
+    "I spend a few moments searching for the perfect rose until I finally pick a red one from the bushes."
+    "Red roses... the classic symbol of love."
 
 
 
