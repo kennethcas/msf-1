@@ -23,12 +23,12 @@ label start:
     My eyes open and I look at a figure sitting on the ledge of the window, 
     sorting through books and pages and little knick-knacks.
     """
-    a "Finally you're awake. I was starting to get worried."
+    s "Finally you're awake. I was starting to get worried."
 
     "So she says, with an all-too-obviously sarcastic grin on her face."
 
-    s "You sound like someone who's still mad about always losing to me in Spell Duel."
-    a """
+    a "You sound like someone who's still mad about always losing to me in Spell Duel."
+    s """
     Spell Dual? That silly childhood game?
 
     Why are you bringing this up all of a sudden. Did that nap mess with your cognitive function?
@@ -341,6 +341,7 @@ label pickRedRose:
     a "What's wrong?"
     "Stella has never rejected me this way before. Even if she doesn't understand the intentions behind my actions."
     jump event3
+    
 
 
 
