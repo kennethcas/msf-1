@@ -188,11 +188,11 @@ label pomegranatePotion:
     The way Stella holds it up makes the potion look beautiful and tempting, fleeting and temporary.
     """
 
-    a "Stella, are you tricking me into drinking a potion that will also bind me to you forever?"
+    a "Are you trying to trick me into drinking a potion that will also bind me to you forever?"
 
     "Stella's previously elated expression dims down just slightly, as if trying to hide something."
     
-    "Her emotions are so hard to understand. We tease each other all the time, so what happened?"
+    "Her emotions are so hard to understand. We tease each other all the time, so what's wrong?"
 
     menu:
         "...":
@@ -311,25 +311,21 @@ label roseGarden:
             "I grab the nearby watering can and start watering the rose bushes without missing another beat."
             a "It's fine, see? I can still work."
             s "Okay then, as long as you're useful." #smiling
-    "I keep watering the bushes, watching the clear dew form on top of the rose petals. The drops of water catch the light beautifully, absorbing the subtle sunset tones of the sky."
-    "Stella only grows red and white roses, no other flowers, unless she needs something for a specific spell or potion. She likes to keep her garden simple, which I find ironic considering the complexity of her emotions."
+    "I keep watering the bushes, watching the clear dew form on top of the rose petals. The drops of water catch the light beautifully, absorbing the subtle tones of the sky."
+    "Stella only grows red and white roses. She doesn't even grow any other flowers unless she needs something for a specific spell or potion. She likes to keep her garden simple, which I find ironic considering the complexity of her emotions."
     "While I water the roses, Stella mixes some of her potions in the soil. A while ago she figured out a way to make a potion that replaces fertilizer."
     "I watch as she takes a loose chunk of her silver hair and swipes it elegantly behind her ear. She looks so natural in a sea of roses, each flower enhancing her natural beauty."
-
     "The deep floral scent and the classic beauty of the roses combined with incoming sunset make for such a romantic environment."
-    "I think I should take advantage of this kind of opportunity."
+    "I'll take advantage of this opportunity."
     menu:
-        "I should give her a flower..." 
-        "Pick a white rose for Stella":
-            jump pickWhiteRose
-        "Pick a red rose for Stella":
-            jump pickRedRose
-
-label pickWhiteRose:
-    #picking white rose
-    "I carefully cut a beautiful white rose from one of the bushes."
-    a "Here."
-    jump event3
+        "Speak to Stella"
+        "'The roses are beautiful'":
+            #aaaaaaaaaaaa
+        "'The sky is lovely'"
+            a "Isn't the sky so lovely?"
+            "Stella looks up from her work and turns her gaze upwards."
+            
+    "I hold the rose and approach Stella, holding it out for her, expecting her to accept my gift the way she has always accepted my gifts."
 
 label pickRedRose:
     #picking a red rose for stella
@@ -339,8 +335,21 @@ label pickRedRose:
     a "This is for you."
     s "..." #blushing expression ???
     a "What's wrong?"
-    "Stella has never rejected me this way before. Even if she doesn't understand the intentions behind my actions."
-    jump event3
+    "She has never rejected me this way before..."
+    s "Ah... to be honest I'm not too fond of red roses recently."
+    a "How come?"
+    s "They're just... so cliche don't you think?"
+    menu:
+        "They're not cliche":
+            a "I don't think they're cliche. They're timeless and romantic."
+            s "Haha, don't talk about romance with me!"
+            s "I prefer the white roses. They're less...concrete."
+#too vibrant, too alive, nake it obvious that she feels like it doesnt fit her
+        "You're right. White roses are better":
+            a "Now that I think about it, you're right! The white ones are even more beautiful."
+            s "Exactly! They're pure and can hold so much meaning beyond just love or romance or passion."
+
+    
     
 
 
