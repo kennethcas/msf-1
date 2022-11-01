@@ -10,6 +10,11 @@ define realitypoints = 0
 label start:
     scene background
     show aurora_test
+    menu:
+        "play the first version of this game":
+            jump start2
+        "play the newest version of this game":
+            "going forward is the new version of the game"
 
     """
     I wake up from that familiar dream, fluttering my eyelashes as the speckles of 
@@ -133,7 +138,96 @@ label pomegranatePotion
     s "I don't know... that's what we're here to find out."
     a "What do you mean you don't know?"
 
-    s "It's a new innovation I wanted to try. Here, I drew some inspiration from an old mythology book."
+    s "It's a new innovation I wanted to try. I drew some inspiration from an old mythology book."
+
+    "Stella was always such a bookworm. She's always reading mythology or poetry of some kind or another. I wonder why she didn't just become a literature professor."
+
+    s """
+    You know that story about the goddess of spring, Persephone, who was kidnapped and taken to Hades' palace in the underworld where they got married.
+
+    Her absence caused a famine and eternal winter in the world above, but she couldn't return because she had consumed a few pomegranate seeds. Once you consume the fruit of the underworld you are trapped there.
+
+    Eventually, Hades agreed to let her revisit her home above once every nine months.
+    """
+
+    a "That... is a really twisted love story."
+
+    s """
+    Exactly! I want to find out more about this dark and powerful fruit.
+    
+    What will happen if I make a potion with pomegranate extract as the main ingredient?
+
+    Aren't you excited to see what will happen if someone drinks that kind of potion?
+    """
+
+    a "Wouldn't that just be a less concentrated pomegranate juice?"
+
+    s """
+    I knew you would say something like that. Sometimes you can be uncharacteristically realistic...
+
+    I dare you to try it!
+    """
+
+    """
+    Stella is clearly ecstatic about her new idea. A mischevious smile overtakes her face.
+
+    She has already grabbed a ripe pomegranate off of one of the many fruit trees surrounding us.
+
+    Without waiting for me to agree she slices the fruit in half and starts squeezing the pomegranate juice into a few elixir bottles that she laid out on the ground.
+    """
+
+    menu:
+        "Are we seriously doing this?":
+            s "Are you backing out?"
+
+    """
+    Once Stella becomes set on something, it's very hard to convince her any other way.
+
+    The extract is mixed with a few other strange ingredients from Stella's bag and the liquid inside the glass bottle turns into a deep crimson color. It glistens in the sunlight like a rare jewel.
+
+    The way Stella holds it up makes the potion look beautiful and tempting, fleeting and temporary.
+    """
+
+    a "Stella, are you tricking me into drinking a potion that will also bind me to you forever?"
+
+    "Stella's previously elated expression dims down just slightly, as if trying to hide something.
+    
+    "Her emotions are so hard to understand. We tease each other all the time, so what happened?"
+
+    menu:
+        "...":
+            "Stella notices your concern and quickly shakes her dimmed expression off of her face. She laughs off the tension."
+
+            s "Haha, of course you shouldn't want to spend eternity with me. Persephone also fell into that fate by accident, what sane person would make that kind of choice?"
+             
+        "What's wrong?":
+            a "What's wrong?"
+            "Stella looks away and pouts."
+            s "Nothing! I guess you wouldn't want to spend eternity with me, and I wouldn't want to do that with you either!"
+        
+    "I look into Stella's eyes, her gaze is deep and confusing. Specks glimmer in her cosmic-latte-colored irises, applying even more complexity."
+
+    "It's like I can see galaxies swirling in her eyes, silver clouds spinning in a vast universe of secrets. Her cheeks are flushed, though hardly noticeable under her dark skin."
+    "Even after all these years, her emotions can be so difficult to understand."
+    "Despite that, I have to do something to show her how I feel."
+
+    menu:
+        "Should I drink Stella's underworld potion?"
+        "Drink the potion":
+            $ fantasypoints += 1
+            jump drinkThePotion
+            
+        "Don't drink the potion":
+            $ realitypoints += 1
+            jump dontDrinkThePotion
+
+label drinkThePotion:
+    #start drinking potion
+label dontDrinkThePotion:
+    #start of not drinking the potion
+
+
+
 
     
 
