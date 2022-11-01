@@ -262,6 +262,7 @@ label drinkThePotion:
 
     I must have really worried her, but judging by the way her usually calm self holds me close, I can tell our bond is even deeper than before.
     """
+    jump roseGarden
 
 label dontDrinkThePotion:
     #start of not drinking the potion
@@ -280,6 +281,7 @@ label dontDrinkThePotion:
     "Her reaction confuses me, it's as if she's completely unfazed by the sudden change in our environment."
     "But before I can say anything else, she is already walking away, her wild silver waves bouncing slightly behind her."
     "The wind has stopped."
+    jump roseGarden
 
     #a "No way! No matter how much I love you, I'm not drinking that..."
     #a "I don't even know what it's supposed to do."
@@ -287,8 +289,20 @@ label dontDrinkThePotion:
     #"Her concerning expression goes away, and she has immediately gone back to teasing me."
     #a "On second thought, maybe I will take a sip! You'll feel sorry when I become invisible or start to grow extra limbs."
 
+label roseGarden:
+    #start of rose garden/ event 2
+    #INCLUDE TRANSITION FROM EVENT 1 TO EVENT 2
+    """
+    We walk back to the cabin toward the rose garden that Stella has grown and tended to for years.
 
+    Neither of us speak of what happened in the forest. She hasn't looked back at me.
 
+    The silence is bearable. It's a small walk and we reach the garden in no time. I'm just happy to be by her side.
+
+    The sunlight reflects off of the pure-white roses and hits me in the eye.
+
+    
+    """
 
 
 
