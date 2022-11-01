@@ -84,7 +84,7 @@ label start:
             s "Haha, alright. Come on then!"
             jump gettingReadyForPotion
 
-label gettingReadyForPotion
+label gettingReadyForPotion:
     "I get up quickly and brush off my dress before rushing to Stella's side by the door." #SHES WEARING A DRESS,, MAKE SURE TO UPDATE
 
     """
@@ -114,7 +114,7 @@ label gettingReadyForPotion
     """
     jump pomegranatePotion
 
-label pomegranatePotion
+label pomegranatePotion:
     """
     We walk on the small dirt path through the woods that surrounds our humble cabin,
     making light conversation and laughing like normal.
@@ -190,7 +190,7 @@ label pomegranatePotion
 
     a "Stella, are you tricking me into drinking a potion that will also bind me to you forever?"
 
-    "Stella's previously elated expression dims down just slightly, as if trying to hide something.
+    "Stella's previously elated expression dims down just slightly, as if trying to hide something."
     
     "Her emotions are so hard to understand. We tease each other all the time, so what happened?"
 
@@ -320,9 +320,9 @@ label roseGarden:
     "I think I should take advantage of this kind of opportunity."
     menu:
         "I should give her a flower..." 
-        "Pick a white rose for Stella"
+        "Pick a white rose for Stella":
             jump pickWhiteRose
-        "Pick a red rose for Stella"
+        "Pick a red rose for Stella":
             jump pickRedRose
 
 label pickWhiteRose:

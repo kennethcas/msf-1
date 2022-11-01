@@ -1,49 +1,577 @@
-Thu Oct 27 09:10:13 2022
-Windows-10-10.0.19041
+Tue Nov  1 08:03:53 2022
+Windows-10-10.0.19044
 Ren'Py 8.0.3.22090809
  
 
-Bootstrap to the start of init.init took 0.06s
+Bootstrap to the start of init.init took 0.07s
 Early init took 0.00s
 Loader init took 0.04s
-Loading error handling took 0.06s
-Loading script took 0.31s
-Loading save slot metadata. took 0.03s
+Loading error handling took 0.20s
+Loading script took 3.56s
+Loading save slot metadata. took 0.23s
 Loading persistent took 0.00s
-Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\sheng\\Downloads\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Set script version to: (8, 0, 3)
-Running init code took 0.08s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Dump and make backups. took 0.05s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.02s
+
+File "game/script.rpy", line 87: expected ':' not found.
+    label gettingReadyForPotion
+                               ^
+
+File "game/script.rpy", line 117: expected ':' not found.
+    label pomegranatePotion
+                           ^
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.51s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.04s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.10s
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.68s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 2060/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 512.78'
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 27.20.100.9415'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 35.85s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.02s
+Loading script took 0.11s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 193: expected statement.
+(Perhaps you left out a " at the end of the first line.)
+    "Stella's previously elated expression dims down just slightly, as if trying to hide something.
+        
+        "Her emotions are so hard to understand. We tease each other all the time, so what happened?"
+                                                 ^
+    
+        menu:
+            "...":
+                "Stella notices your concern and quickly shakes her dimmed expression off of her face. She laughs off the tension."
+    
+                s "Haha, of course you shouldn't want to spend eternity with me. Persephone also fell into that fate by accident, what sane person would make that kind of choice?"
+                 
+            "What's wrong?":
+                a "What's wrong?"
+                "Stella looks away and pouts."
+                s "Nothing! I guess you wouldn't want to spend eternity with me, and I wouldn't want to do that with you either!"
+            
+        "I look into Stella's eyes, her gaze is deep and confusing. Specks glimmer in her cosmic-latte-colored irises, applying even more complexity."
+    
+        "It's like I can see galaxies swirling in her eyes, silver clouds spinning in a vast universe of secrets. Her cheeks are flushed, though hardly noticeable under her dark skin."
+        "Even after all these years, her emotions can be so difficult to understand."
+    
+        menu:
+            "Should I drink Stella's underworld potion?"
+            "Drink the potion":
+                #$ fantasypoints += 1
+                jump drinkThePotion
+                
+            "'Miss-Worst-Cook'":
+                #$ realitypoints += 1
+                jump dontDrinkThePotion
+    
+    label drinkThePotion:
+        #start drinking potion
+        $ fantasypoints += 1
+        """
+
+File "game/script.rpy", line 227: expected statement.
+    Without another second to delay, I snatch up the bottle from her hand and start chugging away.
+                                   ^
+
+File "game/script.rpy", line 229: expected statement.
+    With each gulp the potion becomes harder to swallow, but I am determined to finish every last drop.
+                                                       ^
+
+File "game/script.rpy", line 231: expected statement.
+(Perhaps you left out a ' at the end of the first line.)
+    I pull my lips away from the bottle, a burning sensation in my throat. The aftertaste is even more bitter, something I didn't even think was possible.
+                                       ^
+        """
+        a "*COUGH* *COUGH* *COUGH*"
+        s "Aurora! What's wrong with you! I didn't expect you to actually drink it!"
+    
+        """
+        As I continue with my coughing fit Stella hits me on the back repeatedly with a shy rage, trying to coax out the rest of the liquid trapped in my throat.
+    
+        I finally calm down, wiping away the tears that built up on my eyelashes and clearing my throat.
+    
+        Stella's eyes, worried and attentive, stare into mine. She's holding her breath waiting for what happens next.
+    
+        But apart from the horrible taste in my mouth, I don't feel any different. 
+
+File "game/script.rpy", line 244: end of line expected.
+(Perhaps you left out a " at the end of the first line.)
+    """
+    
+        menu:
+            "That was awful!":
+                ^
+                a "Yuck! That tasted awful..."
+                s "Why did you drink it! Anyone in their right mind wouldn't try something like that!"
+                s "We're lucky it didn't actually do anything... what if you grew a tail or something?"
+                a "Then it would've been worth it to aid you in your experiments."
+                s "Oh, be serious! You're still so childish." #show her smiling
+    
+            "Lie and say it tasted good":
+                a "Yummm... this is definetely one of your better potions."
+                s "Don't lie to me! You almost just choked to death!"
+                a "Hahaha. I would drink it all over again just for you!"
+                s "Don't say things like that! It's embarassing..."
+    
+        """
+
+File "game/script.rpy", line 261: expected statement.
+    Stella launches herself into my arms, trapping me in a tight embrace.
+                                        ^
+
+File "game/script.rpy", line 263: expected statement.
+    I must have really worried her, but judging by the way her usually calm self holds me close, I can tell our bond is even deeper than before.
+                                  ^
+
+File "game/script.rpy", line 264: end of line expected.
+(Perhaps you left out a " at the end of the first line.)
+    """
+        jump roseGarden
+    
+    label dontDrinkThePotion:
+        #start of not drinking the potion
+        $ realitypoints += 1
+        a "I'm not eating or drinking anything Miss-Worst-Cook makes."
+                 ^
+        s "..."
+        "There is an unbearable silence for a few moments. Stella looks at me blankly, as if I have somehow stopped time and frozen her in this moment."
+        "Why did I say that?"
+        "Where did that come from?"
+        a "Stella... I-"
+        "The usual soft whistles of the wind traveling through the trees' branches suddenly turns harsh and loud."
+        "The strange winds create an almost omniscient resonation within the pomegranate trees. Leaves fall down from the treetops and swirl like strange musical notes falling off the staff. The foliage dances a strange waltz mid air."
+        "I look around, unsure of what caused this interruption. Nothing like this ever happens in this peaceful, quiet world that Stella and I live in. It's unnerving, and I feel myself getting cold and clammy."
+        "I turn to Stella, wanting to see her reaction to this strange event... but she just stands there, smiling."
+        "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids when we had a good round of Spell Duals."
+        "Her reaction confuses me, it's as if she's completely unfazed by the sudden change in our environment."
+        "But before I can say anything else, she is already walking away, her wild silver waves bouncing slightly behind her."
+        "The wind has stopped."
+        jump roseGarden
+    
+        #a "No way! No matter how much I love you, I'm not drinking that..."
+        #a "I don't even know what it's supposed to do."
+        #s "I thought so! You've been a bit of a coward ever since we were kids. Haha"
+        #"Her concerning expression goes away, and she has immediately gone back to teasing me."
+        #a "On second thought, maybe I will take a sip! You'll feel sorry when I become invisible or start to grow extra limbs."
+    
+    label roseGarden:
+        #start of rose garden/ event 2
+        #INCLUDE TRANSITION FROM EVENT 1 TO EVENT 2
+        """
+
+File "game/script.rpy", line 296: expected statement.
+    We walk back to the cabin toward the rose garden that Stella has grown and tended to for years.
+                                                                                                  ^
+
+File "game/script.rpy", line 298: expected statement.
+(Perhaps you left out a ' at the end of the first line.)
+    Neither of us speak of what happened in the forest. She hasn't looked back at me.
+                                         ^
+    
+        The silence is bearable. It's a small walk and we reach the garden in no time. I'm just happy to be by her side.
+    
+        The sunlight reflects off of the pure-white roses and hits me in the eye. Without realizing it, a single tear streams down my face.
+        """
+        s "What's wrong? Is the state of my garden that bad?" #shes smiling
+        "I wipe away the tear and laugh. The usual Stella is back."
+        a "It's nothing. It's probably just the pollen."
+        s "If you're allergic to the pollen you should just go inside. Don't put yourself in uncomfortable situations for me."
+        menu:
+            #"What should I do?"
+            "Grab the watering can":
+                "I grab the nearby watering can and start watering the rose bushes without missing another beat."
+                a "It's fine, see? I can still work."
+                s "Okay then, as long as you're useful." #smiling
+        "I keep watering the bushes, watching the clear dew form on top of the rose petals. The drops of water catch the light beautifully, absorbing the subtle sunset tones of the sky."
+        "Stella only grows red and white roses, no other flowers, unless she needs something for a specific spell or potion. She likes to keep her garden simple, which I find ironic considering the complexity of her emotions."
+        "While I water the roses, Stella mixes some of her potions in the soil. A while ago she figured out a way to make a potion that replaces fertilizer."
+        "I watch as she takes a loose chunk of her silver hair and swipes it elegantly behind her ear. She looks so natural in a sea of roses, each flower enhancing her natural beauty."
+    
+        "The deep floral scent and the classic beauty of the roses combined with incoming sunset make for such a romantic environment."
+        "I think I should take advantage of this kind of opportunity."
+        menu:
+            "I should give her a flower..." 
+            "Pick a white rose for Stella"
+                jump pickWhiteRose
+            "Pick a red rose for Stella"
+                jump pickRedRose
+    
+    label pickWhiteRose:
+        #picking white rose
+        "I carefully cut a beautiful white rose from one of the bushes."
+        a "Here."
+    
+    label pickRedRose:
+        #picking a red rose for stella
+        "I spend a few moments searching for the perfect rose until I finally pick a red one from the bushes."
+        "Red roses... the classic symbol of love."
+    
+    
+    
+    
+    
+        
+    
+    ####################################################END OF NEW VERSION
+    ####################################################THE OLD VERSION!!!!
+    label start2:
+    
+        scene background
+    
+        show aurora_test
+    
+        "You wake up in a lush green field, unfamiliar flowers and scents surrounding you. The gentle sunlight, speckled by the trees, dances on your face."
+        "You blink awake, and as you turn your head to the side you spot a girl sitting next to you. She looks uninterested, spacing out, she traces the horizon with her eyes."
+    
+        "She notices your subtle movements and turns to look at you."
+    
+        s "You're awake. You usually sleep for a little longer."
+        "She looks at you blankly as she tucks a strand of her thick hair behind her long pointed ears."
+    
+        menu:
+            "Who are you?":
+                s "Did you forget my name again? (She says with a sympathetic smile)."
+                s "It's Stella."
+                "Before you have time to ask any other questions, Stella gets up, brushing off her legs."
+                s "Come on, it'll get dark soon. You said you would help me gather the ingredients for that potion I wanted to make."
+                menu:
+                    "Right...":
+                        jump goToGrove
+                    "Of course.":
+                        jump goToGrove
+    
+    label goToGrove:
+        "You get up, but before you meet her eyes she turns over her shoulder and starts walking toward the crowd of fruit trees."
+        "She walks proudly and quickly, her hair swinging back and forth, her shoulders rolled back."
+        s "Come on, slowpoke (she says with a teasing grin)"
+        "You jog a few steps to catch up until you are walking with her side by side"
+        menu:
+            #"You try and talk to her some more"
+            "What kind of potion are you going to make?":
+                s "Hmm..... now you care? When I first told you about it you didn't seem that interested."
+                a "Well I want to know now."
+                s "I forgot the name, it's just this thing I wanted to try. It's not like you're doing anything else today, so I made you come along."
+            "Your hair looks nice today":
+                s "Ughhh...(she groans)"
+                s "If you're going to compliment me at least make it better than /that/."
+                menu:
+                    "I'm taking it back then!":
+                        "She lets out a laugh, raising her hand to ever so slightly cover her lips"
+                    "Sorry":
+                        a "I'm sorry, I guess I run out of words when I'm around such a pretty girl."
+                        #show stella blushing
+                        "She nudges you on the arm playfully"
+                s "Stop messing around, we're almost at the orchard."
+    
+    #insert transition to orchard
+    s "Here, take this"
+    "She hands you a redish-orange fruit, then another, and another."
+    a "Do you really need this many?"
+    s "Hey, why did you come along if you're just going to complain?"
+    s "Obviosly I don't need this many for just one potion (she rolls her eyes)"
+    "She sets another fruit on top of your hands"
+    s "Pick one! The best one!"
+    menu:
+        "Which one should Stella use for her potion?"
+        "First fruit":
+            "Stella takes it from your stack and palms the fruit in her hands, looking at it from all sides with the gaze of a connosieur"
+            s "Yup! This is a good one."
+            jump makePotion
+        "Second fruit":
+            "Stella takes it from your stack and palms the fruit in her hands, looking at it from all sides with the gaze of a connosieur"
+            s "Yuck! This one has a weird... gushy spot."
+            s "Pick another one..."
+            menu:
+                "First fruit":
+                    "You hand her the first fruit and she looks at it very carefully."
+                    s "Yup! This is a good one"
+                    jump makePotion
+                "Third fruit":
+                    "She holds the fruit up to her face and sniffs it."
+                    s "Perfect! This is exactly what I needed."
+                    jump makePotion
+                "Fourth fruit":
+                    "She holds the fruit up to her face and sniffs it."
+                    s "Ew! This one's rotten... what is it doing with the rest of these?"
+                    s "Pick a different one."
+                    menu:
+                        "First fruit":
+                            s "Yup! This is a good one."
+                            jump makePotion
+                        "Third fruit":
+                            s "Perfect! This is exactly what I needed."
+                            jump makePotion
+        "Third fruit":
+            "Stella takes it from your stack and palms the fruit in her hands, looking at it from all sides with the gaze of a connosieur"
+            s "Perfect! This is exactly what I needed."
+            jump makePotion
+        "Fourth fruit":
+            "Stella takes it from your stack and palms the fruit in her hands, looking at it from all sides with the gaze of a connosieur"
+            "She holds it up to her face and sniffs it."
+            s "Ew! This one's rotten... what is it doing with the rest of these?"
+            s "Pick a different one."
+            menu:
+                "First fruit":
+                    "You hand her the first fruit and she looks at it very carefully."
+                    s "Yup! This is a good one"
+                    jump makePotion
+                "Second fruit":
+                    s "Yuck! This one has a weird... gushy spot."
+                    s "Pick another one..."
+                    menu:
+                        "First fruit":
+                            s "Yup! This is a good one"
+                            jump makePotion
+                "Third fruit":
+                    s "Perfect! This is exactly what I needed."
+                    jump makePotion  
+    
+    label makePotion:
+        #make potion in here.... onl y happens after first or third fruit is chosen.
+        "Stella crouches on the floor and pulls out an assortment of containers"
+        "She rips open the fruit with her hands, pomegranate seeds pouring out and sprawling all over her lap, a few small drops of red forming on her clothes."
+        "She takes three small pomegranete seeds out of the hundreds and drops them one at a time inside the bottle. With a small pestle from her bag she crushes the seeds into
+
+File "game/script.rpy", line 463: expected statement.
+(Perhaps you left out a " at the end of the first line.)
+    a hard pulp inside the bottle, then takes out a small powder satchet and pours it in as well."
+                                 ^
+        "It turns an ominous, dark-red and murky color, and the sweet smell of the fruit is gone. Then she takes another container and pours its liquid inside the bottle, swirling
+
+File "game/script.rpy", line 465: expected statement.
+(Perhaps you left out a " at the end of the first line.)
+    the mixture around gently."
+                             ^
+        "She smells it and makes a face, but hides her disgust with a mischevious smile."
+        s "Here!"
+        s "Drink it!"
+        a "What? You want me to drink that?"
+        s "Yeah that's what I just said."
+        "She pushes the bottle right in front of your face, her smile bright. You haven't seen her smile like that before. She looks at you with pleading eyes"
+        s "Come on, drink it! Be my test subject."
+        menu:
+            "Will you drink Stella's potion?"
+            "Drink it":
+                jump drinkPotion
+            "Don't drink it":
+                jump dontDrinkPotion
+    
+    label drinkPotion:
+        $ fantasypoints += 1
+        "You take the bottle and bravely chug it as Stella watches with wide eyes."
+        a "*Burp*"
+        s "Hahahaha"
+        "You try and ignore that burning sensation in your throat as Stella laughs, rolling around in the dirt with amusement."
+        "It takes her a while to calm down as you chug water that she conveniently laid out before you drank the potion."
+        s "I can't believe you actually did it! You're crazy."
+        menu:
+            "Crazy for you":
+                #show stella flushed
+                s "Hey! Stop that!"
+                s "You better not expect anything out of complimenting me, you got that?"
+                s "Geez..."
+            "I regret everything":
+                "She continues laughing."
+                s "Aw man, I knew it was gonna be bad, but I didn't know it would be *that* bad!"
+                a "The things I do for you..."
+                "Stella gives you a solemn look and a slight smile."
+            "That tasted awful!":
+                "She continues laughing."
+                s "Aw man, I knew it was gonna be bad, but I didn't know it would be *that* bad!"
+                a "The things I do for you..."
+                "Stella gives you a solemn look and a slight smile."
+        s "Come on!"
+        "She stands up, throwing all her leftover containers halfhazardly back into her bag."
+        s "There's another place I want to check out today before it gets dark!"
+        menu:
+            "What place?":
+                s "The rose garden!"
+        s "You know how much I like roses. I keep walking by this garden on my way back to town, but I never have time to go inside and take a closer look."
+        s "That's why I'm dragging you with me today!"
+        menu:
+            "Stella wants you to go to the rose garden with her"
+            "With pleasure":
+                "She rolls her eyes at you and pulls you up."
+                s "Ok, Cassanova, let me lead the way!"
+            "Fine...":
+                s "It seems like you're getting a little tired of me, but that's fine!"
+                s "It's not like you're my only friend around here anyway."
+        "The two of you gather yourselves and make your way to town to view the rose garden"
+        jump event2
+    
+    label dontDrinkPotion:
+        $ realitypoints += 1
+        a "No way! I'm not drinking that! What is it supposed to do anyway?"
+        s "Tch..."
+        s "Come onnnn you're no fun."
+        menu:
+            "Never in a million years!":
+                s "Tch..."
+            "Don't even think about it":
+                s "Tch..."
+        "Stella scoffs, but doesn't try to convince you any more."
+        s "You never really liked my cooking anyway."
+        a "Is this considered cooking?"
+        "She frowns but only for a second before She takes the potion bottle and throws it a few feet away. You watch the glass shatter and the suspicious-looking
+        liquid seep into the dry dirt."
+        s "Well, I wasn't gonna drink it."
+        "She stands up, throwing all her leftover containers halfhazardly back into her bag."
+        s "There's another place I want to check out today before it gets dark!"
+        menu:
+            "What place?":
+                s "The rose garden!"
+        s "You know how much I like roses. I keep walking by this garden on my way back to town, but I never have time to go inside and take a closer look."
+        s "That's why I'm dragging you with me today!"
+        menu:
+            "Stella wants you to go to the rose garden with her"
+            "With pleasure":
+                "She rolls her eyes at you and pulls you up."
+                s "Ok, Cassanova, let me lead the way!"
+            "Fine...":
+                s "It seems like you're getting a little tired of me, but that's fine!"
+                s "It's not like you're my only friend around here anyway."
+        "The two of you gather yourselves and make your way to town to view the rose garden"
+        jump event2
+    
+    label event2:
+        #scene rose garden
+        "You both walk into the garden, the sweet floral smells almost overwhelming your senses, stinging your eyes."
+        s "Wow! It's so much prettier than I imagined."
+        "You watch by her side as she skips around the enclosed area, walking beneath floral arches and in between small fountains and benches. The entire garden is 
+
+File "game/script.rpy", line 562: expected statement.
+(Perhaps you left out a " at the end of the first line.)
+    made up of only two colors of roses: red and white. "
+                                       ^
+        "She picks a white rose off of one of the bushes, cutting the thick stem with her long, dagger-like nails."
+        
+        "She presses her thumb firmly on one of the rose's thorns, her gaze low and uninterrupted. She looks lost in thought, as if she's forgotten that you are there too."
+        s "I prefer the white ones over the red. I think red roses are too cliche..."
+        "She continues gripping the thorns, twirling the untamed rose in her bare hand."
+        s "These flowers are beautiful."
+        menu:
+            "I think you're more beautiful":
+                #show stella flushed
+                s "How can you say things like that with a straight face?"
+                s "Stop it..."
+                a "It's true."
+                "She glances at you, her grip on the rose weakening."
+                s "Geez... hahah"
+            "Yes they are":
+                s "I'm glad we're agreeing on something!"
+        s "Which ones do you think are better? The red or white roses?"
+        menu:
+            "Which roses do you prefer?"
+            "Red":
+                jump redRoses
+            "White":
+                jump whiteRoses
+            "Pink":
+                jump pinkRoses
+    
+        label redRoses:
+            s "The red ones?" #show stella disgusted
+            s "Ugh, I bet you don't even have a preference, you just want to go against what I say."
+            a "No, I love red roses. They're the classic symbol of romantic love."
+            s "Gross! Don't talk about romance with me!"
+            s "White roses are so much better! They're pure and simple. Plus, they're not purely romantic. They're about remembrance and respect. Something that you should
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 27.20.100.9415'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 82.81s
+Early init took 0.00s
+Loader init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.17s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 323: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Pick a white rose for Stella"
+                                  ^
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 27.20.100.9415'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 109.33s
+Early init took 0.00s
+Loader init took 0.02s
+Loading error handling took 0.02s
+Loading script took 0.23s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+ - Init at renpy/common/00updater.rpy:23 took 0.31335 s.
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\kenas\\Documents\\My Projects\\Renpy Projects\\msf-1\\Project1-1.0-pc\\Project1-1.0-pc\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Set script version to: (8, 0, 3)
+ - Init at game/gui.rpy:11 took 0.25318 s.
+Running init code took 0.59s
+Loading analysis data took 0.05s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Dump and make backups. took 0.00s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.01s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.04s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 27.20.100.9415'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
 Maximum texture size: 4096x4096
