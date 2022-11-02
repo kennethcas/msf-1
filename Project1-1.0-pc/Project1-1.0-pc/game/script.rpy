@@ -452,38 +452,293 @@ label takeRedRose:
     "I go back inside after Stella, deciding to lie down for a while."
     jump event3
 
-    
-
-label pickRedRose:
-    #picking a red rose for stella
-    "I spend a few moments searching for the perfect rose until I finally pick a red one from the bushes."
-    "Red roses... the classic symbol of love."
-    "I hold the rose and approach Stella, holding it out for her, expecting her to accept my gift the way she has always accepted my gifts."
-    a "This is for you."
-    s "..." #blushing expression ???
-    a "What's wrong?"
-    "She has never rejected me this way before..."
-    s "Ah... to be honest I'm not too fond of red roses recently."
-    a "How come?"
-    s "They're just... so cliche don't you think?"
+label event3:
+    "..."
+    "I don't know how long I slept, but the window displays the somber darkness outside. It must've been a considerate amount.
+    "I don't know what it is about today."
+    "It's dusk, the sun is going down slowly on the horizon."
+    a "Oh..."
+    a "Is it already this late...?"
+    "It's a normal day, but it's not normal that I wake up when the sun is already going down."
+    a "Stella"
+    "..."
+    a "Stella?"
+    "......"
+    s "Stella!"
+    "........."
+    "It's so slient. She doesn't seem to be here."
+    "............."
+    "Stella is not home."
+    "Looking aroud, you realize there is a photo of Stella in your pocket."
+    "You took it out and lifted up to your vision."
     menu:
-        "They're not cliche":
-            a "I don't think they're cliche. They're timeless and romantic."
-            s "Haha, don't talk about romance with me!"
-            s "I prefer the white roses. They're less...concrete."
+        "She's beautiful":
+            a "I should head out to look for her. It's getting late."
+        "WHERE IS SHE":
+            a "I should head out to look for her. It's getting late."
+    
+    a "There is just one path stretching out from my home."
+    a "I just need to follow along -- there's no other way Stella could go."
+    "..."
+    "......"
+    "........."
+    "........................"
+    "You have no idea how long it has been."
+    "It's always the same path."
+    "It's leading me to nowhere."
+    a "Why can I still see my house...?"
+    a "Why is still dusk...?"
+    "You sit down paralyzed on the dirt ground."
+    "..."
+    s "Aurora"
+    "!!!"
+    a "Is that you?!"
+    "......"
+    "I turn around, and around, and Stella is just in front of me."
+    s "Hey Aurora."
+    "Her voice sounds unfamiliar."
+    a "What do you mean \"hey\"? Where have you been? It\'s late!"
+    s "I think this should be the end."
+    a "...?"
+    s "Like anything, including life, there's the end of you and me."
+    a "Wait... what on earth are you talking about?"
+    "In a blink of an eye. Stella disappeared."
+    "Her soft voice remained and echoed profoundly."
+    
+    menu:
+        "No. Our story is IMMORTAL.":
+            jump bad
+        "What's this end... Is it really the end?":
+            if fantasypoints >= 2:
+                jump bad
+            else: 
+                jump true
+
+label bad:
+    """
+    .....
+
+    
+
+
+    """
+
+    "......"
+    "Birds are chirping."
+    "It's dawn."
+    "......"
+    a "So... that was a dream."
+    a "What a dream..."
+    "You managed to get up from the soft pillow."
+    "(Szzzzzzzzz~)"
+    "The familiar and appetizing sound of Stella frying eggs comes from the kitchen."
+    "It's just another day."
+    a "And there'll be infinitely many other days just like today."
+    "Stella comes over, taking off the warm-colored apron."
+    s "Breakfast's ready!"
+    a "You looks happier than normal."
+    "And you don't know why -- she also looks sadder than ever before."
+    "Stella makes a puzzled face to your words, and then smiles and moves away, which tells you to hurry up."
+    a "Yeah, I'm not letting her go. NEVER"
+    "......"
+    "Bad Ending: Forever and Ever"
+
+    return
+
+label true:
+    "......"
+
+    a """
+    Where am I?
+
+    My head hurts...
+    """
+
+label find:
+    menu :
+        "There's something over there..."
+        "Garnet earrings":
+            a """
+            A pair of earrings with inlaid garnet stones. The dark red color looks almost black.
+
+            These aren\'t mine...
+
+            These are...
+            """
+            $ x[0] = 1
+
+        "A notebook":
+            a """
+            One of those small hardcover bound notebooks with a ribbon bookmark.
+
+            I open it up to the bookmarked page, revealing a pressed white rose.
+
+            The fragrance of the rose has almost worn off.
+
+            There\'s... someone\'s funeral...
+            """
+            $ x[1] = 1
+            
+        "A poem":
+            a """
+            A poem from an author called Dylan Thomas.
+
+            The title reads... \"Do not go gentle into that good night\".
+
+            She used to love this poem.
+            """
+            $ x[2] = 1
+        
+        "Old Card Deck":
+            a """
+            An old hand-made card deck. The title of the game is written in water-based marker on the back of every card.
+            
+            \"Spell Dual\".
+
+            ...
+
+            \"Spell Dual\"...
+
+            ...
+            """
+            $ x[3] = 1
+        
+    if x[0] == 1 and x[1] == 1 and x[2] == 1 and x[3] == 1:
+        jump found
+    else:
+        jump find
+
+label found:
+    a """
+    I remember now...
+
+    Stella, my one and only friend...
+
+    I didn't... get to tell you...
+
+    I used to play pretend in a treehouse with Stella.
+
+    We would dress up as little witches, and play that card game together...
+
+    In retrospect, my love started to grow away back then...
+
+    Then, that night, the prom...
+
+    The funeral...
+
+    The day I had to sort out her things...
+    """
+
+    "Stella shows up in her prom dress."
+
+    s """
+    It has been too long since then, Aurora...
+
+    You know our fantasy world is not real.
+
+    You know you are no longer 17.
+
+    You can't live like this anymore.
+
+    Daydreaming is fun when we were together. But you should not throw away your life like this.
+    """
+
+    menu:
+        "I didn't get to tell you how I feel about you.":
+            s """
+            I know. I always know.
+
+            That is why it hurts so much for me to see you like this.
+
+            Go back to school.
+
+            Find a job...
+
+            For me, please?
+
+            I am your memory.
+
+            Stella would have wanted you to move on.
+
+            And deep down in your heart, you know that.
+
+            She wouldn't want you to escape from reality. She doesn't wnat you to escape from anything!
+
+            I am distant because you knew deep down that she would want this for you.
+            """
+        
+        
+        "Is that why you were so distant to me?":
+            s """
+            I am your memory.
+
+            Stella would have wanted you to move on.
+
+            And deep down in your heart, you know that.
+
+            She wouldn't want you to escape from reality. She doesn't wnat you to escape from anything!
+
+            I am distant because you knew deep down that she would want this for you.
+            
+            I know. I always know.
+
+            That is why it hurts so much for me to see you like this.
+
+            Go back to school.
+
+            Find a job...
+
+            For me, please?
+            """
+    
+    a """
+    It's scary to live in a reality without you.
+
+    I don't want to leave you...
+    """
+
+    s """
+    You have to venture on.
+
+    Without me.
+
+    Be brave, Aurora!
+
+    I'm always with you.
+
+    In the fantasy we made together, in the worlds we built together.
+
+    In those silly witch stories we wrote together
+    """
+
+    a "I love you."
+    s "I love you too."
+
+    "True Ending: Venture On"
+
+    return
+    
+##UNUSED EVENT.. i just didnt want to erase it lol
+#label pickRedRose:
+    #picking a red rose for stella
+ ##  "Red roses... the classic symbol of love."
+   # "I hold the rose and approach Stella, holding it out for her, expecting her to accept my gift the way she has always accepted my gifts."
+    #a "This is for you."
+    #s "..." #blushing expression ???
+    #a "What's wrong?"
+    #"She has never rejected me this way before..."
+    #s "Ah... to be honest I'm not too fond of red roses recently."
+    #a "How come?"
+    #s "They're just... so cliche don't you think?"
+    #menu:
+     #   "They're not cliche":
+      #      a "I don't think they're cliche. They're timeless and romantic."
+       #     s "Haha, don't talk about romance with me!"
+        #    s "I prefer the white roses. They're less...concrete."
 #too vibrant, too alive, nake it obvious that she feels like it doesnt fit her
-        "You're right. White roses are better":
-            a "Now that I think about it, you're right! The white ones are even more beautiful."
-            s "Exactly! They're pure and can hold so much meaning beyond just love or romance or passion."
-
-    
-    
-
-
-
-
-
-    
+        #"You're right. White roses are better":
+         #   a "Now that I think about it, you're right! The white ones are even more beautiful."
+          #  s "Exactly! They're pure and can hold so much meaning beyond just love or romance or passion."
 
 ####################################################END OF NEW VERSION
 ####################################################THE OLD VERSION!!!!
@@ -794,267 +1049,3 @@ label event2:
         s "Nope... Everything must go back to where it came from , right?"
         "You notice the sun setting far behind the arch of roses."
         "Stella continues walking forward, a small skip in her step. You both have seen all there is to see at the rose garden, and make your way back to town to rest."
-
-label event3:
-    "..."
-    "It's dusk, the sun is going down slowly on the horizon."
-    a "Oh..."
-    a "Is it already this late...?"
-    "It's a normal day, but it's not normal that I wake up when the sun is already going down."
-    a "Stella"
-    "..."
-    a "Stella?"
-    "......"
-    s "Stella!"
-    "........."
-    "It's so slient. She doesn't seem to be here."
-    "............."
-    "Stella is not home."
-    "Looking aroud, you realize there is a photo of Stella in your pocket."
-    "You took it out and lifted up to your vision."
-    menu:
-        "She's beautiful":
-            a "I should head out to look for her. It's getting late."
-        "WHERE IS SHE":
-            a "I should head out to look for her. It's getting late."
-    
-    a "There is just one path stretching out from my home."
-    a "I just need to follow along -- there's no other way Stella could go."
-    "..."
-    "......"
-    "........."
-    "........................"
-    "You have no idea how long it has been."
-    "It's always the same path."
-    "It's leading me to nowhere."
-    a "Why can I still see my house...?"
-    a "Why is still dusk...?"
-    "You sit down paralyzed on the dirt ground."
-    "..."
-    s "Aurora"
-    "!!!"
-    a "Is that you?!"
-    "......"
-    "I turn around, and around, and Stella is just in front of me."
-    s "Hey Aurora."
-    "Her voice sounds unfamiliar."
-    a "What do you mean \"hey\"? Where have you been? It\'s late!"
-    s "I think this should be the end."
-    a "...?"
-    s "Like anything, including life, there's the end of you and me."
-    a "Wait... what on earth are you talking about?"
-    "In a blink of an eye. Stella disappeared."
-    "Her soft voice remained and echoed profoundly."
-    
-    menu:
-        "No. Our story is IMMORTAL.":
-            jump bad
-        "What's this end... Is it really the end?":
-            if fantasypoints >= 2:
-                jump bad
-            else: 
-                jump true
-
-label bad:
-    """
-    .....
-
-    I wake up once more to the sound of singing birds.
-
-
-    """
-
-    "......"
-    "Birds are chirping."
-    "It's dawn."
-    "......"
-    a "So... that was a dream."
-    a "What a dream..."
-    "You managed to get up from the soft pillow."
-    "(Szzzzzzzzz~)"
-    "The familiar and appetizing sound of Stella frying eggs comes from the kitchen."
-    "It's just another day."
-    a "And there'll be infinitely many other days just like today."
-    "Stella comes over, taking off the warm-colored apron."
-    s "Breakfast's ready!"
-    a "You looks happier than normal."
-    "And you don't know why -- she also looks sadder than ever before."
-    "Stella makes a puzzled face to your words, and then smiles and moves away, which tells you to hurry up."
-    a "Yeah, I'm not letting her go. NEVER"
-    "......"
-    "Bad Ending: Forever and Ever"
-
-    return
-
-label true:
-    "......"
-
-    a """
-    Where am I?
-
-    My head hurts...
-    """
-
-label find:
-    menu :
-        "There's something over there..."
-        "Garnet earrings":
-            a """
-            A pair of earrings with inlaid garnet stones. The dark red color looks almost black.
-
-            These aren\'t mine...
-
-            These are...
-            """
-            $ x[0] = 1
-
-        "A notebook":
-            a """
-            One of those small hardcover bound notebooks with a ribbon bookmark.
-
-            I open it up to the bookmarked page, revealing a pressed white rose.
-
-            The fragrance of the rose has almost worn off.
-
-            There\'s... someone\'s funeral...
-            """
-            $ x[1] = 1
-            
-        "A poem":
-            a """
-            A poem from an author called Dylan Thomas.
-
-            The title reads... \"Do not go gentle into that good night\".
-
-            She used to love this poem.
-            """
-            $ x[2] = 1
-        
-        "Old Card Deck":
-            a """
-            An old hand-made card deck. The title of the game is written in water-based marker on the back of every card.
-            
-            \"Spell Dual\".
-
-            ...
-
-            \"Spell Dual\"...
-
-            ...
-            """
-            $ x[3] = 1
-        
-    if x[0] == 1 and x[1] == 1 and x[2] == 1 and x[3] == 1:
-        jump found
-    else:
-        jump find
-
-label found:
-    a """
-    I remember now...
-
-    Stella, my one and only friend...
-
-    I didn't... get to tell you...
-
-    I used to play pretend in a treehouse with Stella.
-
-    We would dress up as little witches, and play that card game together...
-
-    In retrospect, my love started to grow away back then...
-
-    Then, that night, the prom...
-
-    The funeral...
-
-    The day I had to sort out her things...
-    """
-
-    "Stella shows up in her prom dress."
-
-    s """
-    It has been too long since then, Aurora...
-
-    You know our fantasy world is not real.
-
-    You know you are no longer 17.
-
-    You can't live like this anymore.
-
-    Daydreaming is fun when we were together. But you should not throw away your life like this.
-    """
-
-    menu:
-        "I didn't get to tell you how I feel about you.":
-            s """
-            I know. I always know.
-
-            That is why it hurts so much for me to see you like this.
-
-            Go back to school.
-
-            Find a job...
-
-            For me, please?
-
-            I am your memory.
-
-            Stella would have wanted you to move on.
-
-            And deep down in your heart, you know that.
-
-            She wouldn't want you to escape from reality. She doesn't wnat you to escape from anything!
-
-            I am distant because you knew deep down that she would want this for you.
-            """
-        
-        
-        "Is that why you were so distant to me?":
-            s """
-            I am your memory.
-
-            Stella would have wanted you to move on.
-
-            And deep down in your heart, you know that.
-
-            She wouldn't want you to escape from reality. She doesn't wnat you to escape from anything!
-
-            I am distant because you knew deep down that she would want this for you.
-            
-            I know. I always know.
-
-            That is why it hurts so much for me to see you like this.
-
-            Go back to school.
-
-            Find a job...
-
-            For me, please?
-            """
-    
-    a """
-    It's scary to live in a reality without you.
-
-    I don't want to leave you...
-    """
-
-    s """
-    You have to venture on.
-
-    Without me.
-
-    Be brave, Aurora!
-
-    I'm always with you.
-
-    In the fantasy we made together, in the worlds we built together.
-
-    In those silly witch stories we wrote together
-    """
-
-    a "I love you."
-    s "I love you too."
-
-    "True Ending: Venture On"
-
-    return
