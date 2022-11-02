@@ -12,11 +12,11 @@ define realitypoints = 0
 label start:
     scene background
     show aurora_test
-    menu:
-        "play the first version of this game":
-            jump start2
-        "play the newest version of this game":
-            "going forward is the new version of the game"
+    #menu:
+        #"play the first version of this game":
+       #     jump start2
+      #  "play the newest version of this game":
+     #       "going forward is the new version of the game"
 
     """
     I wake up from that familiar dream, fluttering my eyelashes as the speckles of 
@@ -324,10 +324,86 @@ label roseGarden:
     "I'll take advantage of this opportunity."
     menu: #COME BACK TO THIS AND FIX IT
         "You look beautiful":
-            "dbtutbubtbutubt"
+            a "Even among this sea of roses you manage to be the most beautiful."
+    "I pluck a rose from its bush and hold it out toward Stella, motioning her to accept it."
+    s "Why are you saying things like this all of a sudden..."
+    a "Sorry, but it's true. I can't help myself."
+    "She looks away shyly, embarassed by my boldness."
+    s "No... it's not true. I don't fit in with these roses."
+    a "How come? I think you match their beauty perfectly."
+    "She looks down at the rose in my fingers: A vibrant red rose in full bloom."
+    s "Haha, the red roses are so bright and full of life. They're bold and their meaning is never questioned."
+    s "Meanwhile I'm dull and insecure. And I have a hard time dealing with the kind of passion a red rose brings."
+    menu:
+        "I like you the way you are.":
+            a "I like you exactly the way you are. You don't need to change anything."
+        "Good thing I prefer white roses.":
+            a "It's a good thing I prefer white roses to red ones, then."
+            #stella blushing
+    s "Stop that...you're just trying to make me feel better."
+    a "Either way, as long as it's working."
+    "I watch her as she presses the backs of her hands to her face, trying to cool down her flushed cheeks."
+    a """
+    Each rose has it's own charm.
+
+    Actually, I remember since we were younger you've always preferred white roses.
+
+    Remember that time we had a fight over which color rose was prettier? Hahah, things used to be so much simpler.
+    """
+    "Stella brings her face away from her hands and chuckles fondly at the memory."
+    s "Yup, you really wanted to be right back then."
+    a "I take back what I said back then, white roses are definetely prettier. They look better on you."
+    s "Stoppp all you do is tease me. It's like you enjoy seeing me embarassed."
+    "Her smile is much brighter than it was just a few moments before as she pushes me on the shoulder gently."
+    a """
+    Not only that, but white roses are more elegant, more delicate, harder to care for.
+    
+    You have to be more careful with them, because the smallest actions can blemish their petals.
+    """
+    s "Alright, alright, I get it. You can stop teasing me now."
+    a """
+    Plus, their color reminds me of you.
+    
+    When I look at a white rose I can only see you, your hair, and your eyes. It makes me smile.
+    """
+    s "Stop it already!"
+    "She finally takes the red rose from my hand and glances away quickly as if trying to shake the blush away from her cheeks."
+    "She bends down briefly and plucks a white rose, holding both of our cut flowers in her hand."
+
+    s "Tell me... If you were to pick just one of these flowers, which one would you choose?"
+    """
+    Intrigued by her question, I take another look at the flowers held within her palms.
+
+    The red rose is being held in her left. It looks fresh, vibrant, lively, and ... oddly familiar despite it being one of hundreds.
+
+    The white rose is being held in her right palm. As my eyes come across it that blinding light stings me once more. It's the same 
+    glare that caused me to shed a tear as Stella and I arrived at the garden earlier.
+
+    It's strange. By now the sun's light, which would have been reflected, has dimmed.
+
+    Involuntarily my breathing speeds up, my heart trembling within my chest. My thoughts are suddenly cloudy. My head is spinning.
+
+    Was that blinding light earlier just a coincidence? Either way, something about this white rose unnerves me deeply, although I can't even begin to understand why.
+
+    But there's no time to worry about myself and my racing thoughts, right now all that matters is Stella.
+    """
+
+    menu:
+        "Which of the roses should I take from Stella's hands?"
+        "Take the white rose":
+            jump takeWhiteRose
+        "I want to- put this ... red rose here":
+            jump takeRedRose
+
+label takeWhiteRose:
+    #Eshe teaks the white rsoe
+
+label takeRedRose:
+    #JKLFDLJDSF
 
 
-    "I hold the rose and approach Stella, holding it out for her, expecting her to accept my gift the way she has always accepted my gifts."
+
+    #"I hold the rose and approach Stella, holding it out for her, expecting her to accept my gift the way she has always accepted my gifts."
 
 label pickRedRose:
     #picking a red rose for stella
@@ -478,10 +554,8 @@ label makePotion:
     #make potion in here.... onl y happens after first or third fruit is chosen.
     "Stella crouches on the floor and pulls out an assortment of containers"
     "She rips open the fruit with her hands, pomegranate seeds pouring out and sprawling all over her lap, a few small drops of red forming on her clothes."
-    "She takes three small pomegranete seeds out of the hundreds and drops them one at a time inside the bottle. With a small pestle from her bag she crushes the seeds into
-    a hard pulp inside the bottle, then takes out a small powder satchet and pours it in as well."
-    "It turns an ominous, dark-red and murky color, and the sweet smell of the fruit is gone. Then she takes another container and pours its liquid inside the bottle, swirling
-    the mixture around gently."
+    "She takes three small pomegranete seeds out of the hundreds and drops them one at a time inside the bottle. With a small pestle from her bag she crushes the seeds into a hard pulp inside the bottle, then takes out a small powder satchet and pours it in as well."
+    "It turns an ominous, dark-red and murky color, and the sweet smell of the fruit is gone. Then she takes another container and pours its liquid inside the bottle, swirling the mixture around gently."
     "She smells it and makes a face, but hides her disgust with a mischevious smile."
     s "Here!"
     s "Drink it!"
@@ -552,8 +626,7 @@ label dontDrinkPotion:
     "Stella scoffs, but doesn't try to convince you any more."
     s "You never really liked my cooking anyway."
     a "Is this considered cooking?"
-    "She frowns but only for a second before She takes the potion bottle and throws it a few feet away. You watch the glass shatter and the suspicious-looking
-    liquid seep into the dry dirt."
+    "She frowns but only for a second before She takes the potion bottle and throws it a few feet away. You watch the glass shatter and the suspicious-looking liquid seep into the dry dirt."
     s "Well, I wasn't gonna drink it."
     "She stands up, throwing all her leftover containers halfhazardly back into her bag."
     s "There's another place I want to check out today before it gets dark!"
@@ -577,8 +650,7 @@ label event2:
     #scene rose garden
     "You both walk into the garden, the sweet floral smells almost overwhelming your senses, stinging your eyes."
     s "Wow! It's so much prettier than I imagined."
-    "You watch by her side as she skips around the enclosed area, walking beneath floral arches and in between small fountains and benches. The entire garden is 
-    made up of only two colors of roses: red and white. "
+    "You watch by her side as she skips around the enclosed area, walking beneath floral arches and in between small fountains and benches. The entire garden is made up of only two colors of roses: red and white. "
     "She picks a white rose off of one of the bushes, cutting the thick stem with her long, dagger-like nails."
     
     "She presses her thumb firmly on one of the rose's thorns, her gaze low and uninterrupted. She looks lost in thought, as if she's forgotten that you are there too."
@@ -691,7 +763,6 @@ label event3:
     "Stella is not home."
     "Looking aroud, you realize there is a photo of Stella in your pocket."
     "You took it out and lifted up to your vision."
-
     menu:
         "She's beautiful":
             a "I should head out to look for her. It's getting late."
@@ -741,7 +812,7 @@ label bad:
 
     I wake up once more to the sound of singing birds.
 
-    
+
     """
 
     "......"
