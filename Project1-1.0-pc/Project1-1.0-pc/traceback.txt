@@ -1,0 +1,43 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While processing the color property of style say_label:
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language)
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+Exception: Color string '#2596be' must be 3, 4, 6, or 8 hex digits long.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/bootstrap.py", line 277, in bootstrap
+    renpy.main.main()
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/main.py", line 660, in main
+    run(restart)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/main.py", line 76, in run
+    renpy.translation.init_translation()
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/translation/__init__.py", line 583, in init_translation
+    renpy.store._init_language() # type: ignore
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/translation/__init__.py", line 672, in change_language
+    i()
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+  File "style.pyx", line 796, in renpy.style.rebuild
+  File "style.pyx", line 789, in renpy.style.build_styles
+  File "style.pyx", line 710, in renpy.style.build_style
+  File "style.pyx", line 707, in renpy.style.build_style
+  File "gen3-static/style_functions.pyx", line 323, in style_functions.color_property
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/color.py", line 167, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string '#2596be' must be 3, 4, 6, or 8 hex digits long.
+
+macOS-10.16-x86_64-i386-64bit x86_64
+Ren'Py 8.0.3.22090809
+Project 1 1.0
+Tue Nov  1 20:50:20 2022

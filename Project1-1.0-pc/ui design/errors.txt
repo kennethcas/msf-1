@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 50: vbox expects a non-empty block.
-    vbox:
-         ^
+File "game/script.rpy", line 62: 'elif' is not a keyword argument or valid child for the button statement.
+    elif i == 1:
+        ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Nov  1 01:42:53 2022
+Tue Nov  1 15:20:27 2022

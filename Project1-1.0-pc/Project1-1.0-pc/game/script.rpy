@@ -7,6 +7,8 @@ define x = [0, 0, 0, 0]
 define fantasypoints = 0
 define realitypoints = 0
 
+
+
 label start:
     scene background
     show aurora_test
@@ -115,6 +117,7 @@ label gettingReadyForPotion:
     jump pomegranatePotion
 
 label pomegranatePotion:
+    scene bcEvent1
     """
     We walk on the small dirt path through the woods that surrounds our humble cabin,
     making light conversation and laughing like normal.
@@ -221,6 +224,7 @@ label pomegranatePotion:
             jump dontDrinkThePotion
 
 label drinkThePotion:
+    
     #start drinking potion
     $ fantasypoints += 1
     """
@@ -290,6 +294,7 @@ label dontDrinkThePotion:
     #a "On second thought, maybe I will take a sip! You'll feel sorry when I become invisible or start to grow extra limbs."
 
 label roseGarden:
+    scene bcEvent2
     #start of rose garden/ event 2
     #INCLUDE TRANSITION FROM EVENT 1 TO EVENT 2
     """

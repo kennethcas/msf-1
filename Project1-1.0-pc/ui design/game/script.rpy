@@ -25,9 +25,7 @@ label start:
 
     e "当您完善了故事、图片和音乐之后，您就可以向全世界发布了！"
 
-    # 此处为游戏结尾。
-
-    menu:
+    menu ("", screen = "option"):
         "Should I drink Stella's underworld potion?"
         "Drink the potion":
             
@@ -45,12 +43,29 @@ label dontDrinkThePotion:
     "didnt drink potion"
     return
 
-screen choice(text, image):
+screen option(ch, items):
+        text _(ch):
+            size 80
+            color "#000"
 
         vbox:
             align (0.5,0.5)
             spacing 30
-            button:
-                xysize(1920,150)
-                background Frame("gui/button/choice1_idle_background.png")
-                hover_background("gui/button/choice1_hover_background.png")
+            for i in range(0, 2):
+                button:
+                    if i == 0:
+                        background Frame("gui/button/choice1_idle_background.png")
+                        hover_background Frame("gui/button/choice1_hover_background.png")
+                        xysize(1920,150)
+                        action items[i].action
+
+                    elif i == 1:
+                        background Frame("gui/button/choice2_idle_background.png")
+                        hover_background Frame("gui/button/choice2_hover_background.png")
+                        xysize(1920,150)
+                        action items[i].action
+
+                    hbox:
+                        spacing 20
+                        align (0.5, 0.5)
+                        text items[i].caption

@@ -23,7 +23,7 @@ init python:
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#660066'
+define gui.accent_color = '#191f5b'
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = '#aaaaaa'
@@ -33,7 +33,7 @@ define gui.idle_color = '#aaaaaa'
 define gui.idle_small_color = '#888888'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = '#660066'
+define gui.hover_color = '#191f5b'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
@@ -246,7 +246,7 @@ define gui.file_slot_rows = 2
 
 ## The position of the left side of the navigation buttons, relative to the left
 ## side of the screen.
-define gui.navigation_xpos = 60
+define gui.navigation_xpos = 200
 
 ## The vertical position of the skip indicator.
 define gui.skip_ypos = 15
@@ -258,7 +258,7 @@ define gui.notify_ypos = 68
 define gui.choice_spacing = 33
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = 6
+define gui.navigation_spacing = 30
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = 15
