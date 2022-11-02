@@ -396,14 +396,44 @@ label roseGarden:
             jump takeRedRose
 
 label takeWhiteRose:
-    #Eshe teaks the white rsoe
+    "I wrap my fingers around hers, taking the white rose in my hand."
+    a "What kind of question is that? Of course I'd pick the white rose. The one that reminds me the most of you."
+    "The flush in Stella's cheeks comes back in a sharp wave. Her affectionate eyes soften, yet there is a sense of subtle complicated emotions behind her silver irises that I can't quite read."
+    "We stand in silence for only a few moments, my hands still wrapped around hers, until she drops her head on my shoulder and whispers."
+    s "I'm happy... that you're choosing me like this. But..."
+    "But?"
+    s "But you shouldn't act like this anymore. When will you understand..."
+    "Her soft voice trails off in defeat. I can barely make out what she says."
+    "Her strange habit of suddenly speaking in riddles always comes at the worst time. How am I supposed to decipher what she means? How am I supposed to decipher her heart?"
+    menu:
+        "I choose you.":
+            a "I chose the white rose, and I chose you."
+    "Her head is still hanging on my shoulder. Her hands are uncharacteristically cold."
+    s "Stop talking. You really haven't changed a bit since then..."
+    "Among the rose-filled pasture, she is still the only thing I can see."
 
 label takeRedRose:
     #JKLFDLJDSF
+    "My vision blurs, a throbbing headache appears. I can't think."
+    a "I know it's not appropriate... but I want to- this red rose here."
+    "I don't feel my mouth move, but words come out. With my fists I attempt to rub out whatever has overtaken my vision."
+    "When I open my eyes I see Stella staring back at me, a dumbfounded expression on her delicate face."
+    s "What did you just say?"
+    "Wait... was that voice me? Did I say that? I don't know what came over me, or why my head still throbs."
+    "Stella's expression softens. She gives me an understanding smile."
+    if realitypoints >= 1
+        #CHOSE REALITY OPTION BEFORE
+        "She is smiling warmly again. That familiar, comforting smile."
+        "Neither of us say anything more."
+        "That same tune that appeared in the forest appears again, the strange wind moving away the clouds from the sky."
+        "The harsh light from the sky reflects off of the white roses, blinding me again."
+        "The light gets brighter and brighter. I instinctively cover my eyes with my hand. I tear up again, the headache worsening, throbbing even worse than before."
+        "The landscape around us seems to distort."
+    else if realitypoints = 0
+        #FIRST TIME CHOOSING REALITY OPTION
+        "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids after a good round of Spell Dual."
 
-
-
-    #"I hold the rose and approach Stella, holding it out for her, expecting her to accept my gift the way she has always accepted my gifts."
+    
 
 label pickRedRose:
     #picking a red rose for stella
