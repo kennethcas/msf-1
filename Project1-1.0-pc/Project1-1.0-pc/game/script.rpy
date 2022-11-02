@@ -428,10 +428,29 @@ label takeRedRose:
         "That same tune that appeared in the forest appears again, the strange wind moving away the clouds from the sky."
         "The harsh light from the sky reflects off of the white roses, blinding me again."
         "The light gets brighter and brighter. I instinctively cover my eyes with my hand. I tear up again, the headache worsening, throbbing even worse than before."
-        "The landscape around us seems to distort."
+        "The landscape around us seems to distort. The strange song emerges from the previously meek wind as it pushes the clouds away, casting a bright light onto the white rose petals."
+        "The harsh light blinds me again and I instincively bring up my hands to shield my eyes. I tear up again. The headache worsens."
+        "The landscape around me seems to distort: rose stems growing and thinning, curling around each other, cutting each other with their thorns."
+        "I'm overwhelmed, afraid. Was this all triggered by a single red rose? What does this have to do with the previous event in the forest?"
+        "Through blurry and wavering eyes I look at Stella, who has already turned and started walking toward the cabin."
+        "She turns her head over her shoulder, silver hair swaying gently, and smiles at me."
     else if realitypoints = 0
         #FIRST TIME CHOOSING REALITY OPTION
         "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids after a good round of Spell Dual."
+        "The harsh light from the sky reflects off of the white roses, blinding me again."
+        "The light gets brighter and brighter. I instinctively cover my eyes with my hand. I tear up again, the headache worsening, throbbing even worse than before."
+        "A strange song emerges from the previously meek wind as it pushes the clouds away, casting a bright light onto the white rose petals."
+        "The harsh light blinds me again and I instincively bring up my hands to shield my eyes. I tear up again. The headache worsens."
+        "The landscape around me seems to distort: rose stems growing and thinning, curling around each other, cutting each other with their thorns."
+        "I hear sounds and see things I've never experienced before in Stella and I's quiet world."
+        "I'm overwhelmed, afraid. Was this all triggered by a single red rose?"
+        "Through blurry and wavering eyes I look at Stella, who has already turned and started walking toward the cabin."
+        "She turns her head over her shoulder, silver hair swaying gently, and smiles at me."
+
+    "Did I make her upset? Should I have chosen the white rose instead? What triggers her strange behavior?"
+    "There are too many feelings... too many questions. The wind has gone and the distortion has ceased: reverting back to the world I'm used to"
+    "I go back inside after Stella, deciding to lie down for a while."
+    jump event3
 
     
 
