@@ -421,7 +421,7 @@ label takeRedRose:
     s "What did you just say?"
     "Wait... was that voice me? Did I say that? I don't know what came over me, or why my head still throbs."
     "Stella's expression softens. She gives me an understanding smile."
-    if realitypoints >= 1
+    if realitypoints >= 1:
         #CHOSE REALITY OPTION BEFORE
         "She is smiling warmly again. That familiar, comforting smile."
         "Neither of us say anything more."
@@ -434,7 +434,7 @@ label takeRedRose:
         "I'm overwhelmed, afraid. Was this all triggered by a single red rose? What does this have to do with the previous event in the forest?"
         "Through blurry and wavering eyes I look at Stella, who has already turned and started walking toward the cabin."
         "She turns her head over her shoulder, silver hair swaying gently, and smiles at me."
-    else if realitypoints = 0
+    elif realitypoints= 0:
         #FIRST TIME CHOOSING REALITY OPTION
         "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids after a good round of Spell Dual."
         "The harsh light from the sky reflects off of the white roses, blinding me again."
