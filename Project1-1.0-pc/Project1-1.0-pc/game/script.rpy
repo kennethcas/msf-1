@@ -10,7 +10,7 @@ define realitypoints = 0
 
 
 label start:
-    scene background
+    scene bcstart
     show aurora_test
     #menu:
         #"play the first version of this game":
@@ -68,7 +68,7 @@ label start:
 
     "This means Stella's going to be out all day, and I won't be able to spend as much time with her"
 
-    menu:
+    menu ("", screen = "option"):
         "Let me come with you!":
             a "I want to go with you!"
             s "Are you sure?" #SHOW HER SMIRKING
@@ -117,7 +117,7 @@ label gettingReadyForPotion:
     jump pomegranatePotion
 
 label pomegranatePotion:
-    scene bcEvent1
+    scene bcevent1
     """
     We walk on the small dirt path through the woods that surrounds our humble cabin,
     making light conversation and laughing like normal.
@@ -179,7 +179,7 @@ label pomegranatePotion:
     Without waiting for me to agree she slices the fruit in half and starts squeezing the pomegranate juice into an exilir bottle that she had brought from the cabin.
     """
 
-    menu:
+    menu ("", screen = "option"):
         "Are we seriously doing this?":
             s "Are you backing out?"
 
@@ -197,7 +197,7 @@ label pomegranatePotion:
     
     "Her emotions are so hard to understand. We tease each other all the time, so what's wrong?"
 
-    menu:
+    menu ("", screen = "option"):
         "...":
             "Stella notices your concern and quickly shakes her dimmed expression off of her face. She laughs off the tension."
 
@@ -247,7 +247,7 @@ label drinkThePotion:
     But apart from the horrible taste in my mouth, I don't feel any different. 
     """
 
-    menu:
+    menu ("", screen = "option"):
         "That was awful!":
             a "Yuck! That tasted awful..."
             s "Why did you drink it! Anyone in their right mind wouldn't try something like that!"
@@ -294,7 +294,7 @@ label dontDrinkThePotion:
     #a "On second thought, maybe I will take a sip! You'll feel sorry when I become invisible or start to grow extra limbs."
 
 label roseGarden:
-    scene bcEvent2
+    scene bcevent2
     #start of rose garden/ event 2
     #INCLUDE TRANSITION FROM EVENT 1 TO EVENT 2
     """
@@ -310,7 +310,7 @@ label roseGarden:
     "I wipe away the tear and laugh. The usual Stella is back."
     a "It's nothing. It's probably just the pollen."
     s "If you're allergic to the pollen you should just go inside. Don't put yourself in uncomfortable situations for me."
-    menu:
+    menu ("", screen = "option"):
         #"What should I do?"
         "Grab the watering can":
             "I grab the nearby watering can and start watering the rose bushes without missing another beat."
@@ -322,7 +322,7 @@ label roseGarden:
     "I watch as she takes a loose chunk of her silver hair and swipes it elegantly behind her ear. She looks so natural in a sea of roses, each flower enhancing her natural beauty."
     "The deep floral scent and the classic beauty of the roses combined with incoming sunset make for such a romantic environment."
     "I'll take advantage of this opportunity."
-    menu: #COME BACK TO THIS AND FIX IT
+    menu ("", screen = "option"): #COME BACK TO THIS AND FIX IT
         "You look beautiful":
             a "Even among this sea of roses you manage to be the most beautiful."
     "I pluck a rose from its bush and hold it out toward Stella, motioning her to accept it."
@@ -334,7 +334,7 @@ label roseGarden:
     "She looks down at the rose in my fingers: A vibrant red rose in full bloom."
     s "Haha, the red roses are so bright and full of life. They're bold and their meaning is never questioned."
     s "Meanwhile I'm dull and insecure. And I have a hard time dealing with the kind of passion a red rose brings."
-    menu:
+    menu ("", screen = "option"):
         "I like you the way you are.":
             a "I like you exactly the way you are. You don't need to change anything."
         "Good thing I prefer white roses.":
@@ -405,7 +405,7 @@ label takeWhiteRose:
     s "But you shouldn't act like this anymore. When will you understand..."
     "Her soft voice trails off in defeat. I can barely make out what she says."
     "Her strange habit of suddenly speaking in riddles always comes at the worst time. How am I supposed to decipher what she means? How am I supposed to decipher her heart?"
-    menu:
+    menu ("", screen = "option"):
         "I choose you.":
             a "I chose the white rose, and I chose you."
     "Her head is still hanging on my shoulder. Her hands are uncharacteristically cold."
@@ -453,8 +453,9 @@ label takeRedRose:
     jump event3
 
 label event3:
+    scene bcevent3
     "..."
-    "I don't know how long I slept, but the window displays the somber darkness outside. It must've been a considerate amount.
+    "I don't know how long I slept, but the window displays the somber darkness outside. It must\'ve been a considerate amount."
     "I don't know what it is about today."
     "It's dusk, the sun is going down slowly on the horizon."
     a "Oh..."
@@ -515,6 +516,7 @@ label event3:
                 jump true
 
 label bad:
+    scene bcend1
     """
     .....
 
@@ -555,6 +557,7 @@ label true:
     """
 
 label find:
+    scene bcend2
     menu :
         "There's something over there..."
         "Garnet earrings":
@@ -1049,3 +1052,51 @@ label event2:
         s "Nope... Everything must go back to where it came from , right?"
         "You notice the sun setting far behind the arch of roses."
         "Stella continues walking forward, a small skip in her step. You both have seen all there is to see at the rose garden, and make your way back to town to rest."
+
+
+screen option_e(ch, items):
+        text _(ch):
+            size 80
+            color "#000"
+
+        vbox:
+            align (0.5,0.5)
+            spacing 30
+            for i in range(0, 2):
+                button:
+                    if i == 0:
+                        background Frame("gui/button/choice1_idle_background.png")
+                        hover_background Frame("gui/button/choice1_hover_background.png")
+                        xysize(1920,150)
+                        action items[i].action
+
+                    elif i == 1:
+                        background Frame("gui/button/choice2_idle_background.png")
+                        hover_background Frame("gui/button/choice2_hover_background.png")
+                        xysize(1920,150)
+                        action items[i].action
+
+                    hbox:
+                        spacing 20
+                        align (0.5, 0.5)
+                        text items[i].caption
+
+screen option(ch, items):
+        text _(ch):
+            size 80
+            color "#000"
+
+        vbox:
+            align (0.5,0.5)
+            spacing 30
+            for i in items:
+                button:
+                    background Frame("gui/button/choice_idle_background.png")
+                    hover_background Frame("gui/button/choice_hover_background.png")
+                    xysize(1920,150)
+                    action i.action
+
+                    hbox:
+                        spacing 20
+                        align (0.5, 0.5)
+                        text i.caption

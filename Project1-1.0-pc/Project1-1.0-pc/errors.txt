@@ -2,9 +2,53 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 11: end of line expected.
-    scene bcStart.png
-                 ^
+File "game/script.rpy", line 457: expected statement.
+(Perhaps you left out a " at the end of the first line.)
+    "I don\'t know how long I slept, but the window displays the somber darkness outside. It must\'ve been a considerate amount.
+        "I don\'t know what it is about today."
+               ^
+        "It's dusk, the sun is going down slowly on the horizon."
+        a "Oh..."
+        a "Is it already this late...?"
+        "It's a normal day, but it's not normal that I wake up when the sun is already going down."
+        a "Stella"
+        "..."
+        a "Stella?"
+        "......"
+        s "Stella!"
+        "........."
+        "It's so slient. She doesn't seem to be here."
+        "............."
+        "Stella is not home."
+        "Looking aroud, you realize there is a photo of Stella in your pocket."
+        "You took it out and lifted up to your vision."
+        menu:
+            "She's beautiful":
+                a "I should head out to look for her. It's getting late."
+            "WHERE IS SHE":
+                a "I should head out to look for her. It's getting late."
+        
+        a "There is just one path stretching out from my home."
+        a "I just need to follow along -- there's no other way Stella could go."
+        "..."
+        "......"
+        "........."
+        "........................"
+        "You have no idea how long it has been."
+        "It's always the same path."
+        "It's leading me to nowhere."
+        a "Why can I still see my house...?"
+        a "Why is still dusk...?"
+        "You sit down paralyzed on the dirt ground."
+        "..."
+        s "Aurora"
+        "!!!"
+        a "Is that you?!"
+        "......"
+        "I turn around, and around, and Stella is just in front of me."
+        s "Hey Aurora."
+        "Her voice sounds unfamiliar."
+        a "What do you mean \"hey\"? Where have you been? It\'s late!"
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Nov  1 21:22:50 2022
+Wed Nov  2 15:39:49 2022

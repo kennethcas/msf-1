@@ -49,7 +49,7 @@ define gui.hover_muted_color = '#c199c1'
 
 ## The colors used for dialogue and menu choice text.
 define gui.text_color = '#404040'
-define gui.interface_text_color = '#404040'
+define gui.interface_text_color = '#000000'
 
 
 ## Fonts and Font Sizes ########################################################
@@ -145,6 +145,7 @@ define gui.dialogue_text_xalign = 0.0
 ## how buttons are displayed.
 
 ## The width and height of a button, in pixels. If None, Ren'Py computes a size.
+
 define gui.button_width = None
 define gui.button_height = None
 
@@ -153,7 +154,7 @@ define gui.button_borders = Borders(6, 6, 6, 6)
 
 ## If True, the background image will be tiled. If False, the background image
 ## will be linearly scaled.
-define gui.button_tile = False
+define gui.button_tile = True
 
 ## The font used by the button.
 define gui.button_text_font = gui.interface_text_font
