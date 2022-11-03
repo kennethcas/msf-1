@@ -417,6 +417,7 @@ label takeWhiteRose:
     "Her head is still hanging on my shoulder. Her hands are uncharacteristically cold."
     s "Stop talking. You really haven't changed a bit since then..."
     "Among the rose-filled pasture, she is still the only thing I can see."
+    jump event3
 
 label takeRedRose:
     $ realitypoints += 1
