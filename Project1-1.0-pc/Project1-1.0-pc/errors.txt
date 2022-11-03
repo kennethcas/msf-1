@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 504: end of line expected.
-    a "Do not go gentle into that good night.":
-                                              ^
+File "game/script.rpy", line 504: choice menuitem expects a non-empty block.
+    "Do not go gentle into that good night.":
+                                             ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Nov  2 20:41:11 2022
+Wed Nov  2 21:18:50 2022

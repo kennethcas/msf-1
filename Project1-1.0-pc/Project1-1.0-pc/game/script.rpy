@@ -213,7 +213,7 @@ label pomegranatePotion:
     "It's like I can see galaxies swirling in her eyes, silver clouds spinning in a vast universe of secrets. Her cheeks are flushed, though hardly noticeable under her dark skin."
     "Even after all these years, her emotions can be so difficult to understand."
 
-    menu:
+    menu ("", screen = "option_major"):
         "Should I drink Stella's underworld potion?"
         "Drink the potion":
             #$ fantasypoints += 1
@@ -388,7 +388,7 @@ label roseGarden:
     But there's no time to worry about myself and my racing thoughts, right now all that matters is Stella.
     """
 
-    menu:
+    menu ("", screen = "option_major"):
         "Which of the roses should I take from Stella's hands?"
         "Take the white rose":
             jump takeWhiteRose
@@ -464,7 +464,7 @@ label event3:
     s "You're awake. I have something to tell you."
     "She closes the book and leaves it on the windowsill."
     s "I... have to leave now."
-    menu:
+    menu ("", screen = "option"):
         "Where are you going?":
             a "Where are you going?"
         "This late?":
@@ -472,7 +472,7 @@ label event3:
     "She doesn't answer. Instead, she looks out the window into the dark night. Her eyes scan the barely recognizable woods and the white stars in the sky."
     a "It's really dangerous to leave at this time... When are you planning on coming back?"
     "Still silent. Now her gaze is fixed onto a specific point, unwavering."
-    menu:
+    menu ("", screen = "option"):
         "Are you okay?":
             a "Stella? Is everything alright?"
             s "I'm okay."
@@ -500,8 +500,8 @@ label goAfterHer:
 
 label dontGoAfterHer:
     "I dont go after her"
-    menu:
-        "Do not go gentle into that good night.":
+    menu ("", screen = "option_reality"):
+         "Do not go gentle into that good night.":
             a "i am saying somethign!!!WW!!E!E!E!E!"
         #FINISH LATER
     jump true
@@ -1113,7 +1113,7 @@ label event2:
         "Stella continues walking forward, a small skip in her step. You both have seen all there is to see at the rose garden, and make your way back to town to rest."
 
 
-screen option_e(ch, items):
+screen option_major(ch, items):
         text _(ch):
             size 80
             color "#000"
@@ -1124,14 +1124,14 @@ screen option_e(ch, items):
             for i in range(0, 2):
                 button:
                     if i == 0:
-                        background Frame("gui/button/choice1_idle_background.png")
-                        hover_background Frame("gui/button/choice1_hover_background.png")
+                        background Frame("gui/button/fantasy_idle_background.png")
+                        hover_background Frame("gui/button/fantasy_hover_background.png")
                         xysize(1920,150)
                         action items[i].action
 
                     elif i == 1:
-                        background Frame("gui/button/choice2_idle_background.png")
-                        hover_background Frame("gui/button/choice2_hover_background.png")
+                        background Frame("gui/button/reality_idle_background.png")
+                        hover_background Frame("gui/button/reality_hover_background.png")
                         xysize(1920,150)
                         action items[i].action
 
@@ -1152,6 +1152,26 @@ screen option(ch, items):
                 button:
                     background Frame("gui/button/choice_idle_background.png")
                     hover_background Frame("gui/button/choice_hover_background.png")
+                    xysize(1536,120)
+                    action i.action
+
+                    hbox:
+                        spacing 20
+                        align (0.5, 0.5)
+                        text i.caption
+
+screen option_reality(ch, items):
+        text _(ch):
+            size 80
+            color "#000"
+
+        vbox:
+            align (0.5,0.5)
+            spacing 30
+            for i in items:
+                button:
+                    background Frame("gui/button/reality_idle_background.png")
+                    hover_background Frame("gui/button/reality_hover_background.png")
                     xysize(1920,150)
                     action i.action
 
