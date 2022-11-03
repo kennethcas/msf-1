@@ -488,6 +488,7 @@ label event3:
     "She continues staring into the starry night, and I can spot moisture on her cheek."
     s "Goodbye."
     "Without another word she rushes out the door, her long skirt swaying behind her."
+
     menu: #DONT GO GENTLE INTO THAT GOOD NIGHT OPTIONS INSERT HERE!~~~~
         "Run after her":
             "I can't let her leave like this."
