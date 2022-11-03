@@ -6,6 +6,8 @@ define config.default_text_cps = 45
 define x = [0, 0, 0, 0]
 define fantasypoints = 0
 define realitypoints = 0
+define canchoosereality= false
+define canchoosefantasy= false
 
 
 
@@ -488,41 +490,19 @@ label event3:
     "She continues staring into the starry night, and I can spot moisture on her cheek."
     s "Goodbye."
     "Without another word she rushes out the door, her long skirt swaying behind her."
-    if realitypoints =2
+    if realitypoints == 2:
         jump firstMenu
-    elif realitypoints =1 and fantasypoints =1
+    elif fantasypoints ==2:
         jump secondMenu
-    elif fantasypoints =2
+    elif realitypoints ==1 and fantasypoints ==1:
         jump thirdMenu
 
-label firstMenu:
-    menu ("", screen = "option_major"): 
+label firstMenu :
+    menu ("", screen = "option_onlyreality"): 
         "Run after her":
             #"I can't let her leave like this."
-            jump fantasyEnding
+            jump firstMenu
         "Do not go gentle into that good night": #only available with 1 reality point
-            jump realityEnding
-label secondMenu:
-    menu ("", screen = "option_major"): 
-        "Run after her":
-            #"I can't let her leave like this."
-            jump fantasyEnding
-        "Do not go gentle into that good night": #only available with 1 reality point
-            jump realityEnding
-label ThirdMenu:
-    menu ("", screen = "option_major"): 
-        "Run after her":
-            #"I can't let her leave like this."
-            jump fantasyEnding
-        "Do not go gentle into that good night": #only available with 1 reality point
-            jump realityEnding
-
-menu ("", screen = "option_major"): 
-    #DONT GO GENTLE INTO THAT GOOD NIGHT OPTIONS INSERT HERE!~~~~
-        "Run after her":
-            "I can't let her leave like this."
-        "Do not go gentle into that good night": #only available with 1 reality point
-            $ realitypoints += 1
             "Softly, to myself, I speak the opening line to a poem that I somehow know."
             "Do not go gentle into that good night."
             "I say as I watch her back, her hat bouncing with every step."
@@ -531,9 +511,55 @@ menu ("", screen = "option_major"):
             "We've been putting it off for too long."
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
-            jump realityEnding
+            canchoosereality = true
+            jump event3Part2
 
-label event3Part2
+label secondMenu:
+    menu ("", screen = "option_onlyfatasy"): 
+        "Run after her":
+            "I can't let her leave like this."
+            canchoosefantasy = true
+            jump event3Part2
+        "Do not go gentle into that good night": #only available with 1 reality point
+            jump secondMenu
+
+label ThirdMenu:
+    menu ("", screen = "option_major"): 
+        "Run after her":
+            "I can't let her leave like this."
+            canchoosefantasy= true
+            #can choose fantasy == true
+            jump event3Part2
+        "Do not go gentle into that good night": #only available with 1 reality point
+            "Softly, to myself, I speak the opening line to a poem that I somehow know."
+            "Do not go gentle into that good night."
+            "I say as I watch her back, her hat bouncing with every step."
+            "She's getting further and further away."
+            "She's gone. I'm unsure if she's coming back, but she seemed so certain."
+            "We've been putting it off for too long."
+            "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
+            "It's all too much. I need to wake up from this dream."
+            canchoosereality = true
+            jump event3Part2
+            #event3Part2
+
+#menu ("", screen = "option_major"): 
+    #DONT GO GENTLE INTO THAT GOOD NIGHT OPTIONS INSERT HERE!~~~~
+        #"Run after her":
+        #    "I can't let her leave like this."
+        #"Do not go gentle into that good night": #only available with 1 reality point
+        #    $ realitypoints += 1
+         #   "Softly, to myself, I speak the opening line to a poem that I somehow know."
+         #   "Do not go gentle into that good night."
+         #   "I say as I watch her back, her hat bouncing with every step."
+         #   "She's getting further and further away."
+         #   "She's gone. I'm unsure if she's coming back, but she seemed so certain."
+          #  "We've been putting it off for too long."
+          #  "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
+         #   "It's all too much. I need to wake up from this dream."
+          #  jump realityEnding
+
+label event3Part2:
     "Panicking, I pick up the candle that's burning on the windowsill and run out after her."
     "..."
     "She's always been fast and elusive. I sprint after her as best as I can, but it takes me a while before I reach out for her shoulder and force her to stop running."
@@ -546,7 +572,7 @@ label event3Part2
         "What do you mean you 'have' to do this?":
             a "What did you mean by you 'have' to do this?"
             a "You 'have' to leave me? You 'have' to leave me alone? What kind of sick tragedy have you been planning in your head???" #emphasis on putting this off
-            if realitypoints>=1:
+            if realitypoints >= 1:
                 #look around. do u not see how strange and twisted this world is
                 s """
                 Look around you. This darkness, that horrible feeling in your chest, the twisted way this world reacts to certain things.
@@ -568,7 +594,7 @@ label event3Part2
                 It would be cruel for me to stay with you, for me to love you the way I do, in this world.
                 """
 
-            elif realitypoints=0:
+            elif realitypoints == 0:
                 #... i cant explain it to you. you dont get it. you wont see the things you dont want to see
                 s """
                 ... I...
@@ -593,14 +619,10 @@ label event3Part2
     menu:
         "Stella isn't coming back after she walks into that woods. What should I do?"
         "I'm coming with you.": #ONLY AVAILABLE WITH AT LEAST 1 FANTASY POINT
-            "Ugly sobs erupt from my mouth."
-            a """
-            Stella! Are you an idiot?
-            I don't care what kind of world we live. I don't care If I have to drink a million terrible potions. I don't care if every day is the same and I don't care if I'm stuck here forever.
+            if canchoosefantasy == true
+                "Ugly sobs erupt from my mouth."
 
-            As long as I'm with you, I would go wherever.
-            """
-            jump fantasyEnding
+                jump fantasyEnding
 
         "I love you enough to let you go": #ONLY AVAILABLE WITH 1 REALITY POINT AT LEAST
             "Ugly sobs erupt from my mouth."
@@ -643,7 +665,7 @@ label event3Part2
             jump realityEnding
 
 label fantasyEnding:
-    scene bgend1
+    scene bcend1
     with fade 
     """
     Stella sniffles, deep pools of tears flooding her silver eyes.
@@ -670,7 +692,7 @@ label endCredits:
 
 
 label realityEnding:
-    scene bgend2
+    scene bcend2
     with fade 
     ". . . . . "
     "Where am I?"
@@ -1353,14 +1375,14 @@ screen option_onlyfantasy(ch, items):
                 button:
                     if i == 0:
                         background Frame("gui/button/fantasy_idle_background.png")
-                        hover_background Frame ("gui/button/fakefantasy_hover_background.png")
+                        hover_background Frame ("gui/button/fantasy_hover_background.png")
                         
                         xysize(1920,150)
                         action items[i].action
 
                     elif i == 1:
                         background Frame("gui/button/reality_idle_background.png")
-                        hover_background Frame("gui/button/reality_hover_background.png")
+                        hover_background Frame("gui/button/fakereality_hover_background.png")
                         xysize(1920,150)
                         action items[i].action
 
@@ -1382,14 +1404,14 @@ screen option_onlyreality(ch, items):
                 button:
                     if i == 0:
                         background Frame("gui/button/fantasy_idle_background.png")
-                        hover_background Frame ("gui/button/fantasy_hover_background.png")
+                        hover_background Frame ("gui/button/fakefantasy_hover_background.png")
                         
                         xysize(1920,150)
                         action items[i].action
 
                     elif i == 1:
                         background Frame("gui/button/reality_idle_background.png")
-                        hover_background Frame("gui/button/fakereality_hover_background.png")
+                        hover_background Frame("gui/button/reality_hover_background.png")
                         xysize(1920,150)
                         action items[i].action
 
