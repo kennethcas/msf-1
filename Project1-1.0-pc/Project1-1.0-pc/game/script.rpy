@@ -501,7 +501,7 @@ label goAfterHer:
 label dontGoAfterHer:
     "I dont go after her"
     menu:
-        a "Do not go gentle into that good night.":
+        "Do not go gentle into that good night.":
             a "i am saying somethign!!!WW!!E!E!E!E!"
         #FINISH LATER
     jump true
