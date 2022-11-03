@@ -6,8 +6,9 @@ define config.default_text_cps = 45
 define x = [0, 0, 0, 0]
 define fantasypoints = 0
 define realitypoints = 0
-define canchoosereality= false
-define canchoosefantasy= false
+
+define canchoosereality = 0
+define canchoosefantasy = 0
 
 
 
@@ -219,11 +220,11 @@ label pomegranatePotion:
     menu ("", screen = "option_major"):
         "Should I drink Stella's underworld potion?"
         "Drink the potion":
-            #$ fantasypoints += 1
+            
             jump drinkThePotion
             
         "'Miss-Worst-Cook'":
-            #$ realitypoints += 1
+            
             jump dontDrinkThePotion
 
 label drinkThePotion:
@@ -400,6 +401,7 @@ label roseGarden:
             jump takeRedRose
 
 label takeWhiteRose:
+    $ fantasypoints += 1
     "I wrap my fingers around hers, taking the white rose in my hand."
     a "What kind of question is that? Of course I'd pick the white rose. The one that reminds me the most of you."
     "The flush in Stella's cheeks comes back in a sharp wave. Her affectionate eyes soften, yet there is a sense of subtle complicated emotions behind her silver irises that I can't quite read."
@@ -417,6 +419,7 @@ label takeWhiteRose:
     "Among the rose-filled pasture, she is still the only thing I can see."
 
 label takeRedRose:
+    $ realitypoints += 1
     #JKLFDLJDSF
     "My vision blurs, a throbbing headache appears. I can't think."
     a "I know it's not appropriate... but I want to- this red rose here."
@@ -438,7 +441,7 @@ label takeRedRose:
         "I'm overwhelmed, afraid. Was this all triggered by a single red rose? What does this have to do with the previous event in the forest?"
         "Through blurry and wavering eyes I look at Stella, who has already turned and started walking toward the cabin."
         "She turns her head over her shoulder, silver hair swaying gently, and smiles at me."
-    elif realitypoints= 0:
+    elif realitypoints== 0:
         #FIRST TIME CHOOSING REALITY OPTION
         "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids after a good round of Spell Dual."
         "The harsh light from the sky reflects off of the white roses, blinding me again."
@@ -492,9 +495,9 @@ label event3:
     "Without another word she rushes out the door, her long skirt swaying behind her."
     if realitypoints == 2:
         jump firstMenu
-    elif fantasypoints ==2:
+    elif fantasypoints == 2:
         jump secondMenu
-    elif realitypoints ==1 and fantasypoints ==1:
+    else:
         jump thirdMenu
 
 label firstMenu :
@@ -511,23 +514,23 @@ label firstMenu :
             "We've been putting it off for too long."
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
-            canchoosereality = true
+            $ canchoosereality += 1
             jump event3Part2
 
 label secondMenu:
-    menu ("", screen = "option_onlyfatasy"): 
+    menu ("", screen = "option_onlyfantasy"): 
         "Run after her":
             "I can't let her leave like this."
-            canchoosefantasy = true
+            $ canchoosefantasy += 1
             jump event3Part2
         "Do not go gentle into that good night": #only available with 1 reality point
             jump secondMenu
 
-label ThirdMenu:
+label thirdMenu: 
     menu ("", screen = "option_major"): 
         "Run after her":
             "I can't let her leave like this."
-            canchoosefantasy= true
+            $ canchoosefantasy += 1
             #can choose fantasy == true
             jump event3Part2
         "Do not go gentle into that good night": #only available with 1 reality point
@@ -539,7 +542,7 @@ label ThirdMenu:
             "We've been putting it off for too long."
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
-            canchoosereality = true
+            $ canchoosereality += 1
             jump event3Part2
             #event3Part2
 
@@ -568,7 +571,7 @@ label event3Part2:
     "I'm completely out of breath. My chest heaves up and down, our faces illuminated by that dim candle in my hand."
     "Poor Stella, usually so cool and collected, now a sobbing mess. All the emotions she has repressed all this time force their way out and seep from her face."
 
-    menu:
+    menu ("", screen = "option"):
         "What do you mean you 'have' to do this?":
             a "What did you mean by you 'have' to do this?"
             a "You 'have' to leave me? You 'have' to leave me alone? What kind of sick tragedy have you been planning in your head???" #emphasis on putting this off
@@ -616,53 +619,75 @@ label event3Part2:
     s """
     You always do. I can't stop you, and you can't stop me. I have to walk into that woods, for as long as I can, and I can't come back.
     """
-    menu:
-        "Stella isn't coming back after she walks into that woods. What should I do?"
-        "I'm coming with you.": #ONLY AVAILABLE WITH AT LEAST 1 FANTASY POINT
-            if canchoosefantasy == true
-                "Ugly sobs erupt from my mouth."
+    jump lastchoice
 
-                jump fantasyEnding
+    label lastchoice: 
+        menu ("", screen = "option_major"):
+            "Stella isn't coming back after she walks into that woods. What should I do?"
+            "I'm coming with you.": #ONLY AVAILABLE WITH AT LEAST 1 FANTASY POINT
+                if canchoosefantasy == 1:
+                    "Ugly sobs erupt from my mouth."
+                    jump fantasyEnding
+                elif canchoosefantasy == 0: 
+                    a "I'm..."
+                    jump somethingWrong
 
-        "I love you enough to let you go": #ONLY AVAILABLE WITH 1 REALITY POINT AT LEAST
-            "Ugly sobs erupt from my mouth."
-            a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
-            "The leaves gently rustle, providing a soothing accompaniment."
-            s """
-            I love you, Aurora.
+            "I love you enough to let you go": #ONLY AVAILABLE WITH 1 REALITY POINT AT LEAST
+                if canchoosereality == 1:
+                    "Ugly sobs erupt from my mouth."
+                
+                    a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
+                    "The leaves gently rustle, providing a soothing accompaniment."
+                    s """
+                    I love you, Aurora.
 
-            You know I've always loved you.
+                    You know I've always loved you.
 
-            I loved being by your side every second. No matter what world we live in, or how far apart we are, just know that I love you.
-            """
+                    I loved being by your side every second. No matter what world we live in, or how far apart we are, just know that I love you.
+                    """
 
-            "She looks down into her hands and cries softly."
-            s "Honestly... I don't want to leave you either. It's a comforting world, where everything is safe and still. But I'm leaving because I love you." 
-            s "I want you to see the full truth."
+                    "She looks down into her hands and cries softly."
+                    s "Honestly... I don't want to leave you either. It's a comforting world, where everything is safe and still. But I'm leaving because I love you." 
+                    s "I want you to see the full truth."
 
-            """
-            Overwhelmed with emotion, I don't answer. I just sob. I get the feeling things will make sense soon.
+                    """
+                    Overwhelmed with emotion, I don't answer. I just sob. I get the feeling things will make sense soon.
 
-            That strange wind's song appears again. The gentle breeze turns harsh. Except this time, it's must stronger than usual.
+                    That strange wind's song appears again. The gentle breeze turns harsh. Except this time, it's must stronger than usual.
 
-            The wind slashes me in every direction, slapping me with my own hair, grabbing me by my clothes, pulling me forwards and backwards.
+                    The wind slashes me in every direction, slapping me with my own hair, grabbing me by my clothes, pulling me forwards and backwards.
 
-            The song gets louder and louder, my headache returns with a rigorous vengeance.
+                    The song gets louder and louder, my headache returns with a rigorous vengeance.
 
-            There is a pounding in my ears. All of my senses are completely overtaken. I can barely make out Stella who is standing just two feet in front of me, completely unmoved by the vengeful wind.
-            """
+                    There is a pounding in my ears. All of my senses are completely overtaken. I can barely make out Stella who is standing just two feet in front of me, completely unmoved by the vengeful wind.
+                    """
 
-            a "Stella..."
-            """
-            I can barely manage to speak, my throat suddenly numb.
+                    a "Stella..."
+                    """
+                    I can barely manage to speak, my throat suddenly numb.
 
-            I can't hear anything except the slashing of the wind across my face.
+                    I can't hear anything except the slashing of the wind across my face.
 
-            In front of me, Stella mouths something.
+                    In front of me, Stella mouths something.
 
-            'I love you'
-            """
-            jump realityEnding
+                    I love you'
+                    """
+                    jump realityEnding
+                elif canchoosereality == 0: 
+                    "I... love..."
+                    jump somethingWrong
+            
+label somethingWrong:
+    """
+    There is something wrong with... What I am doing.
+
+    Do I really want everything to end like this? 
+
+    After... all the previous choices I made? 
+
+    I have to... think again...
+    """
+    jump lastchoice 
 
 label fantasyEnding:
     scene bcend1
@@ -689,6 +714,7 @@ label fantasyEnding:
 label endCredits:
     
     "THEN END."
+    #jump main_menu
 
 
 label realityEnding:
@@ -699,7 +725,7 @@ label realityEnding:
     "My head is still throbbing, my vision still blurry."
     "What happened?"
     "The inside looks like Stella and I's living room... but not quite."
-    menu:
+    menu ("", screen = "option"):
         "Have a look around":
             jump find
 
@@ -715,7 +741,7 @@ label true:
 
 label find:
     scene bcend2
-    menu :
+    menu ("", screen = "option"):
         "There's something over there..."
         "Garnet earrings":
             a """
@@ -803,7 +829,7 @@ label found:
     s "I'm glad you made the right choice. Even if you didn't know what it meant, or where it would take you. Deep down you had the will to exit that fantasy, to come back, to get over me."
     s "Daydreaming and enjoying our youth is fun when we're together, but you shouldn't throw away your future for me."
 
-    menu:
+    menu ("", screen = "option"):
         "I didn't get to tell you how I feel about you.":
             a "But I never got to tell you how I really feel."
             s """
@@ -1354,7 +1380,7 @@ screen option(ch, items):
                 button:
                     background Frame("gui/button/choice_idle_background.png")
                     hover_background Frame("gui/button/choice_hover_background.png")
-                    xysize(1536,120)
+                    xysize(960,75)
                     action i.action
 
                     hbox:
