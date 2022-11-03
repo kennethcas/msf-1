@@ -118,6 +118,7 @@ label gettingReadyForPotion:
 
 label pomegranatePotion:
     scene bcevent1
+    with fade
     """
     We walk on the small dirt path through the woods that surrounds our humble cabin,
     making light conversation and laughing like normal.
@@ -295,6 +296,7 @@ label dontDrinkThePotion:
 
 label roseGarden:
     scene bcevent2
+    with fade
     #start of rose garden/ event 2
     #INCLUDE TRANSITION FROM EVENT 1 TO EVENT 2
     """
@@ -454,6 +456,7 @@ label takeRedRose:
 
 label event3:
     scene bcevent3
+    with fade
     "..."
     "I don't know how long I slept, but the window displays the somber darkness outside. It must\'ve been a considerate amount."
     "Today's events completely exhausted me."
@@ -507,12 +510,22 @@ label dontGoAfterHer:
     jump true
 
 label fantasyEnding:
+    scene bgend1
+    with fade 
     #THIS IS WHERE THE FANTASY ENDING GOES
     #FINISH LATER
     jump endCredits
 
+label realityEnding:
+    scene bgend2
+    with fade 
+    #THIS IS WHERE THE FANTASY ENDING GOES
+    #FINISH LATER
+    jump endCredits
+
+
 label endCredits:
-    scene bgEnd1
+    
     "You have finished the game."
 
 label oldThing:
