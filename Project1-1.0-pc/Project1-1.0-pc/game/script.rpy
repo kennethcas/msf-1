@@ -456,39 +456,97 @@ label event3:
     scene bcevent3
     "..."
     "I don't know how long I slept, but the window displays the somber darkness outside. It must\'ve been a considerate amount."
-    "I don't know what it is about today."
-    "It's dusk, the sun is going down slowly on the horizon."
-    a "Oh..."
-    a "Is it already this late...?"
-    "It's a normal day, but it's not normal that I wake up when the sun is already going down."
-    a "Stella"
-    "..."
-    a "Stella?"
-    "......"
-    s "Stella!"
-    "........."
-    "It's so slient. She doesn't seem to be here."
-    "............."
-    "Stella is not home."
-    "Looking aroud, you realize there is a photo of Stella in your pocket."
-    "You took it out and lifted up to your vision."
+    "Today's events completely exhausted me."
+    "The cabin is completely dark except for the flickering flame of a single white candle."
+    "I can barely make out Stella's face: one side cast in a warm light, the other completely hidden in the darkness."
+    "Stella sits at the windowsill, her nose in yet another book: a small hardcover collection of existing poems that she bound together herself."
+
+    s "You're awake. I have something to tell you."
+    "She closes the book and leaves it on the windowsill."
+    s "I... have to leave now."
     menu:
-        "She's beautiful":
-            a "I should head out to look for her. It's getting late."
-        "WHERE IS SHE":
-            a "I should head out to look for her. It's getting late."
+        "Where are you going?":
+            a "Where are you going?"
+        "This late?":
+            a "You're going out now? It's so dark outside."
+    "She doesn't answer. Instead, she looks out the window into the dark night. Her eyes scan the barely recognizable woods and the white stars in the sky."
+    a "It's really dangerous to leave at this time... When are you planning on coming back?"
+    "Still silent. Now her gaze is fixed onto a specific point, unwavering."
+    menu:
+        "Are you okay?":
+            a "Stella? Is everything alright?"
+            s "I'm okay."
+            "She has already decided what she wants to do. There's nothing I can say to convince her to stay."
+            a "I don't know where you're going... but I want to come with you."
+            "I have to go with her. Wherever she goes I have to be by her side. The thought of her leaving gives me a desperate ache in my chest."
+        "Can I come with you?"
+            a "Stella? Can I at least come with you?"
+    s "No... I know you need me. I know it's just been us for a long time. But... I have to do this."
+    "She continues staring into the starry night, and I can spot moisture on her cheek."
+    if fantasypoints = 2:
+        jump goAfterHer
+    elif realitypoints > 1:
+        jump dontGoAfterHer
+
+label goAfterHer:
+    #go after her
+    s "Goodbye."
+    "Without another word she rushes out the door, her long skirt swaying behind her."
+    "Panicking, I pick up the candle that's burning on the windowsill and run out after her."
+    "She's always been fast and elusive. I sprint after her as best as I can, but it takes me a while before I reach out for her shoulder and force her to stop running."
+    #FINISH LATER
+
+    jump fantasyEnding
+
+label dontGoAfterHer:
+    "I dont go after her"
+    menu:
+        a "Do not go gentle into that good night.":
+            a "i am saying somethign!!!WW!!E!E!E!E!"
+        #FINISH LATER
+    jump true
+
+label fantasyEnding:
+    #THIS IS WHERE THE FANTASY ENDING GOES
+    #FINISH LATER
+    jump endCredits
+
+label endCredits:
+    scene bgEnd1
+    "You have finished the game."
+
+label oldThing:
+    #a "Oh..."
+    #a "Is it already this late...?"
+    #"It's a normal day, but it's not normal that I wake up when the sun is already going down."
+    #a "Stella"
+    #"..."
+    #a "Stella?"
+    #"......"
+    #s "Stella!"
+    #"........."
+    #"It's so slient. She doesn't seem to be here."
+    #"............."
+    #"Stella is not home."
+    #"Looking aroud, you realize there is a photo of Stella in your pocket."
+    #"You took it out and lifted up to your vision."
+    #menu:
+     #   "She's beautiful":
+      #      a "I should head out to look for her. It's getting late."
+       # "WHERE IS SHE":
+        #    a "I should head out to look for her. It's getting late."
     
-    a "There is just one path stretching out from my home."
-    a "I just need to follow along -- there's no other way Stella could go."
-    "..."
-    "......"
-    "........."
-    "........................"
-    "You have no idea how long it has been."
-    "It's always the same path."
-    "It's leading me to nowhere."
-    a "Why can I still see my house...?"
-    a "Why is still dusk...?"
+    #a "There is just one path stretching out from my home."
+    #a "I just need to follow along -- there's no other way Stella could go."
+    #"..."
+    #"......"
+    #"........."
+    #"........................"
+    #"You have no idea how long it has been."
+    #"It's always the same path."
+    #"It's leading me to nowhere."
+    #a "Why can I still see my house...?"
+    #a "Why is still dusk...?"
     "You sit down paralyzed on the dirt ground."
     "..."
     s "Aurora"
@@ -555,6 +613,7 @@ label true:
 
     My head hurts...
     """
+    jump find
 
 label find:
     scene bcend2
@@ -719,7 +778,7 @@ label found:
 
     "True Ending: Venture On"
 
-    return
+    jump endCredits
     
 ##UNUSED EVENT.. i just didnt want to erase it lol
 #label pickRedRose:
