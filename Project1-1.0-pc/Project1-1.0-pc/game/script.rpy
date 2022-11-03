@@ -488,6 +488,20 @@ label event3:
     "She continues staring into the starry night, and I can spot moisture on her cheek."
     s "Goodbye."
     "Without another word she rushes out the door, her long skirt swaying behind her."
+    menu: #DONT GO GENTLE INTO THAT GOOD NIGHT OPTIONS INSERT HERE!~~~~
+        "Run after her":
+            "I can't let her leave like this."
+        "Do not go gentle into that good night": #only available with 1 reality point
+            $ realitypoints += 1
+            "Softly, to myself, I speak the opening line to a poem that I somehow know."
+            "Do not go gentle into that good night."
+            "I say as I watch her back, her hat bouncing with every step."
+            "She's getting further and further away."
+            "She's gone. I'm unsure if she's coming back, but she seemed so certain."
+            "We've been putting it off for too long."
+            "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
+            "It's all too much. I need to wake up from this dream."
+            jump realityEnding
     "Panicking, I pick up the candle that's burning on the windowsill and run out after her."
     "..."
     "She's always been fast and elusive. I sprint after her as best as I can, but it takes me a while before I reach out for her shoulder and force her to stop running."
@@ -546,7 +560,7 @@ label event3:
     """
     menu:
         "Stella isn't coming back after she walks into that woods. What should I do?"
-        "I'm coming with you.":
+        "I'm coming with you.": #ONLY AVAILABLE WITH AT LEAST 1 FANTASY POINT
             "Ugly sobs erupt from my mouth."
             a """
             Stella! Are you an idiot?
@@ -556,10 +570,46 @@ label event3:
             """
             jump fantasyEnding
 
-        "I love you enough to let you go":
+        "I love you enough to let you go": #ONLY AVAILABLE WITH 1 REALITY POINT AT LEAST
             "Ugly sobs erupt from my mouth."
             a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
             "The leaves gently rustle, providing a soothing accompaniment."
+            s """
+            I love you, Aurora.
+
+            You know I've always loved you.
+
+            I loved being by your side every second. No matter what world we live in, or how far apart we are, just know that I love you.
+            """
+
+            "She looks down into her hands and cries softly."
+            s "Honestly... I don't want to leave you either. It's a comforting world, where everything is safe and still. But I'm leaving because I love you. 
+            s "I want you to see the full truth."
+
+            """
+            Overwhelmed with emotion, I don't answer. I just sob. I get the feeling things will make sense soon.
+
+            That strange wind's song appears again. The gentle breeze turns harsh. Except this time, it's must stronger than usual.
+
+            The wind slashes me in every direction, slapping me with my own hair, grabbing me by my clothes, pulling me forwards and backwards.
+
+            The song gets louder and louder, my headache returns with a rigorous vengeance.
+
+            There is a pounding in my ears. All of my senses are completely overtaken. I can barely make out Stella who is standing just two feet in front of me, completely unmoved by the vengeful wind.
+            """
+
+            a "Stella..."
+            """
+            I can barely manage to speak, my throat suddenly numb.
+
+            I can't hear anything except the slashing of the wind across my face.
+
+            In front of me, Stella mouths something.
+
+            'I love you'
+            """
+            jump realityEnding
+
 
 
 
@@ -611,17 +661,193 @@ label fantasyEnding:
     a "Lead the way."
     jump endCredits
 
-label realityEnding:
-    scene bgend2
-    with fade 
-    #THIS IS WHERE THE FANTASY ENDING GOES
-    #FINISH LATER
-    jump endCredits
-
-
 label endCredits:
     
     "THEN END."
+
+
+label realityEnding:
+    scene bgend2
+    with fade 
+    ". . . . . "
+    "Where am I?"
+    "My head is still throbbing, my vision still blurry."
+    "What happened?"
+    "The inside looks like Stella and I's living room... but not quite."
+    menu:
+        "Have a look around":
+            jump find
+
+label true:
+    "......"
+
+    a """
+    Where am I?
+
+    My head hurts...
+    """
+    jump find
+
+label find:
+    scene bcend2
+    menu :
+        "There's something over there..."
+        "Garnet earrings":
+            a """
+            A pair of earrings with inlaid garnet stones. The dark red color looks almost black.
+
+            These aren\'t mine...
+
+            These are...
+            """
+            $ x[0] = 1
+
+        "A notebook":
+            a """
+            One of those small hardcover bound notebooks with a ribbon bookmark.
+
+            I open it up to the bookmarked page, revealing a pressed white rose.
+
+            The fragrance of the rose has almost worn off.
+
+            A funeral rose...?
+            """
+            $ x[1] = 1
+            
+        "A poem":
+            a """
+            A poem from an author called Dylan Thomas.
+
+            The title reads... \"Do not go gentle into that good night\".
+
+            Stella loves this poem.
+            """
+            $ x[2] = 1
+        
+        "Old Card Deck":
+            a """
+            An old hand-made card deck. The title of the game is written in water-based marker on the back of every card.
+            
+            \"Spell Dual\".
+
+            ...
+
+            \"Spell Dual\"...
+
+            ...
+            """
+            $ x[3] = 1
+        
+    if x[0] == 1 and x[1] == 1 and x[2] == 1 and x[3] == 1:
+        jump found
+    else:
+        jump find
+
+label found:
+    a """
+    I remember now... Stella, my one and only friend. My first love.
+
+    I didn't get to tell her how I felt back then.
+
+    We grew up together, we used to play pretend in my backyard treehouse. We would wear cheap witch hats and play our own card game that no one else knew the rules to: \"Spell Dual\"...
+
+    I've always loved her. Even back then. Although that love bloomed into something new as we got older.
+
+    Then, that one night... she didn't come back. She went gently into that good night.
+
+    The funeral...
+
+    The day I had to sort out her things...
+
+    And all the fun memories I had with her even before that fateful night...
+
+    Everything comes flooding back to me in a heartwrenching wave.
+    """
+    "Before I know it, there she is. Standing in front of me as some kind of ghostly apparition."
+
+    s "Hi, Aurora. It's been way too long since you've been back."
+    a "Stella? Is it you? The real you?"
+
+    s "You were in that fantasy world for a while. It was destroying you."
+    s "But... I didn't have the courage to leave either."
+    s "We were both trapped there. I didn't want you to delve deeper into the fantasy."
+
+    "I don't know what to say."
+    s "I know it's hard, but we are no longer children. We can't live in a world where Spell Duals was more than just a card game."
+    s "You can't live like this anymore."
+    s "I'm glad you made the right choice. Even if you didn't know what it meant, or where it would take you. Deep down you had the will to exit that fantasy, to come back, to get over me."
+    s "Daydreaming and enjoying our youth is fun when we're together, but you shouldn't throw away your future for me."
+
+    menu:
+        "I didn't get to tell you how I feel about you.":
+            a "But I never got to tell you how I really feel."
+            s """
+            You didn't have to. The kind of bond we shared didn't need words. We cared for each other more deeply than anyone else would understand.
+
+            It was very hard for me to be separated from you so suddenly, too. That's why I'm here isn't it? That's why we stayed for so long in our little witch cabin amongst our roses and strange forests.
+
+            Trust me, I understand how you feel. I feel the same way. That's why it hurts me so much to see you this way.
+
+            Please, return fully to the real world. Grow up, build a future for yourself. Remember me, and use me as a reason to move forward instead of a reason to stay in the past.
+            """
+            "It hurts to hear. This is the end. No more strange potions and mythology stories."
+            "The life that we had built for ourselves, or rather the life that I built for ourselves, had come crashing down."
+            "I have to face the reality of what happened. I sob, clutching my chest, but I know Stella is right. It's time to move on."
+            "She doesn't want me to run away. She wants me to walk forward."
+            "All that time trying to win her over, when we were already each others'. Those moments when she acted cold and unsure, she just wanted to help me. She wanted me to look beyond our comfortable fantasy."
+        
+        
+        "Is that why you were so distant to me?":
+            a "Is that why you were cold toward me? Why you made it so difficult to win you over?
+
+            s """
+            I'm sorry. Maybe I didn't do it in the best way. I just want you to be healthy.
+
+            But there was no need for you to win me over. You never had to say anything. The kind of bond we shared is special. We cared for each other more deeply than anyone else could understand.
+
+            It was very hard for me to be separated from you so suddenly, too. That's why I'm here isn't it? That's why we stayed for so long in our little witch cabin amongst our roses and strange forests.
+
+            Trust me, I understand how you feel. I feel the same way. That's why it hurts me so much to see you this way.
+
+            Please, return fully to the real world. Grow up, build a future for yourself. Remember me, and use me as a reason to move forward instead of a reason to stay in the past.
+
+
+            """
+            
+            "It hurts to hear. This is the end. No more strange potions and mythology stories."
+            "There's still so much I have to process, so much I don't understand. I can't bring myself to ask any more. It was just fate. Cruel, twisted fate."
+            "The life that we had built for ourselves, or rather the life that I built for ourselves, had come crashing down."
+            "I have to face the reality of what happened. I sob, clutching my chest, but I know Stella is right. It's time to move on."
+            "She doesn't want me to run away. She wants me to walk forward."
+            "All that time trying to win her over, when we were already each others'. Those moments when she acted cold and unsure, she just wanted to help me. She wanted me to look beyond our comfortable fantasy."
+            
+    
+    a """
+    It's scary to live in a reality without you.
+
+    I don't want to leave you...
+    """
+
+    s """
+    I know. It took me too long to gain the courage to walk into those woods. But you have to venture on, and be brave.
+
+    Without me.
+
+    This is our final goodbye, Aurora.
+
+    I'm always with you. In your heart, in your memories. In the worlds you dream about. In those silly pretend games we used to play.
+    """
+
+    "Through tears, I barely manage to choke out my words-"
+
+    a "I love you."
+
+    s "I love you too."
+
+    "True Ending: Venture On"
+
+    jump endCredits
+
 
 #########################
 label oldThing:
@@ -713,183 +939,9 @@ label bad:
     "Bad Ending: Forever and Ever"
 
     return
+##############################################
 
-label true:
-    "......"
-
-    a """
-    Where am I?
-
-    My head hurts...
-    """
-    jump find
-
-label find:
-    scene bcend2
-    menu :
-        "There's something over there..."
-        "Garnet earrings":
-            a """
-            A pair of earrings with inlaid garnet stones. The dark red color looks almost black.
-
-            These aren\'t mine...
-
-            These are...
-            """
-            $ x[0] = 1
-
-        "A notebook":
-            a """
-            One of those small hardcover bound notebooks with a ribbon bookmark.
-
-            I open it up to the bookmarked page, revealing a pressed white rose.
-
-            The fragrance of the rose has almost worn off.
-
-            There\'s... someone\'s funeral...
-            """
-            $ x[1] = 1
-            
-        "A poem":
-            a """
-            A poem from an author called Dylan Thomas.
-
-            The title reads... \"Do not go gentle into that good night\".
-
-            She used to love this poem.
-            """
-            $ x[2] = 1
-        
-        "Old Card Deck":
-            a """
-            An old hand-made card deck. The title of the game is written in water-based marker on the back of every card.
-            
-            \"Spell Dual\".
-
-            ...
-
-            \"Spell Dual\"...
-
-            ...
-            """
-            $ x[3] = 1
-        
-    if x[0] == 1 and x[1] == 1 and x[2] == 1 and x[3] == 1:
-        jump found
-    else:
-        jump find
-
-label found:
-    a """
-    I remember now...
-
-    Stella, my one and only friend...
-
-    I didn't... get to tell you...
-
-    I used to play pretend in a treehouse with Stella.
-
-    We would dress up as little witches, and play that card game together...
-
-    In retrospect, my love started to grow away back then...
-
-    Then, that night, the prom...
-
-    The funeral...
-
-    The day I had to sort out her things...
-    """
-
-    "Stella shows up in her prom dress."
-
-    s """
-    It has been too long since then, Aurora...
-
-    You know our fantasy world is not real.
-
-    You know you are no longer 17.
-
-    You can't live like this anymore.
-
-    Daydreaming is fun when we were together. But you should not throw away your life like this.
-    """
-
-    menu:
-        "I didn't get to tell you how I feel about you.":
-            s """
-            I know. I always know.
-
-            That is why it hurts so much for me to see you like this.
-
-            Go back to school.
-
-            Find a job...
-
-            For me, please?
-
-            I am your memory.
-
-            Stella would have wanted you to move on.
-
-            And deep down in your heart, you know that.
-
-            She wouldn't want you to escape from reality. She doesn't wnat you to escape from anything!
-
-            I am distant because you knew deep down that she would want this for you.
-            """
-        
-        
-        "Is that why you were so distant to me?":
-            s """
-            I am your memory.
-
-            Stella would have wanted you to move on.
-
-            And deep down in your heart, you know that.
-
-            She wouldn't want you to escape from reality. She doesn't wnat you to escape from anything!
-
-            I am distant because you knew deep down that she would want this for you.
-            
-            I know. I always know.
-
-            That is why it hurts so much for me to see you like this.
-
-            Go back to school.
-
-            Find a job...
-
-            For me, please?
-            """
-    
-    a """
-    It's scary to live in a reality without you.
-
-    I don't want to leave you...
-    """
-
-    s """
-    You have to venture on.
-
-    Without me.
-
-    Be brave, Aurora!
-
-    I'm always with you.
-
-    In the fantasy we made together, in the worlds we built together.
-
-    In those silly witch stories we wrote together
-    """
-
-    a "I love you."
-    s "I love you too."
-
-    "True Ending: Venture On"
-
-    jump endCredits
-    
-##UNUSED EVENT.. i just didnt want to erase it lol
+#################UNUSED EVENT.. i just didnt want to erase it lol
 #label pickRedRose:
     #picking a red rose for stella
  ##  "Red roses... the classic symbol of love."
