@@ -488,7 +488,8 @@ label event3:
     "She continues staring into the starry night, and I can spot moisture on her cheek."
     s "Goodbye."
     "Without another word she rushes out the door, her long skirt swaying behind her."
-    menu: #DONT GO GENTLE INTO THAT GOOD NIGHT OPTIONS INSERT HERE!~~~~
+    menu ("", screen = "option_major"): 
+    #DONT GO GENTLE INTO THAT GOOD NIGHT OPTIONS INSERT HERE!~~~~
         "Run after her":
             "I can't let her leave like this."
         "Do not go gentle into that good night": #only available with 1 reality point
@@ -620,12 +621,7 @@ label event3:
     elif realitypoints = 1 and fantasypoints =1:
         jump shouldIGoAfterHer
 
-label goAfterHer:
-    #YOU TALK AND GO WITH HER, NO MATTER WHAT
-    
-    #FINISH LATER
 
-    #jump fantasyEnding
 
 label dontGoAfterHer:
     #YOU TALK AND DECIDE TO LET HER WALK INTO THAT FOREST BY HERSELF, NO MATTER WHAT
@@ -1337,7 +1333,8 @@ screen option(ch, items):
                         align (0.5, 0.5)
                         text i.caption
 
-screen option_reality(ch, items):
+                        
+screen option_onlyfantasy(ch, items):
         text _(ch):
             size 80
             color "#000"
@@ -1345,14 +1342,52 @@ screen option_reality(ch, items):
         vbox:
             align (0.5,0.5)
             spacing 30
-            for i in items:
+            for i in range(0, 2):
                 button:
-                    background Frame("gui/button/reality_idle_background.png")
-                    hover_background Frame("gui/button/reality_hover_background.png")
-                    xysize(1920,150)
-                    action i.action
+                    if i == 0:
+                        background Frame("gui/button/fantasy_idle_background.png")
+                        hover_background Frame ("gui/button/fakefantasy_hover_background.png")
+                        
+                        xysize(1920,150)
+                        action items[i].action
+
+                    elif i == 1:
+                        background Frame("gui/button/reality_idle_background.png")
+                        hover_background Frame("gui/button/reality_hover_background.png")
+                        xysize(1920,150)
+                        action items[i].action
 
                     hbox:
                         spacing 20
                         align (0.5, 0.5)
-                        text i.caption
+                        text items[i].caption
+
+
+screen option_onlyreality(ch, items):
+        text _(ch):
+            size 80
+            color "#000"
+
+        vbox:
+            align (0.5,0.5)
+            spacing 30
+            for i in range(0, 2):
+                button:
+                    if i == 0:
+                        background Frame("gui/button/fantasy_idle_background.png")
+                        hover_background Frame ("gui/button/fantasy_hover_background.png")
+                        
+                        xysize(1920,150)
+                        action items[i].action
+
+                    elif i == 1:
+                        background Frame("gui/button/reality_idle_background.png")
+                        hover_background Frame("gui/button/fakereality_hover_background.png")
+                        xysize(1920,150)
+                        action items[i].action
+
+                    hbox:
+                        spacing 20
+                        align (0.5, 0.5)
+                        text items[i].caption
+

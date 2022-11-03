@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 504: choice menuitem expects a non-empty block.
-    "Do not go gentle into that good night.":
-                                             ^
+File "game/script.rpy", line 919: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        """
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Nov  2 21:18:50 2022
+Thu Nov  3 12:34:31 2022
