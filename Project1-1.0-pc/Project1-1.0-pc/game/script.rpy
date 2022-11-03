@@ -715,6 +715,7 @@ label fantasyEnding:
 label endCredits:
     
     "THEN END."
+    return
     #jump main_menu
 
 
