@@ -484,24 +484,101 @@ label event3:
             "I have to go with her. Wherever she goes I have to be by her side. The thought of her leaving gives me a desperate ache in my chest."
         "Can I come with you?":
             a "Stella? Can I at least come with you?"
-    s "No... I know you need me. I know it's just been us for a long time. But... I have to do this."
+    s "... I know you need me. I know it's just been us for a long time. But... I have to do this. I've been putting it off for too long. We have been putting it off for too long." #empahses on we
     "She continues staring into the starry night, and I can spot moisture on her cheek."
-    if fantasypoints = 2:
-        jump goAfterHer
-    elif realitypoints > 1:
-        jump dontGoAfterHer
-
-label goAfterHer:
-    #go after her
     s "Goodbye."
     "Without another word she rushes out the door, her long skirt swaying behind her."
     "Panicking, I pick up the candle that's burning on the windowsill and run out after her."
+    "..."
     "She's always been fast and elusive. I sprint after her as best as I can, but it takes me a while before I reach out for her shoulder and force her to stop running."
+    
+    a "Stella! Please! At least... let me speak."
+    "I'm completely out of breath. My chest heaves up and down, our faces illuminated by that dim candle in my hand."
+    "Poor Stella, usually so cool and collected, now a sobbing mess. All the emotions she has repressed all this time force their way out and seep from her face."
+
+    menu:
+        "What do you mean you 'have' to do this?":
+            a "What did you mean by you 'have' to do this?"
+            a "You 'have' to leave me? You 'have' to leave me alone? What kind of sick tragedy have you been planning in your head???" #emphasis on putting this off
+            if realitypoints>=1:
+                #look around. do u not see how strange and twisted this world is
+                s """
+                Look around you. This darkness, that horrible feeling in your chest, the twisted way this world reacts to certain things.
+
+                Surely you've noticed it, too!
+
+                This world isn't normal. Do you have any idea how long it's even been?
+                """
+                "..."
+                s """
+                We've been living here, in this world, for years.
+
+                And it doesn't feel that way. Every day is the same. We've been living the same life, doing the same things, visiting the same places. There's never something new.
+                
+                There's never something new because nothing else exists. Nothing outside of these woods exists.
+
+                What if I don't exist? You don't know me now. The only thing you can really remember are our memories as children. Maybe I'm just another placeholder.
+
+                It would be cruel for me to stay with you, for me to love you the way I do, in this world.
+                """
+
+            elif realitypoints=0:
+                #... i cant explain it to you. you dont get it. you wont see the things you dont want to see
+                s """
+                ... I...
+
+                I can't explain it to you. You can only see the things you want to see.
+
+                You've been completely tricked by this world. And it's my fault.
+
+                I don't want you to be trapped here the way I am. Every day is the same. We've been living the same life, doing the same things, visiting the same places. There's never something new.
+
+                Do you think that kind of life is normal? A life where we're completely stuck in the past and unable to grow in the present?
+                """
+                a "I... don't understand."
+                s "I know you don't. And as long as I'm here, you seem to only see me."
+                s "Maybe if I'm gone... If I finally leave... for sure this time. Maybe then you will see the truth."
+    #contd 
+    s "That's why... I have to leave now."
+    a "So that's it? I don't have a say in this?"
+    s """
+    You always do. I can't stop you, and you can't stop me. I have to walk into that woods, for as long as I can, and I can't come back.
+    """
+    menu:
+        "Stella isn't coming back after she walks into that woods. What should I do?"
+        "I'm coming with you.":
+            "Ugly sobs erupt from my mouth."
+            a """
+            Stella! Are you an idiot?
+            I don't care what kind of world we live. I don't care If I have to drink a million terrible potions. I don't care if every day is the same and I don't care if I'm stuck here forever.
+
+            As long as I'm with you, I would go wherever.
+            """
+            jump fantasyEnding
+
+        "I love you enough to let you go":
+            "Ugly sobs erupt from my mouth."
+            a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
+            "The leaves gently rustle, providing a soothing accompaniment."
+
+
+
+    if fantasypoints = 2:
+        jump goAfterHer
+    elif realitypoints = 2:
+        jump dontGoAfterHer
+    elif realitypoints = 1 and fantasypoints =1:
+        jump shouldIGoAfterHer
+
+label goAfterHer:
+    #YOU TALK AND GO WITH HER, NO MATTER WHAT
+    
     #FINISH LATER
 
-    jump fantasyEnding
+    #jump fantasyEnding
 
 label dontGoAfterHer:
+    #YOU TALK AND DECIDE TO LET HER WALK INTO THAT FOREST BY HERSELF, NO MATTER WHAT
     "I dont go after her"
     menu ("", screen = "option_reality"):
          "Do not go gentle into that good night.":
@@ -509,11 +586,29 @@ label dontGoAfterHer:
         #FINISH LATER
     jump true
 
+label shouldIGoAfterHer:
+    #TALK AND MAKE YOUR OWN CHOICE. SHOULD YOU GO AFTER HER OR NOT???
+
 label fantasyEnding:
     scene bgend1
     with fade 
-    #THIS IS WHERE THE FANTASY ENDING GOES
-    #FINISH LATER
+    """
+    Stella sniffles, deep pools of tears flooding her silver eyes.
+
+    We both stand there for a moment, our cries echoing off the deep woods that Stella is about to walk into.
+    """
+    s "I don't want you to make a choice you're going to regret."
+    a "If it's you, I don't have anything to regret."
+
+    "Stella wipes her tears away with her sleeve and collects herself. I try and do the same, taking deep breaths."
+    "Slowly, she takes the candle from my hand and puts it on the ground. Then, she extends her left hand. It itches closer and closer until her fingers graze my right hand."
+    "Timidly, almost unsuredly, she grabs my hand, intertwining her cold fingers with mine."
+    s "Ok then. Let's go."
+    "Her smile is a sweet and timid one, one backed up with countless emotions. She's complicated, she's hard to understand, but I love her. And this is the version of her that I love."
+    "I smile back, blinking away the tears."
+    "A headache flushes over me, and somehwere in the distance a distorted flute plays. The wind starts to act up, shaking the tree leaves violently."
+    "But none of that matters now. It will all be over soon."
+    a "Lead the way."
     jump endCredits
 
 label realityEnding:
@@ -526,8 +621,9 @@ label realityEnding:
 
 label endCredits:
     
-    "You have finished the game."
+    "THEN END."
 
+#########################
 label oldThing:
     #a "Oh..."
     #a "Is it already this late...?"
@@ -814,6 +910,22 @@ label found:
         #"You're right. White roses are better":
          #   a "Now that I think about it, you're right! The white ones are even more beautiful."
           #  s "Exactly! They're pure and can hold so much meaning beyond just love or romance or passion."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ####################################################END OF NEW VERSION
 ####################################################THE OLD VERSION!!!!
