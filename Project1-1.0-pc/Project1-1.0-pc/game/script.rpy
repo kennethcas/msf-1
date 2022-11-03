@@ -479,7 +479,7 @@ label event3:
             "She has already decided what she wants to do. There's nothing I can say to convince her to stay."
             a "I don't know where you're going... but I want to come with you."
             "I have to go with her. Wherever she goes I have to be by her side. The thought of her leaving gives me a desperate ache in my chest."
-        "Can I come with you?"
+        "Can I come with you?":
             a "Stella? Can I at least come with you?"
     s "No... I know you need me. I know it's just been us for a long time. But... I have to do this."
     "She continues staring into the starry night, and I can spot moisture on her cheek."
