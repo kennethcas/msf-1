@@ -583,7 +583,7 @@ label event3:
             """
 
             "She looks down into her hands and cries softly."
-            s "Honestly... I don't want to leave you either. It's a comforting world, where everything is safe and still. But I'm leaving because I love you. 
+            s "Honestly... I don't want to leave you either. It's a comforting world, where everything is safe and still. But I'm leaving because I love you." 
             s "I want you to see the full truth."
 
             """
@@ -798,7 +798,7 @@ label found:
         
         
         "Is that why you were so distant to me?":
-            a "Is that why you were cold toward me? Why you made it so difficult to win you over?
+            a "Is that why you were cold toward me? Why you made it so difficult to win you over?"
 
             s """
             I'm sorry. Maybe I didn't do it in the best way. I just want you to be healthy.
@@ -908,37 +908,37 @@ label oldThing:
             else: 
                 jump true
 
-label bad:
-    scene bcend1
-    """
-    .....
+##label bad:
+   # scene bcend1
+    #"""
+    #....
 
     
 
 
-    """
+    #"""
 
-    "......"
-    "Birds are chirping."
-    "It's dawn."
-    "......"
-    a "So... that was a dream."
-    a "What a dream..."
-    "You managed to get up from the soft pillow."
-    "(Szzzzzzzzz~)"
-    "The familiar and appetizing sound of Stella frying eggs comes from the kitchen."
-    "It's just another day."
-    a "And there'll be infinitely many other days just like today."
-    "Stella comes over, taking off the warm-colored apron."
-    s "Breakfast's ready!"
-    a "You looks happier than normal."
-    "And you don't know why -- she also looks sadder than ever before."
-    "Stella makes a puzzled face to your words, and then smiles and moves away, which tells you to hurry up."
-    a "Yeah, I'm not letting her go. NEVER"
-    "......"
-    "Bad Ending: Forever and Ever"
+    #"......"
+    #"Birds are chirping."
+    #"It's dawn."
+    ##"......"
+   # a "So... that was a dream."
+    #a "What a dream..."
+    #"You managed to get up from the soft pillow."
+    #(Szzzzzzzzz~)"
+    ##"The familiar and appetizing sound of Stella frying eggs comes from the kitchen."
+    #"It's just another day."
+    #a "And there'll be infinitely many other days just like today."
+    #"Stella comes over, taking off the warm-colored apron."
+   # s "Breakfast's ready!"
+  #  a "You looks happier than normal."
+   # "And you don't know why -- she also looks sadder than ever before."
+    #"Stella makes a puzzled face to your words, and then smiles and moves away, which tells you to hurry up."
+    #a "Yeah, I'm not letting her go. NEVER"
+    #"......"
+   # "Bad Ending: Forever and Ever"
 
-    return
+    #return
 ##############################################
 
 #################UNUSED EVENT.. i just didnt want to erase it lol
