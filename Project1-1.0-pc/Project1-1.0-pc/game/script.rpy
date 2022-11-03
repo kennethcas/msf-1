@@ -488,7 +488,36 @@ label event3:
     "She continues staring into the starry night, and I can spot moisture on her cheek."
     s "Goodbye."
     "Without another word she rushes out the door, her long skirt swaying behind her."
+    if realitypoints =2
+        jump firstMenu
+    elif realitypoints =1 and fantasypoints =1
+        jump secondMenu
+    elif fantasypoints =2
+        jump thirdMenu
+
+label firstMenu:
     menu ("", screen = "option_major"): 
+        "Run after her":
+            #"I can't let her leave like this."
+            jump fantasyEnding
+        "Do not go gentle into that good night": #only available with 1 reality point
+            jump realityEnding
+label secondMenu:
+    menu ("", screen = "option_major"): 
+        "Run after her":
+            #"I can't let her leave like this."
+            jump fantasyEnding
+        "Do not go gentle into that good night": #only available with 1 reality point
+            jump realityEnding
+label ThirdMenu:
+    menu ("", screen = "option_major"): 
+        "Run after her":
+            #"I can't let her leave like this."
+            jump fantasyEnding
+        "Do not go gentle into that good night": #only available with 1 reality point
+            jump realityEnding
+
+menu ("", screen = "option_major"): 
     #DONT GO GENTLE INTO THAT GOOD NIGHT OPTIONS INSERT HERE!~~~~
         "Run after her":
             "I can't let her leave like this."
@@ -503,6 +532,8 @@ label event3:
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
             jump realityEnding
+
+label event3Part2
     "Panicking, I pick up the candle that's burning on the windowsill and run out after her."
     "..."
     "She's always been fast and elusive. I sprint after her as best as I can, but it takes me a while before I reach out for her shoulder and force her to stop running."
@@ -610,30 +641,6 @@ label event3:
             'I love you'
             """
             jump realityEnding
-
-
-
-
-    if fantasypoints = 2:
-        jump goAfterHer
-    elif realitypoints = 2:
-        jump dontGoAfterHer
-    elif realitypoints = 1 and fantasypoints =1:
-        jump shouldIGoAfterHer
-
-
-
-label dontGoAfterHer:
-    #YOU TALK AND DECIDE TO LET HER WALK INTO THAT FOREST BY HERSELF, NO MATTER WHAT
-    "I dont go after her"
-    menu ("", screen = "option_reality"):
-         "Do not go gentle into that good night.":
-            a "i am saying somethign!!!WW!!E!E!E!E!"
-        #FINISH LATER
-    jump true
-
-label shouldIGoAfterHer:
-    #TALK AND MAKE YOUR OWN CHOICE. SHOULD YOU GO AFTER HER OR NOT???
 
 label fantasyEnding:
     scene bgend1
