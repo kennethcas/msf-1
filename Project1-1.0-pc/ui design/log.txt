@@ -1,4 +1,4 @@
-Thu Nov  3 12:26:29 2022
+Fri Nov  4 18:19:31 2022
 macOS-10.16-x86_64-i386-64bit
 Ren'Py 8.0.3.22090809
  
@@ -6,7 +6,7 @@ Ren'Py 8.0.3.22090809
 Bootstrap to the start of init.init took 0.05s
 Early init took 0.00s
 Loader init took 0.01s
-Loading error handling took 0.04s
+Loading error handling took 0.03s
 Loading script took 0.10s
 Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
@@ -32,7 +32,7 @@ Save pyanalysis. took 0.00s
 Save bytecode. took 0.00s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.27s
+Interface start took 0.50s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1470, 956)

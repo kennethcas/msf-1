@@ -34,7 +34,7 @@ label start:
 
     a "You sound like someone who's still mad about always losing to me in Spell Duel."
     s """
-    Spell Dual? That silly childhood game?
+    Spell Duel? That silly childhood game?
 
     Why are you bringing this up all of a sudden. Did that nap mess with your cognitive function?
 
@@ -45,16 +45,21 @@ label start:
     a "Was it really that long ago?"
     "That vivid dream made it seem like it was yesterday. A strange feeling is burning in my chest."
     
-    s "Seriously, Aurora. That was so long ago. Move on and get a life"
+    s "Seriously, Aurora. That was so long ago. Move on and get a life. "
     """
     She comes closer and reaches out to playfully hit me on the shoulder.
 
     The small physical contact shocks me back into reality.
 
     I can hear the comforting bubbling, fizzling, and whistling of pots, potions, and cauldrons
-    in the humble cabin. In every nook and cranny there is some kind of whimsical device. every
-    shelf is full of large spell books and every bottle is teeming with all kinds of colorful
-    and strange liquids. Two witch hats hang on the wall.
+    in the humble cabin. 
+
+    In every nook and cranny there is some kind of whimsical device. 
+
+    Every shelf is full of large spell books and every bottle is teeming with all kinds of colorful
+    and strange liquids. 
+    
+    Two witch hats hang on the wall.
 
     Stella stands by the door, putting garden pruners and some elixir bottles into her bag.
     """
@@ -285,7 +290,7 @@ label dontDrinkThePotion:
     "The strange winds create an almost omniscient resonation within the pomegranate trees. Leaves fall down from the treetops and swirl like strange musical notes falling off the staff. The foliage dances a strange waltz mid air."
     "I look around, unsure of what caused this interruption. Nothing like this ever happens in this peaceful, quiet world that Stella and I live in. It's unnerving, and I feel myself getting cold and clammy."
     "I turn to Stella, wanting to see her reaction to this strange event... but she just stands there, smiling."
-    "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids when we had a good round of Spell Duals."
+    "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids when we had a good round of Spell Duel."
     "Her reaction confuses me, it's as if she's completely unfazed by the sudden change in our environment."
     "But before I can say anything else, she is already walking away, her wild silver waves bouncing slightly behind her."
     "The wind has stopped."
@@ -444,7 +449,7 @@ label takeRedRose:
         "She turns her head over her shoulder, silver hair swaying gently, and smiles at me."
     elif realitypoints== 0:
         #FIRST TIME CHOOSING REALITY OPTION
-        "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids after a good round of Spell Dual."
+        "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids after a good round of Spell Duel."
         "The harsh light from the sky reflects off of the white roses, blinding me again."
         "The light gets brighter and brighter. I instinctively cover my eyes with my hand. I tear up again, the headache worsening, throbbing even worse than before."
         "A strange song emerges from the previously meek wind as it pushes the clouds away, casting a bright light onto the white rose petals."
@@ -623,15 +628,15 @@ label event3Part2:
     jump lastchoice
 
     label lastchoice: 
-        menu ("", screen = "option_major"):
-            "Stella isn't coming back after she walks into that woods. What should I do?"
+        menu ("", screen = "option_branching"):
+            "Stella isn't coming back after she walks into that woods."
             "I'm coming with you.": #ONLY AVAILABLE WITH AT LEAST 1 FANTASY POINT
                 if canchoosefantasy == 1:
                     "Ugly sobs erupt from my mouth."
                     jump fantasyEnding
                 elif canchoosefantasy == 0: 
                     a "I'm..."
-                    jump somethingWrong
+                    jump toRealityEnding
 
             "I love you enough to let you go": #ONLY AVAILABLE WITH 1 REALITY POINT AT LEAST
                 if canchoosereality == 1:
@@ -671,24 +676,90 @@ label event3Part2:
 
                     In front of me, Stella mouths something.
 
-                    I love you'
+                    ''I love you.''
                     """
                     jump realityEnding
                 elif canchoosereality == 0: 
-                    "I... love..."
-                    jump somethingWrong
+                    a "I... love you enough to..."
+                    jump toFantasyEnding
             
-label somethingWrong:
+label toFantasyEnding:
     """
-    There is something wrong with... What I am doing.
+    No. There is something wrong with... what I am choosing to do.
 
-    Do I really want everything to end like this? 
+    Do I really want to leave Stella like this? 
 
-    After... all the previous choices I made? 
+    After this day? After all these years? 
 
-    I have to... think again...
+    I have to... 
+    
+    I have to go after her. 
+
     """
-    jump lastchoice 
+
+    "Ugly sobs erupt from my mouth."
+
+    jump fantasyEnding
+
+label toRealityEnding:
+    """
+    No. 
+    
+    There is something wrong with... what I am doing.
+
+    I can't keep living like this.  
+
+    I have been neglecting this fact for too long... 
+
+    I have to... 
+    
+    I need to...
+
+    Let her go. 
+    """
+
+    "Ugly sobs erupt from my mouth."
+                
+    a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
+    "The leaves gently rustle, providing a soothing accompaniment."
+    s """
+    I love you, Aurora.
+
+    You know I've always loved you.
+
+    I loved being by your side every second. No matter what world we live in, or how far apart we are, just know that I love you.
+                    """
+
+    "She looks down into her hands and cries softly."
+    s "Honestly... I don't want to leave you either. It's a comforting world, where everything is safe and still. But I'm leaving because I love you." 
+    s "I want you to see the full truth."
+
+    """
+    Overwhelmed with emotion, I don't answer. I just sob. I get the feeling things will make sense soon.
+
+    That strange wind's song appears again. The gentle breeze turns harsh. Except this time, it's must stronger than usual.
+
+    The wind slashes me in every direction, slapping me with my own hair, grabbing me by my clothes, pulling me forwards and backwards.
+
+    The song gets louder and louder, my headache returns with a rigorous vengeance.
+
+    There is a pounding in my ears. All of my senses are completely overtaken. I can barely make out Stella who is standing just two feet in front of me, completely unmoved by the vengeful wind.
+    """
+
+    a "Stella..."
+    """
+    I can barely manage to speak, my throat suddenly numb.
+
+    I can't hear anything except the slashing of the wind across my face.
+
+    In front of me, Stella mouths something.
+
+    ''I love you''
+    """
+
+    jump realityEnding
+
+    
 
 label fantasyEnding:
     scene bcend1
@@ -712,22 +783,20 @@ label fantasyEnding:
     a "Lead the way."
     jump endCredits
 
-label endCredits:
-    
-    "THEN END."
-    return
-    #jump main_menu
+
 
 
 label realityEnding:
-    scene bcend2
-    with fade 
+    scene white
+    with dissolve
     ". . . . . "
     "Where am I?"
+    scene bcend2
+    with dissolve
     "My head is still throbbing, my vision still blurry."
     "What happened?"
     "The inside looks like Stella and I's living room... but not quite."
-    menu ("", screen = "option"):
+    menu ("", screen = "option_afterwaking"):
         "Have a look around":
             jump find
 
@@ -743,7 +812,7 @@ label true:
 
 label find:
     scene bcend2
-    menu ("", screen = "option"):
+    menu ("", screen = "option_afterwaking"):
         "There's something over there..."
         "Garnet earrings":
             a """
@@ -778,14 +847,16 @@ label find:
             $ x[2] = 1
         
         "Old Card Deck":
+            scene spellduel
+            with fade
             a """
             An old hand-made card deck. The title of the game is written in water-based marker on the back of every card.
             
-            \"Spell Dual\".
+            \"Spell Duel\".
 
             ...
 
-            \"Spell Dual\"...
+            \"Spell Duel\"...
 
             ...
             """
@@ -802,7 +873,7 @@ label found:
 
     I didn't get to tell her how I felt back then.
 
-    We grew up together, we used to play pretend in my backyard treehouse. We would wear cheap witch hats and play our own card game that no one else knew the rules to: \"Spell Dual\"...
+    We grew up together, we used to play pretend in my backyard treehouse. We would wear cheap witch hats and play our own card game that no one else knew the rules to: \"Spell Duel\"...
 
     I've always loved her. Even back then. Although that love bloomed into something new as we got older.
 
@@ -826,12 +897,12 @@ label found:
     s "We were both trapped there. I didn't want you to delve deeper into the fantasy."
 
     "I don't know what to say."
-    s "I know it's hard, but we are no longer children. We can't live in a world where Spell Duals was more than just a card game."
+    s "I know it's hard, but we are no longer children. We can't live in a world where Spell Duel was more than just a card game."
     s "You can't live like this anymore."
     s "I'm glad you made the right choice. Even if you didn't know what it meant, or where it would take you. Deep down you had the will to exit that fantasy, to come back, to get over me."
     s "Daydreaming and enjoying our youth is fun when we're together, but you shouldn't throw away your future for me."
 
-    menu ("", screen = "option"):
+    menu ("", screen = "option_afterwaking"):
         "I didn't get to tell you how I feel about you.":
             a "But I never got to tell you how I really feel."
             s """
@@ -901,6 +972,21 @@ label found:
 
     jump endCredits
 
+
+label endCredits:
+    scene white 
+    with dissolve
+    "The end."
+    scene spellduel
+    with dissolve
+
+    "Proof of Concept" 
+
+    "Made by Diane, Kenneth and Leo"
+
+    "Thank you for playing. "
+    return
+    #jump main_menu
 
 #########################
 label oldThing:
@@ -1409,7 +1495,7 @@ screen option_onlyfantasy(ch, items):
                         action items[i].action
 
                     elif i == 1:
-                        background Frame("gui/button/reality_idle_background.png")
+                        background Frame("gui/button/fakereality_idle_background.png")
                         hover_background Frame("gui/button/fakereality_hover_background.png")
                         xysize(1920,150)
                         action items[i].action
@@ -1431,7 +1517,7 @@ screen option_onlyreality(ch, items):
             for i in range(0, 2):
                 button:
                     if i == 0:
-                        background Frame("gui/button/fantasy_idle_background.png")
+                        background Frame("gui/button/fakefantasy_idle_background.png")
                         hover_background Frame ("gui/button/fakefantasy_hover_background.png")
                         
                         xysize(1920,150)
@@ -1448,3 +1534,50 @@ screen option_onlyreality(ch, items):
                         align (0.5, 0.5)
                         text items[i].caption
 
+screen option_branching(ch, items):
+        text _(ch):
+            size 80
+            color "#000"
+
+        vbox:
+            align (0.5,0.5)
+            spacing 30
+            for i in range(0, 2):
+                button:
+                    if i == 0:
+                        background Frame("gui/button/branchfantasy_idle.png")
+                        hover_background Frame ("gui/button/branchfantasy_hover.png")
+                        
+                        xysize(1920,150)
+                        action items[i].action
+
+                    elif i == 1:
+                        background Frame("gui/button/branchreality_idle.png")
+                        hover_background Frame("gui/button/branchreality_hover.png")
+                        xysize(1920,150)
+                        action items[i].action
+
+                    hbox:
+                        spacing 20
+                        align (0.5, 0.5)
+                        text items[i].caption
+
+screen option_afterwaking(ch, items):
+        text _(ch):
+            size 80
+            color "#000"
+
+        vbox:
+            align (0.5,0.5)
+            spacing 30
+            for i in items:
+                button:
+                    background Frame("gui/button/branchreality_idle.png")
+                    hover_background Frame("gui/button/branchreality_hover.png")
+                    xysize(960,75)
+                    action i.action
+
+                    hbox:
+                        spacing 20
+                        align (0.5, 0.5)
+                        text i.caption
