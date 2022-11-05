@@ -1,22 +1,57 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 679, in script
-    jump tofantasyEnding
-ScriptError: could not find label 'tofantasyEnding'.
+  File "game/script.rpy", line 225, in script
+    menu ("", screen = "option_major"):
+  File "game/glitch_tag.rpy", line 80, in glitch_tag
+    my_style = DispTextStyle()
+NameError: name 'DispTextStyle' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 679, in script
-    jump tofantasyEnding
-  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1974, in execute
-    rv = renpy.game.script.lookup(target)
-  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/script.py", line 927, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'tofantasyEnding'.
+  File "game/script.rpy", line 225, in script
+    menu ("", screen = "option_major"):
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1903, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/exports.py", line 1010, in menu
+    rv = renpy.store.menu(new_items)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/exports.py", line 1250, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/screen.py", line 456, in visit_all
+    self.child.visit_all(callback, seen=None)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  [Previous line repeated 1 more time]
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 572, in visit_all
+    for d in self.visit():
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/text/text.py", line 1835, in visit
+    self.update()
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/text/text.py", line 1815, in update
+    tokens = self.apply_custom_tags(tokens)
+  File "/Users/yangdanfeng/Desktop/renpy-8.0.3-sdk/renpy/text/text.py", line 2361, in apply_custom_tags
+    new_contents = func(tag, value, contents)
+  File "game/glitch_tag.rpy", line 80, in glitch_tag
+    my_style = DispTextStyle()
+NameError: name 'DispTextStyle' is not defined
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.0.3.22090809
 Project 1 1.0
-Fri Nov  4 17:24:06 2022
+Fri Nov  4 19:34:30 2022

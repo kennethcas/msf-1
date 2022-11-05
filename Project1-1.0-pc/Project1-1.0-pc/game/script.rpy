@@ -58,7 +58,7 @@ label start:
 
     Every shelf is full of large spell books and every bottle is teeming with all kinds of colorful
     and strange liquids. 
-    
+
     Two witch hats hang on the wall.
 
     Stella stands by the door, putting garden pruners and some elixir bottles into her bag.
@@ -228,7 +228,7 @@ label pomegranatePotion:
             
             jump drinkThePotion
             
-        "'Miss-Worst-Cook'":
+        "{glitch=5}\"Miss-Worst-Cook\"{/glitch}":
             
             jump dontDrinkThePotion
 
@@ -280,17 +280,19 @@ label drinkThePotion:
 label dontDrinkThePotion:
     #start of not drinking the potion
     $ realitypoints += 1
-    a "I'm not eating or drinking anything Miss-Worst-Cook makes."
+    a "{glitch=5}\"I'm not eating or drinking anything Miss-Worst-Cook makes.\"{/glitch}"
     s "..."
     "There is an unbearable silence for a few moments. Stella looks at me blankly, as if I have somehow stopped time and frozen her in this moment."
     "Why did I say that?"
     "Where did that come from?"
     a "Stella... I-"
     "The usual soft whistles of the wind traveling through the trees' branches suddenly turns harsh and loud."
-    "The strange winds create an almost omniscient resonation within the pomegranate trees. Leaves fall down from the treetops and swirl like strange musical notes falling off the staff. The foliage dances a strange waltz mid air."
+    "The strange winds create an almost omniscient resonation within the pomegranate trees. "
+    "Leaves fall down from the treetops and swirl like strange musical notes falling off the staff. The foliage dances a strange waltz mid air."
     "I look around, unsure of what caused this interruption. Nothing like this ever happens in this peaceful, quiet world that Stella and I live in. It's unnerving, and I feel myself getting cold and clammy."
     "I turn to Stella, wanting to see her reaction to this strange event... but she just stands there, smiling."
-    "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids when we had a good round of Spell Duel."
+    "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. 
+    The same smile that she would give me as kids when we had a good round of Spell Duel."
     "Her reaction confuses me, it's as if she's completely unfazed by the sudden change in our environment."
     "But before I can say anything else, she is already walking away, her wild silver waves bouncing slightly behind her."
     "The wind has stopped."
@@ -333,7 +335,7 @@ label roseGarden:
     "The deep floral scent and the classic beauty of the roses combined with incoming sunset make for such a romantic environment."
     "I'll take advantage of this opportunity."
     menu ("", screen = "option"): #COME BACK TO THIS AND FIX IT
-        "You look beautiful":
+        "You look beautiful.":
             a "Even among this sea of roses you manage to be the most beautiful."
     "I pluck a rose from its bush and hold it out toward Stella, motioning her to accept it."
     s "Why are you saying things like this all of a sudden..."
@@ -402,7 +404,7 @@ label roseGarden:
         "Which of the roses should I take from Stella's hands?"
         "Take the white rose":
             jump takeWhiteRose
-        "I want to- put this ... red rose here":
+        "{glitch=5}I want to- ... -this ... red rose here{/glitch}":
             jump takeRedRose
 
 label takeWhiteRose:
@@ -428,7 +430,7 @@ label takeRedRose:
     $ realitypoints += 1
     #JKLFDLJDSF
     "My vision blurs, a throbbing headache appears. I can't think."
-    a "I know it's not appropriate... but I want to- this red rose here."
+    a "{glitch=5}\"I want to- ... -this red rose here.\"{/glitch}"
     "I don't feel my mouth move, but words come out. With my fists I attempt to rub out whatever has overtaken my vision."
     "When I open my eyes I see Stella staring back at me, a dumbfounded expression on her delicate face."
     s "What did you just say?"
@@ -449,7 +451,8 @@ label takeRedRose:
         "She turns her head over her shoulder, silver hair swaying gently, and smiles at me."
     elif realitypoints== 0:
         #FIRST TIME CHOOSING REALITY OPTION
-        "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. The same smile that she would give me as kids after a good round of Spell Duel."
+        "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. "
+        "The same smile that she would give me as kids after a good round of Spell Duel."
         "The harsh light from the sky reflects off of the white roses, blinding me again."
         "The light gets brighter and brighter. I instinctively cover my eyes with my hand. I tear up again, the headache worsening, throbbing even worse than before."
         "A strange song emerges from the previously meek wind as it pushes the clouds away, casting a bright light onto the white rose petals."
@@ -511,9 +514,10 @@ label firstMenu :
         "Run after her":
             #"I can't let her leave like this."
             jump firstMenu
-        "Do not go gentle into that good night": #only available with 1 reality point
+        "{glitch=5}Do not go gentle into that good night{/glitch}": #only available with 1 reality point
+
             "Softly, to myself, I speak the opening line to a poem that I somehow know."
-            "Do not go gentle into that good night."
+            "{glitch=5} \"Do not go gentle into that good night. \"{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
             "She's getting further and further away."
             "She's gone. I'm unsure if she's coming back, but she seemed so certain."
@@ -529,7 +533,7 @@ label secondMenu:
             "I can't let her leave like this."
             $ canchoosefantasy += 1
             jump event3Part2
-        "Do not go gentle into that good night": #only available with 1 reality point
+        "{glitch=5}\"Do not go gentle into that good night\"{/glitch}": #only available with 1 reality point
             jump secondMenu
 
 label thirdMenu: 
@@ -539,9 +543,9 @@ label thirdMenu:
             $ canchoosefantasy += 1
             #can choose fantasy == true
             jump event3Part2
-        "Do not go gentle into that good night": #only available with 1 reality point
+        "{glitch=5}\"Do not go gentle into that good night\"{/glitch}": #only available with 1 reality point
             "Softly, to myself, I speak the opening line to a poem that I somehow know."
-            "Do not go gentle into that good night."
+            "‘’{glitch=5} Do not go gentle into that good night.‘’{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
             "She's getting further and further away."
             "She's gone. I'm unsure if she's coming back, but she seemed so certain."
@@ -578,9 +582,9 @@ label event3Part2:
     "Poor Stella, usually so cool and collected, now a sobbing mess. All the emotions she has repressed all this time force their way out and seep from her face."
 
     menu ("", screen = "option"):
-        "What do you mean you 'have' to do this?":
-            a "What did you mean by you 'have' to do this?"
-            a "You 'have' to leave me? You 'have' to leave me alone? What kind of sick tragedy have you been planning in your head???" #emphasis on putting this off
+        "What do you mean you \"have\"to do this?":
+            a "What did you mean by you \"have\" to do this?"
+            a "You \"have\" to leave me? You 'have' to leave me alone? What kind of sick tragedy have you been planning in your head?" #emphasis on putting this off
             if realitypoints >= 1:
                 #look around. do u not see how strange and twisted this world is
                 s """
@@ -630,7 +634,7 @@ label event3Part2:
     label lastchoice: 
         menu ("", screen = "option_branching"):
             "Stella isn't coming back after she walks into that woods."
-            "I'm coming with you.": #ONLY AVAILABLE WITH AT LEAST 1 FANTASY POINT
+            "I'm coming with you": #ONLY AVAILABLE WITH AT LEAST 1 FANTASY POINT
                 if canchoosefantasy == 1:
                     "Ugly sobs erupt from my mouth."
                     jump fantasyEnding
@@ -676,7 +680,7 @@ label event3Part2:
 
                     In front of me, Stella mouths something.
 
-                    ''I love you.''
+                    \"I love you.\"
                     """
                     jump realityEnding
                 elif canchoosereality == 0: 
@@ -685,11 +689,13 @@ label event3Part2:
             
 label toFantasyEnding:
     """
-    No. There is something wrong with... what I am choosing to do.
+    No. 
+    
+    This is wrong.
 
-    Do I really want to leave Stella like this? 
+    After this day we spent together, after the things I chose to say to her... 
 
-    After this day? After all these years? 
+    I can't leave her like this.  
 
     I have to... 
     
@@ -707,9 +713,9 @@ label toRealityEnding:
     
     There is something wrong with... what I am doing.
 
-    I can't keep living like this.  
+    After this day we spent together, after the things I chose to say to her... 
 
-    I have been neglecting this fact for too long... 
+    I can't choose to do this for both of us. 
 
     I have to... 
     
@@ -754,7 +760,7 @@ label toRealityEnding:
 
     In front of me, Stella mouths something.
 
-    ''I love you''
+    \"I love you.\"
     """
 
     jump realityEnding
@@ -868,6 +874,9 @@ label find:
         jump find
 
 label found:
+
+    scene white
+    with dissolve
     a """
     I remember now... Stella, my one and only friend. My first love.
 
@@ -1581,3 +1590,4 @@ screen option_afterwaking(ch, items):
                         spacing 20
                         align (0.5, 0.5)
                         text i.caption
+
