@@ -125,6 +125,8 @@ label gettingReadyForPotion:
     jump pomegranatePotion
 
 label pomegranatePotion:
+    scene black
+    with dissolve
     scene bcevent1
     with fade
     """
@@ -291,8 +293,8 @@ label dontDrinkThePotion:
     "Leaves fall down from the treetops and swirl like strange musical notes falling off the staff. The foliage dances a strange waltz mid air."
     "I look around, unsure of what caused this interruption. Nothing like this ever happens in this peaceful, quiet world that Stella and I live in. It's unnerving, and I feel myself getting cold and clammy."
     "I turn to Stella, wanting to see her reaction to this strange event... but she just stands there, smiling."
-    "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. 
-    The same smile that she would give me as kids when we had a good round of Spell Duel."
+    "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. "
+    "...The same smile that she would give me as kids when we had a good round of Spell Duel."
     "Her reaction confuses me, it's as if she's completely unfazed by the sudden change in our environment."
     "But before I can say anything else, she is already walking away, her wild silver waves bouncing slightly behind her."
     "The wind has stopped."
@@ -305,6 +307,8 @@ label dontDrinkThePotion:
     #a "On second thought, maybe I will take a sip! You'll feel sorry when I become invisible or start to grow extra limbs."
 
 label roseGarden:
+    scene black
+    with dissolve
     scene bcevent2
     with fade
     #start of rose garden/ event 2
@@ -430,7 +434,7 @@ label takeRedRose:
     $ realitypoints += 1
     #JKLFDLJDSF
     "My vision blurs, a throbbing headache appears. I can't think."
-    a "{glitch=5}\"I want to- ... -this red rose here.\"{/glitch}"
+    a "{glitch=5}\"I know this might not be the right timing, but I want to- ... -this red rose here.\"{/glitch}"
     "I don't feel my mouth move, but words come out. With my fists I attempt to rub out whatever has overtaken my vision."
     "When I open my eyes I see Stella staring back at me, a dumbfounded expression on her delicate face."
     s "What did you just say?"
@@ -469,6 +473,8 @@ label takeRedRose:
     jump event3
 
 label event3:
+    scene black
+    with dissolve
     scene bcevent3
     with fade
     "..."
@@ -584,7 +590,7 @@ label event3Part2:
     menu ("", screen = "option"):
         "What do you mean you \"have\"to do this?":
             a "What did you mean by you \"have\" to do this?"
-            a "You \"have\" to leave me? You 'have' to leave me alone? What kind of sick tragedy have you been planning in your head?" #emphasis on putting this off
+            a "You \"have\" to leave me? You \"have\" to leave me alone? What kind of sick tragedy have you been planning in your head?" #emphasis on putting this off
             if realitypoints >= 1:
                 #look around. do u not see how strange and twisted this world is
                 s """
@@ -768,6 +774,8 @@ label toRealityEnding:
     
 
 label fantasyEnding:
+    scene black
+    with dissolve
     scene bcend1
     with fade 
     """
@@ -840,16 +848,23 @@ label find:
 
             A funeral rose...?
             """
+
+            a "{glitch=5}\"I know this might not be the right timing, but I want to put this red rose here with her… \"{/glitch}"
+        
             $ x[1] = 1
             
         "A poem":
             a """
             A poem from an author called Dylan Thomas.
 
-            The title reads... \"Do not go gentle into that good night\".
-
             Stella loves this poem.
+
+            The title reads... 
+
             """
+
+            a "{glitch=5} \"Do not go gentle into that good night...\"{/glitch}"
+
             $ x[2] = 1
         
         "Old Card Deck":
@@ -862,7 +877,7 @@ label find:
 
             ...
 
-            \"Spell Duel\"...
+            {glitch=5}\"Spell Duel\"...{/glitch}
 
             ...
             """
@@ -886,16 +901,21 @@ label found:
 
     I've always loved her. Even back then. Although that love bloomed into something new as we got older.
 
-    Then, that one night... she didn't come back. She went gently into that good night.
+    Then, that one night... she didn't come back.""" 
 
-    The funeral...
+    "The funeral... "
+    #scene
 
-    The day I had to sort out her things...
+    "The day I had to sort out her things..."
+    a "{glitch=5} \"Stella... \"{/glitch}"
+    #scene 
 
-    And all the fun memories I had with her even before that fateful night...
-
-    Everything comes flooding back to me in a heartwrenching wave.
-    """
+    "And all the fun memories I had with her even before that fateful night..."
+    a "{glitch=5}\" You made this? Nah nah nah, I'm not eating or drinking anything Miss-Worst-Cook makes.\"{/glitch}"
+    #scene
+    
+    "Everything comes flooding back to me in a heartwrenching wave."
+    
     "Before I know it, there she is. Standing in front of me as some kind of ghostly apparition."
 
     s "Hi, Aurora. It's been way too long since you've been back."
@@ -989,13 +1009,15 @@ label endCredits:
     scene spellduel
     with dissolve
 
-    "Proof of Concept" 
+    "Proof of Concept: Spell Duel" 
 
     "Made by Diane, Kenneth and Leo"
 
     "Thank you for playing. "
     return
     #jump main_menu
+
+
 
 #########################
 label oldThing:
@@ -1377,7 +1399,7 @@ label event2:
         have for me!"
         menu:
             "I respect you":
-                $ fantasypoints += 1
+                #$ fantasypoints += 1
                 a "Oh, beautiful Stella, I have so much respect for you. You have made me see the error of my ways."
                 a "You're right, white roses are much better."
                 #show stella happy
