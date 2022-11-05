@@ -13,6 +13,7 @@ define canchoosefantasy = 0
 
 
 label start:
+  
     scene bcstart
     show aurora_test
     #menu:
@@ -227,15 +228,15 @@ label pomegranatePotion:
     menu ("", screen = "option_major"):
         "Should I drink Stella's underworld potion?"
         "Drink the potion":
-            
+            play sound "audio/fantasychoice.wav"
             jump drinkThePotion
             
         "{glitch=5}\"Miss-Worst-Cook\"{/glitch}":
-            
+            play sound "audio/realitychoice.wav"
             jump dontDrinkThePotion
 
 label drinkThePotion:
-    
+    #play sound "audio/fantasychoice.wav"
     #start drinking potion
     $ fantasypoints += 1
     """
@@ -280,6 +281,7 @@ label drinkThePotion:
     jump roseGarden
 
 label dontDrinkThePotion:
+    #play sound "audio/realitychoice.wav"
     #start of not drinking the potion
     $ realitypoints += 1
     a "{glitch=5}\"I'm not eating or drinking anything Miss-Worst-Cook makes.\"{/glitch}"
@@ -407,8 +409,10 @@ label roseGarden:
     menu ("", screen = "option_major"):
         "Which of the roses should I take from Stella's hands?"
         "Take the white rose":
+            play sound "audio/fantasychoice.wav"
             jump takeWhiteRose
         "{glitch=5}I want to- ... -this ... red rose here{/glitch}":
+            play sound "audio/realitychoice.wav"
             jump takeRedRose
 
 label takeWhiteRose:
@@ -521,7 +525,7 @@ label firstMenu :
             #"I can't let her leave like this."
             jump firstMenu
         "{glitch=5}Do not go gentle into that good night{/glitch}": #only available with 1 reality point
-
+            play sound "audio/realitychoice.wav"
             "Softly, to myself, I speak the opening line to a poem that I somehow know."
             "{glitch=5} \"Do not go gentle into that good night. \"{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
@@ -536,6 +540,7 @@ label firstMenu :
 label secondMenu:
     menu ("", screen = "option_onlyfantasy"): 
         "Run after her":
+            play sound "audio/fantasychoice.wav"
             "I can't let her leave like this."
             $ canchoosefantasy += 1
             jump event3Part2
@@ -545,11 +550,13 @@ label secondMenu:
 label thirdMenu: 
     menu ("", screen = "option_major"): 
         "Run after her":
+            play sound "audio/fantasychoice.wav"
             "I can't let her leave like this."
             $ canchoosefantasy += 1
             #can choose fantasy == true
             jump event3Part2
         "{glitch=5}\"Do not go gentle into that good night\"{/glitch}": #only available with 1 reality point
+            play sound "audio/realitychoice.wav"
             "Softly, to myself, I speak the opening line to a poem that I somehow know."
             "‘’{glitch=5} Do not go gentle into that good night.‘’{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
@@ -701,6 +708,8 @@ label toFantasyEnding:
 
     After this day we spent together, after the things I chose to say to her... 
 
+    After all these years. 
+
     I can't leave her like this.  
 
     I have to... 
@@ -778,6 +787,7 @@ label fantasyEnding:
     with dissolve
     scene bcend1
     with fade 
+    play sound "audio/fantasyending.wav"
     """
     Stella sniffles, deep pools of tears flooding her silver eyes.
 
