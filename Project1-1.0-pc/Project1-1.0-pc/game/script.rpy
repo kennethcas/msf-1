@@ -14,7 +14,14 @@ define canchoosefantasy = 0
 
 label start:
   
+    scene white
+    with fade
+    play music "audio/memory.wav" fadein 1.0 fadeout 1.0 
+    "*dreaming*"
     scene bcstart
+    with fade
+    stop sound
+    play music "audio/datingsim.wav" fadeout 1.0 
     show aurora_test
     #menu:
         #"play the first version of this game":
@@ -225,19 +232,23 @@ label pomegranatePotion:
     "It's like I can see galaxies swirling in her eyes, silver clouds spinning in a vast universe of secrets. Her cheeks are flushed, though hardly noticeable under her dark skin."
     "Even after all these years, her emotions can be so difficult to understand."
 
+    stop music
+    play sound "audio/majorchoice.wav" fadeout 1.0
+
     menu ("", screen = "option_major"):
         "Should I drink Stella's underworld potion?"
         "Drink the potion":
-            play sound "audio/fantasychoice.wav"
+            
             jump drinkThePotion
             
         "{glitch=5}\"Miss-Worst-Cook\"{/glitch}":
-            play sound "audio/realitychoice.wav"
+            
             jump dontDrinkThePotion
 
 label drinkThePotion:
-    #play sound "audio/fantasychoice.wav"
-    #start drinking potion
+    
+    play music "audio/datingsim3.wav" fadein 1.0 fadeout 1.0
+
     $ fantasypoints += 1
     """
     Without another second to delay, I snatch up the bottle from her hand and start chugging away.
@@ -281,8 +292,8 @@ label drinkThePotion:
     jump roseGarden
 
 label dontDrinkThePotion:
-    #play sound "audio/realitychoice.wav"
-    #start of not drinking the potion
+    stop sound
+    play music "audio/cognitiveerror.wav" fadein 1.0 fadeout 1.0
     $ realitypoints += 1
     a "{glitch=5}\"I'm not eating or drinking anything Miss-Worst-Cook makes.\"{/glitch}"
     s "..."
@@ -313,6 +324,7 @@ label roseGarden:
     with dissolve
     scene bcevent2
     with fade
+    play music "audio/datingsim2.wav" fadeout 1.0 fadein 1.0
     #start of rose garden/ event 2
     #INCLUDE TRANSITION FROM EVENT 1 TO EVENT 2
     """
@@ -405,17 +417,21 @@ label roseGarden:
 
     But there's no time to worry about myself and my racing thoughts, right now all that matters is Stella.
     """
+    stop music
+    play sound "audio/majorchoice.wav" fadeout 1.0
 
     menu ("", screen = "option_major"):
         "Which of the roses should I take from Stella's hands?"
         "Take the white rose":
-            play sound "audio/fantasychoice.wav"
+            
             jump takeWhiteRose
         "{glitch=5}I want to- ... -this ... red rose here{/glitch}":
-            play sound "audio/realitychoice.wav"
+            
             jump takeRedRose
 
 label takeWhiteRose:
+    play music "audio/datingsim3.wav" fadein 1.0 fadeout 1.0
+
     $ fantasypoints += 1
     "I wrap my fingers around hers, taking the white rose in my hand."
     a "What kind of question is that? Of course I'd pick the white rose. The one that reminds me the most of you."
@@ -435,6 +451,8 @@ label takeWhiteRose:
     jump event3
 
 label takeRedRose:
+    stop sound
+    play music "audio/cognitiveerror.wav" fadein 1.0 fadeout 1.0
     $ realitypoints += 1
     #JKLFDLJDSF
     "My vision blurs, a throbbing headache appears. I can't think."
@@ -481,6 +499,9 @@ label event3:
     with dissolve
     scene bcevent3
     with fade
+    play music "audio/datingsim4.wav" fadein 1.0 fadeout 1.0
+    
+
     "..."
     "I don't know how long I slept, but the window displays the somber darkness outside. It must\'ve been a considerate amount."
     "Today's events completely exhausted me."
@@ -491,6 +512,9 @@ label event3:
     s "You're awake. I have something to tell you."
     "She closes the book and leaves it on the windowsill."
     s "I... have to leave now."
+
+    
+
     menu ("", screen = "option"):
         "Where are you going?":
             a "Where are you going?"
@@ -512,6 +536,9 @@ label event3:
     "She continues staring into the starry night, and I can spot moisture on her cheek."
     s "Goodbye."
     "Without another word she rushes out the door, her long skirt swaying behind her."
+    stop music
+    play sound "audio/majorchoice.wav" fadeout 1.0
+    
     if realitypoints == 2:
         jump firstMenu
     elif fantasypoints == 2:
@@ -519,13 +546,15 @@ label event3:
     else:
         jump thirdMenu
 
+
 label firstMenu :
     menu ("", screen = "option_onlyreality"): 
         "Run after her":
             #"I can't let her leave like this."
             jump firstMenu
         "{glitch=5}Do not go gentle into that good night{/glitch}": #only available with 1 reality point
-            play sound "audio/realitychoice.wav"
+            stop sound
+            play music "audio/cognitiveerror.wav" fadein 1.0 fadeout 1.0
             "Softly, to myself, I speak the opening line to a poem that I somehow know."
             "{glitch=5} \"Do not go gentle into that good night. \"{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
@@ -540,7 +569,8 @@ label firstMenu :
 label secondMenu:
     menu ("", screen = "option_onlyfantasy"): 
         "Run after her":
-            play sound "audio/fantasychoice.wav"
+            stop sound
+            play music "audio/shelovesyoulower.wav" fadein 1.0 fadeout 1.0
             "I can't let her leave like this."
             $ canchoosefantasy += 1
             jump event3Part2
@@ -549,14 +579,17 @@ label secondMenu:
 
 label thirdMenu: 
     menu ("", screen = "option_major"): 
+        
         "Run after her":
-            play sound "audio/fantasychoice.wav"
+            stop sound
+            play music "audio/shelovesyoulower.wav" fadein 1.0 fadeout 1.0
             "I can't let her leave like this."
             $ canchoosefantasy += 1
             #can choose fantasy == true
             jump event3Part2
         "{glitch=5}\"Do not go gentle into that good night\"{/glitch}": #only available with 1 reality point
-            play sound "audio/realitychoice.wav"
+            stop sound
+            play music "audio/cognitiveerror.wav" fadein 1.0 fadeout 1.0
             "Softly, to myself, I speak the opening line to a poem that I somehow know."
             "‘’{glitch=5} Do not go gentle into that good night.‘’{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
@@ -586,6 +619,7 @@ label thirdMenu:
           #  jump realityEnding
 
 label event3Part2:
+    
     "Panicking, I pick up the candle that's burning on the windowsill and run out after her."
     "..."
     "She's always been fast and elusive. I sprint after her as best as I can, but it takes me a while before I reach out for her shoulder and force her to stop running."
@@ -595,7 +629,7 @@ label event3Part2:
     "Poor Stella, usually so cool and collected, now a sobbing mess. All the emotions she has repressed all this time force their way out and seep from her face."
 
     menu ("", screen = "option"):
-        "What do you mean you \"have\"to do this?":
+        "What do you mean you \"have\" to do this?":
             a "What did you mean by you \"have\" to do this?"
             a "You \"have\" to leave me? You \"have\" to leave me alone? What kind of sick tragedy have you been planning in your head?" #emphasis on putting this off
             if realitypoints >= 1:
@@ -645,6 +679,8 @@ label event3Part2:
     jump lastchoice
 
     label lastchoice: 
+        #stop music
+        #play sound "audio/majorchoice.wav"
         menu ("", screen = "option_branching"):
             "Stella isn't coming back after she walks into that woods."
             "I'm coming with you": #ONLY AVAILABLE WITH AT LEAST 1 FANTASY POINT
@@ -657,6 +693,9 @@ label event3Part2:
 
             "I love you enough to let you go": #ONLY AVAILABLE WITH 1 REALITY POINT AT LEAST
                 if canchoosereality == 1:
+                    
+                    play music "audio/menumusic.wav" fadein 1.0 fadeout 1.0
+
                     "Ugly sobs erupt from my mouth."
                 
                     a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
@@ -701,14 +740,16 @@ label event3Part2:
                     jump toFantasyEnding
             
 label toFantasyEnding:
+    play music "audio/shelovesyoulower.wav" fadein 1.0 fadeout 1.0
+
     """
     No. 
     
     This is wrong.
 
-    After this day we spent together, after the things I chose to say to her... 
+    After this day we spent together, after all the things I chose to say to her... After all these years. 
 
-    After all these years. 
+    I have already too far gone. 
 
     I can't leave her like this.  
 
@@ -717,6 +758,8 @@ label toFantasyEnding:
     I have to go after her. 
 
     """
+
+    a "I'm coming with you. "
 
     "Ugly sobs erupt from my mouth."
 
@@ -739,8 +782,12 @@ label toRealityEnding:
     Let her go. 
     """
 
+    a "I... I love you enough to let you go. "
+
+    play music "audio/menumusic.wav" fadein 1.0 fadeout 1.0
+    
     "Ugly sobs erupt from my mouth."
-                
+    
     a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
     "The leaves gently rustle, providing a soothing accompaniment."
     s """
@@ -787,7 +834,8 @@ label fantasyEnding:
     with dissolve
     scene bcend1
     with fade 
-    play sound "audio/fantasyending.wav"
+    stop music
+    play sound "audio/fantasyending.wav" fadein 1.0 fadeout 1.0
     """
     Stella sniffles, deep pools of tears flooding her silver eyes.
 
@@ -805,12 +853,19 @@ label fantasyEnding:
     "A headache flushes over me, and somehwere in the distance a distorted flute plays. The wind starts to act up, shaking the tree leaves violently."
     "But none of that matters now. It will all be over soon."
     a "Lead the way."
-    jump endCredits
+
+    scene black
+    with dissolve
+    "Good Ending"
+    "Together Ever After"
+
+    jump endCredits2
 
 
 
 
 label realityEnding:
+    play music "audio/birds.mp3" fadeout 1.0 fadeout 1.0
     scene white
     with dissolve
     ". . . . . "
@@ -839,6 +894,7 @@ label find:
     menu ("", screen = "option_afterwaking"):
         "There's something over there..."
         "Garnet earrings":
+            
             a """
             A pair of earrings with inlaid garnet stones. The dark red color looks almost black.
 
@@ -846,6 +902,13 @@ label find:
 
             These are...
             """
+
+            play sound "audio/realitychoice.wav" fadeout 1.0
+            #scene cutscene 
+            scene white 
+            with dissolve
+
+            a "{glitch=5} \"Stella...\"{/glitch}"
             $ x[0] = 1
 
         "A notebook":
@@ -857,8 +920,12 @@ label find:
             The fragrance of the rose has almost worn off.
 
             A funeral rose...?
-            """
 
+            """
+            play sound "audio/realitychoice.wav" fadeout 1.0
+            scene white 
+            with dissolve
+            #scene cutscene 
             a "{glitch=5}\"I know this might not be the right timing, but I want to put this red rose here with her… \"{/glitch}"
         
             $ x[1] = 1
@@ -872,6 +939,10 @@ label find:
             The title reads... 
 
             """
+            play sound "audio/realitychoice.wav" fadeout 1.0
+            scene white 
+            with dissolve
+            #scene cutscene 
 
             a "{glitch=5} \"Do not go gentle into that good night...\"{/glitch}"
 
@@ -887,10 +958,15 @@ label find:
 
             ...
 
-            {glitch=5}\"Spell Duel\"...{/glitch}
-
-            ...
             """
+            play sound "audio/realitychoice.wav" fadeout 1.0
+            #scene cutscene 
+            scene white 
+            with dissolve
+            a "{glitch=5}\"Spell Duel\"...{/glitch}"
+
+           
+
             $ x[3] = 1
         
     if x[0] == 1 and x[1] == 1 and x[2] == 1 and x[3] == 1:
@@ -902,6 +978,9 @@ label found:
 
     scene white
     with dissolve
+
+    play music "audio/shelovesyou.wav" fadein 1.0 fadeout 1.0
+    
     a """
     I remember now... Stella, my one and only friend. My first love.
 
@@ -925,7 +1004,13 @@ label found:
     #scene
     
     "Everything comes flooding back to me in a heartwrenching wave."
-    
+
+
+    scene white
+    with dissolve
+
+    play music "audio/realityending.wav" fadein 1.0 fadeout 1.0
+
     "Before I know it, there she is. Standing in front of me as some kind of ghostly apparition."
 
     s "Hi, Aurora. It's been way too long since you've been back."
@@ -1007,15 +1092,38 @@ label found:
 
     s "I love you too."
 
-    "True Ending: Venture On"
-
-    jump endCredits
+    ""
 
 
-label endCredits:
+
+    scene black
+    with dissolve
+
+    "True Ending"
+    
+    "Venture On"
+
+    jump endCredits1
+
+
+label endCredits1:
     scene white 
     with dissolve
-    "The end."
+    play music "audio/memory.wav" fadein 1.0 fadeout 1.0
+    scene spellduel
+    with dissolve
+
+    "Proof of Concept: Spell Duel" 
+
+    "Made by Diane, Kenneth and Leo"
+
+    "Thank you for playing. "
+    return
+
+
+label endCredits2:
+    scene white 
+    with dissolve
     scene spellduel
     with dissolve
 
