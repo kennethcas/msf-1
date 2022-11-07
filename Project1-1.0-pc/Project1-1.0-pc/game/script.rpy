@@ -995,14 +995,14 @@ label found:
     Then, that one night... she didn't come back.""" 
 
     "The funeral... "
-    #scene cutscene
+    #scene cutscene：open casket
 
     "The day I had to sort out her things..."
     a "{glitch=5} \"Do not go gentle... \"{/glitch}"
-    #scene cutscene 
+    #scene cutscene: stella sorting aurora's things
 
     "And all the fun memories I had with her even before that fateful night..."
-    #scene cutscene
+    #scene cutscene: Stella feeding Aurora cookie
     s "I made this by myself! This time it's going to be good, trust me."
     a "\" You made this? Nah nah nah, I'm not eating or drinking anything {glitch=5} Miss-Worst-Cook {/glitch} makes.\""
     
@@ -1090,7 +1090,7 @@ label found:
 
     I'm always with you. In your heart, in your memories. In the worlds you dream about. In those silly pretend games we used to play.
     """
-
+    #scene cutscene: stella and aurora hugging
     "Through tears, I barely manage to choke out my words-"
 
     a "I love you."
