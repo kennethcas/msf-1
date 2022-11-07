@@ -23,7 +23,9 @@ label start:
     #with fade
     a "In your dreams!"
     scene white
-    with fade
+    with dissolve
+    "\"Hahahaha...\""
+    "\"That was a good round.\""
     scene bcstart
     with fade
     play music "audio/datingsim.wav" fadein 1.0 fadeout 1.0 
@@ -137,6 +139,7 @@ label pomegranatePotion:
     with dissolve
     scene bcevent1
     with fade
+    play music "audio/datingsim2.wav" fadein 1.0 fadeout 1.0 
     """
     We walk on the small dirt path through the woods that surrounds our humble cabin,
     making light conversation and laughing like normal.
@@ -331,11 +334,29 @@ label roseGarden:
     We walk back to the cabin toward the rose garden that Stella has grown and tended to for years.
 
     Neither of us speak of what happened in the forest. She hasn't looked back at me.
+    """
 
-    The silence is bearable. It's a small walk and we reach the garden in no time. I'm just happy to be by her side.
+    if fantasypoints >= 1:
+        """
+        
+        From where I am standing, I can see her ear burning red... 
+        
+        Oh, Stella, and her cute shyness. 
+        """
+    elif fantasypoints == 0:
+        """
+        I really want to talk about that strange gust of wind, but Stella seems caught up in her own thoughts.
+
+        I guess I can only wait until she decides to talk again. 
+        """
+
+    """
+    It's a good thing that there's only a small walk before we reach the garden in no time. 
 
     The sunlight reflects off of the pure-white roses and hits me in the eye. Without realizing it, a single tear streams down my face.
     """
+
+
     s "What's wrong? Is the state of my garden that bad?" #shes smiling
     "I wipe away the tear and laugh. The usual Stella is back."
     a "It's nothing. It's probably just the pollen."
@@ -383,7 +404,7 @@ label roseGarden:
     "Stella brings her face away from her hands and chuckles fondly at the memory."
     s "Yup, you really wanted to be right back then."
     a "I take back what I said back then, white roses are definetely prettier. They look better on you."
-    s "Stoppp all you do is tease me. It's like you enjoy seeing me embarassed."
+    s "Stoppp！All you do is tease me. It's like you enjoy seeing me embarassed."
     "Her smile is much brighter than it was just a few moments before as she pushes me on the shoulder gently."
     a """
     Not only that, but white roses are more elegant, more delicate, harder to care for.
@@ -462,20 +483,20 @@ label takeRedRose:
     s "What did you just say?"
     "Wait... was that voice me? Did I say that? I don't know what came over me, or why my head still throbs."
     "Stella's expression softens. She gives me an understanding smile."
-    if realitypoints >= 1:
+    if realitypoints > 1:
         #CHOSE REALITY OPTION BEFORE
-        "She is smiling warmly again. That familiar, comforting smile."
+        "It's that warm smile again. That familiar, comforting smile."
         "Neither of us say anything more."
         "That same tune that appeared in the forest appears again, the strange wind moving away the clouds from the sky."
         "The harsh light from the sky reflects off of the white roses, blinding me again."
         "The light gets brighter and brighter. I instinctively cover my eyes with my hand. I tear up again, the headache worsening, throbbing even worse than before."
         "The landscape around us seems to distort. The strange song emerges from the previously meek wind as it pushes the clouds away, casting a bright light onto the white rose petals."
         "The harsh light blinds me again and I instincively bring up my hands to shield my eyes. I tear up again. The headache worsens."
-        "The landscape around me seems to distort: rose stems growing and thinning, curling around each other, cutting each other with their thorns."
+        "Rose stems growing and thinning, curling around each other, cutting each other with their thorns."
         "I'm overwhelmed, afraid. Was this all triggered by a single red rose? What does this have to do with the previous event in the forest?"
         "Through blurry and wavering eyes I look at Stella, who has already turned and started walking toward the cabin."
-        "She turns her head over her shoulder, silver hair swaying gently, and smiles at me."
-    elif realitypoints== 0:
+        "She turns her head over her shoulder, silver hair swaying gently."
+    elif realitypoints== 1:
         #FIRST TIME CHOOSING REALITY OPTION
         "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. "
         "The same smile that she would give me as kids after a good round of Spell Duel."
@@ -487,10 +508,12 @@ label takeRedRose:
         "I hear sounds and see things I've never experienced before in Stella and I's quiet world."
         "I'm overwhelmed, afraid. Was this all triggered by a single red rose?"
         "Through blurry and wavering eyes I look at Stella, who has already turned and started walking toward the cabin."
-        "She turns her head over her shoulder, silver hair swaying gently, and smiles at me."
+        "She turns her head over her shoulder, silver hair swaying gently."
 
     "Did I make her upset? Should I have chosen the white rose instead? What triggers her strange behavior?"
-    "There are too many feelings... too many questions. The wind has gone and the distortion has ceased: reverting back to the world I'm used to"
+    "There are too many feelings... too many questions. "
+    "But one thing I know for sure. Stella would not do anything to harm me."
+    "The wind has gone and the distortion has ceased: reverting back to the world I'm used to. "
     "I go back inside after Stella, deciding to lie down for a while."
     jump event3
 
@@ -550,7 +573,7 @@ label event3:
 label firstMenu :
     menu ("", screen = "option_onlyreality"): 
         "Run after her":
-            #"I can't let her leave like this."
+            #"I can't let her leave like this."T
             jump firstMenu
         "{glitch=5}Do not go gentle into that good night{/glitch}": #only available with 1 reality point
             stop sound
@@ -559,8 +582,10 @@ label firstMenu :
             "{glitch=5} \"Do not go gentle into that good night. \"{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
             "She's getting further and further away."
-            "She's gone. I'm unsure if she's coming back, but she seemed so certain."
-            "We've been putting it off for too long."
+            "The candle in her hand flickers in the night wind. It is so dim compared to the endless night surrounding her. "
+            "I'm unsure if she's coming back, but she seemed so certain."
+            "An ominous feeling rises in my heart... She... could be gone forever. "
+            "Why am I still here? What am I doing? "
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
             $ canchoosereality += 1
@@ -594,8 +619,10 @@ label thirdMenu:
             "‘’{glitch=5} Do not go gentle into that good night.‘’{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
             "She's getting further and further away."
-            "She's gone. I'm unsure if she's coming back, but she seemed so certain."
-            "We've been putting it off for too long."
+            "The candle in her hand flickers in the night wind. It is so dim compared to the endless night surrounding her. "
+            "I'm unsure if she's coming back, but she seemed so certain."
+            "An ominous feeling rises in my heart... She... could be gone forever. "
+            "Why am I still here? What am I doing? "
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
             $ canchoosereality += 1
@@ -740,22 +767,25 @@ label event3Part2:
                     jump toFantasyEnding
             
 label toFantasyEnding:
-    play music "audio/shelovesyoulower.wav" fadein 1.0 fadeout 1.0
 
     """
     No. 
     
     This is wrong.
 
-    After this day we spent together, after all the things I chose to say to her... After all these years. 
+    After this day we spent together, after all the things I said to her today... 
 
-    I have already too far gone. 
+    Even if clinging to her is wrong, I am already too far gone. 
 
-    I can't leave her like this.  
+    I can't back out now. I can't leave Stella like this. 
+
+    Alone, in the night... She would be so, so lonely. 
+    
+    Just like me without her. 
 
     I have to... 
     
-    I have to go after her. 
+    I have to go with her. 
 
     """
 
@@ -771,9 +801,11 @@ label toRealityEnding:
     
     There is something wrong with... what I am doing.
 
-    After this day we spent together, after the things I chose to say to her... 
+    After this day we spent together, after all the strange words that popped out of my mouth... 
+    
+    I can't lie to myself. Deep down I know. 
 
-    I can't choose to do this for both of us. 
+    I have to do this for both of us. 
 
     I have to... 
     
@@ -789,7 +821,9 @@ label toRealityEnding:
     "Ugly sobs erupt from my mouth."
     
     a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
+
     "The leaves gently rustle, providing a soothing accompaniment."
+
     s """
     I love you, Aurora.
 
@@ -835,7 +869,7 @@ label fantasyEnding:
     scene bcend1
     with fade 
     stop music
-    play sound "audio/fantasyending.wav" fadein 1.0 fadeout 1.0
+    play sound "audio/fantasyending.mp3" fadein 1.0 fadeout 1.0
     """
     Stella sniffles, deep pools of tears flooding her silver eyes.
 
@@ -959,10 +993,7 @@ label find:
 
             """
             play sound "audio/realitychoice.wav" fadeout 1.0
-            #scene cutscene: dual
-            scene white 
-            with dissolve
-            a "{glitch=5}\"Spell Duel\"...{/glitch}"
+            #scene cutscene: spell duel
             scene white 
             with dissolve
             a "{glitch=5}\"Spell Duel\"...{/glitch}"
@@ -995,16 +1026,17 @@ label found:
     Then, that one night... she didn't come back.""" 
 
     "The funeral... "
+    a "{glitch=5} \"... \"{/glitch}"
     #scene cutscene：open casket
 
     "The day I had to sort out her things..."
-    a "{glitch=5} \"Do not go gentle... \"{/glitch}"
+    a "{glitch=5} \"Do not... go gentle... \"{/glitch}"
     #scene cutscene: stella sorting aurora's things
 
     "And all the fun memories I had with her even before that fateful night..."
     #scene cutscene: Stella feeding Aurora cookie
     s "I made this by myself! This time it's going to be good, trust me."
-    a "\" You made this? Nah nah nah, I'm not eating or drinking anything {glitch=5} Miss-Worst-Cook {/glitch} makes.\""
+    a "{glitch=5} \" You made this? Nah nah nah, I'm not eating or drinking anything Miss-Worst-Cook makes.\" {/glitch} "
     
 
     scene white
@@ -1014,9 +1046,11 @@ label found:
 
 
 
-    play music "audio/realityending.wav" fadein 1.0 fadeout 1.0
 
     "Before I know it, there she is. Standing in front of me as some kind of ghostly apparition."
+
+
+    play music "audio/lastgoodbyeslow.wav" fadein 1.0 fadeout 1.0
 
     s "Hi, Aurora. It's been way too long since you've been back."
     a "Stella? Is it you? The real you?"
@@ -1122,11 +1156,11 @@ label endCredits1:
 
     "By Diane, Kenneth and Leo"
 
-    "Diane: \n UI Design and Development, \n Origiinal Soundtrack, \n Narrative Concept Design, \n Scene Art. "
+    "Diane: \n UI Design and Development, Origiinal Soundtrack, \n Scene Art, Narrative Concept Design and Development. "
 
-    "Kenneth: \n Character Art, \n Character Design, \n Narrative Concept Design, \n Development."
+    "Kenneth: \n Character Art, Character Design, Narrative Concept Design and Development."
 
-    "Leo: \n Cutscene Art, \n Narrative Concept Design, \n and this guy is good at python. "
+    "Leo: \n Cutscene Art, Narrative Concept Design, and this guy is good at python. "
 
     "Thank you for playing. "
     return
@@ -1142,11 +1176,11 @@ label endCredits2:
 
     "By Diane, Kenneth and Leo"
 
-    "Diane: \n UI Design and Development, \n Origiinal Soundtrack, \n Narrative Concept Design, \n Scene Art. "
+    "Diane: \n UI Design and Development, Origiinal Soundtrack, \n Scene Art, Narrative Concept Design and Development. "
 
-    "Kenneth: \n Character Art, \n Character Design, \n Narrative Concept Design and Development."
+    "Kenneth: \n Character Art, Character Design, Narrative Concept Design and Development."
 
-    "Leo: \n Cutscene Art, \n Narrative Concept Design, \n and this guy is good at python."
+    "Leo: \n Cutscene Art, Narrative Concept Design, and this guy is good at python. "
 
     "Thank you for playing. "
     return
