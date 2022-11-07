@@ -13,14 +13,16 @@ define canchoosefantasy = 0
 
 
 label start:
-  
+    stop music
     scene white
-    #scene cutscene: stella casting spell
-    #with fade
-    play music "audio/duel.wav" fadein 1.0 fadeout 1.0 
+    with dissolve
+    scene spellduelstella
+    with dissolve
+    play sound "audio/duel.wav" fadein 1.0 fadeout 1.0 
+    #play music "audio/memory.wav" fadein 1.0 fadeout 1.0 
     s "You are going down! "
-    #scene cutscene: aurora casting spell
-    #with fade
+    scene spellduelaurora
+    with dissolve
     a "In your dreams!"
     scene white
     with dissolve
@@ -28,7 +30,7 @@ label start:
     "\"That was a good round.\""
     scene bcstart
     with fade
-    play music "audio/datingsim.wav" fadein 1.0 fadeout 1.0 
+    play music "audio/datingsim.wav" fadeout 1.0 
     show aurora_test
 
     """
@@ -585,7 +587,7 @@ label firstMenu :
             "The candle in her hand flickers in the night wind. It is so dim compared to the endless night surrounding her. "
             "I'm unsure if she's coming back, but she seemed so certain."
             "An ominous feeling rises in my heart... She... could be gone forever. "
-            "Why am I still here? What am I doing? "
+            "What am I doing? "
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
             $ canchoosereality += 1
@@ -622,7 +624,7 @@ label thirdMenu:
             "The candle in her hand flickers in the night wind. It is so dim compared to the endless night surrounding her. "
             "I'm unsure if she's coming back, but she seemed so certain."
             "An ominous feeling rises in my heart... She... could be gone forever. "
-            "Why am I still here? What am I doing? "
+            "What am I doing? "
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
             $ canchoosereality += 1
@@ -927,8 +929,8 @@ label find:
     scene bcend2
     menu ("", screen = "option_afterwaking"):
         "There's something over there..."
+
         "Garnet earrings":
-            
             a """
             A pair of earrings with inlaid garnet stones. The dark red color looks almost black.
 
@@ -938,11 +940,14 @@ label find:
             """
 
             play sound "audio/realitychoice.wav" fadeout 1.0
-            #scene cutscene: garnet earing on the ground 
             scene white 
             with dissolve
+            scene earring
+            with dissolve
 
-            a "{glitch=5} \"Stella...\"{/glitch}"
+            a "{glitch=5} \"Stella's..\"{/glitch}"
+            scene white 
+            with dissolve
             $ x[0] = 1
 
         "A notebook":
@@ -959,14 +964,16 @@ label find:
             play sound "audio/realitychoice.wav" fadeout 1.0
             scene white 
             with dissolve
-            #scene cutscene: aurora putting red rose at funeral
+            scene aurorarose
+            with dissolve
             a "{glitch=5}\"I know this might not be the right timing, but I want to put this red rose here with her… \"{/glitch}"
-        
+            scene white 
+            with dissolve
             $ x[1] = 1
             
-        "A poem":
+        "A poetry book":
             a """
-            A poem from an author called Dylan Thomas.
+            A poetry book from an author called Dylan Thomas.
 
             Stella loves this poem.
 
@@ -976,12 +983,14 @@ label find:
             play sound "audio/realitychoice.wav" fadeout 1.0
             scene white 
             with dissolve
-            #scene cutscene: Stella reading this book 
+            scene stellareads
+            with dissolve
             a "{glitch=5} \"Do not go gentle into that good night...\"{/glitch}"
-
+            scene white 
+            with dissolve
             $ x[2] = 1
         
-        "Old Card Deck":
+        "An old card deck":
             scene spellduel
             with fade
             a """
@@ -993,11 +1002,13 @@ label find:
 
             """
             play sound "audio/realitychoice.wav" fadeout 1.0
-            #scene cutscene: spell duel
             scene white 
             with dissolve
+            scene duel
+            with dissolve
             a "{glitch=5}\"Spell Duel\"...{/glitch}"
-
+            scene white 
+            with dissolve
            
 
             $ x[3] = 1
@@ -1012,10 +1023,12 @@ label found:
     scene white
     with dissolve
 
+    a "I..."
+
     play music "audio/shelovesyou.wav" fadein 1.0 fadeout 1.0
     
     a """
-    I remember now... Stella, my one and only friend. My first love.
+    I... remember now... Stella, my one and only friend. My first love.
 
     I didn't get to tell her how I felt back then.
 
@@ -1026,26 +1039,36 @@ label found:
     Then, that one night... she didn't come back.""" 
 
     "The funeral... "
-    a "{glitch=5} \"... \"{/glitch}"
-    #scene cutscene：open casket
+    scene white 
+    with dissolve
+    scene funeral
+    with dissolve
+    a "{glitch=5} \"Stella... \"{/glitch}"
+    scene white 
+    with dissolve
 
     "The day I had to sort out her things..."
-    a "{glitch=5} \"Do not... go gentle... \"{/glitch}"
-    #scene cutscene: stella sorting aurora's things
+    scene white 
+    with dissolve
+    scene box 
+    with dissolve
+    a "{glitch=5} \"Pomegranate seeds...\"{/glitch}"
+    scene white 
+    with dissolve
+
 
     "And all the fun memories I had with her even before that fateful night..."
-    #scene cutscene: Stella feeding Aurora cookie
-    s "I made this by myself! This time it's going to be good, trust me."
-    a "{glitch=5} \" You made this? Nah nah nah, I'm not eating or drinking anything Miss-Worst-Cook makes.\" {/glitch} "
-    
-
+    scene white 
+    with dissolve
+    scene cookie
+    with dissolve
+    s "I made this by myself! This time it's actually good, trust me."
+    a "{glitch=5} \"Nah nah nah, I'm not eating or drinking anything Miss-Worst-Cook makes. Not again! \" {/glitch} "
+    s "*stuffs it in your mouth anyway*"
     scene white
     with dissolve
 
     "Everything comes flooding back to me in a heartwrenching wave."
-
-
-
 
     "Before I know it, there she is. Standing in front of me as some kind of ghostly apparition."
 
@@ -1124,7 +1147,10 @@ label found:
 
     I'm always with you. In your heart, in your memories. In the worlds you dream about. In those silly pretend games we used to play.
     """
-    #scene cutscene: stella and aurora hugging
+    scene white 
+    with dissolve
+    scene hug
+    with dissolve
     "Through tears, I barely manage to choke out my words-"
 
     a "I love you."
@@ -1156,11 +1182,11 @@ label endCredits1:
 
     "By Diane, Kenneth and Leo"
 
-    "Diane: \n UI Design and Development, Origiinal Soundtrack, \n Scene Art, Narrative Concept Design and Development. "
+    "Diane: \n UI Design and Development, Original Soundtrack, \n Scene Art, Narrative Concept Design and Development. "
 
     "Kenneth: \n Character Art, Character Design, Narrative Concept Design and Development."
 
-    "Leo: \n Cutscene Art, Narrative Concept Design, and this guy is good at python. "
+    "Leo: \n Cutscene Art and Narrative Concept Design. "
 
     "Thank you for playing. "
     return
@@ -1176,11 +1202,11 @@ label endCredits2:
 
     "By Diane, Kenneth and Leo"
 
-    "Diane: \n UI Design and Development, Origiinal Soundtrack, \n Scene Art, Narrative Concept Design and Development. "
+    "Diane: \n UI Design and Development, Original Soundtrack, \n Scene Art, Narrative Concept Design and Development. "
 
     "Kenneth: \n Character Art, Character Design, Narrative Concept Design and Development."
 
-    "Leo: \n Cutscene Art, Narrative Concept Design, and this guy is good at python. "
+    "Leo: \n Cutscene Art, Narrative Concept Design. "
 
     "Thank you for playing. "
     return
