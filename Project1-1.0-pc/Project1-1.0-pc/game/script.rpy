@@ -15,19 +15,19 @@ define canchoosefantasy = 0
 label start:
   
     scene white
+    #scene cutscene: stella casting spell
+    #with fade
+    play music "audio/duel.wav" fadein 1.0 fadeout 1.0 
+    s "You are going down! "
+    #scene cutscene: aurora casting spell
+    #with fade
+    a "In your dreams!"
+    scene white
     with fade
-    play music "audio/memory.wav" fadein 1.0 fadeout 1.0 
-    "*dreaming*"
     scene bcstart
     with fade
-    stop sound
-    play music "audio/datingsim.wav" fadeout 1.0 
+    play music "audio/datingsim.wav" fadein 1.0 fadeout 1.0 
     show aurora_test
-    #menu:
-        #"play the first version of this game":
-       #     jump start2
-      #  "play the newest version of this game":
-     #       "going forward is the new version of the game"
 
     """
     I wake up from that familiar dream, fluttering my eyelashes as the speckles of 
@@ -904,7 +904,7 @@ label find:
             """
 
             play sound "audio/realitychoice.wav" fadeout 1.0
-            #scene cutscene 
+            #scene cutscene: garnet earing on the ground 
             scene white 
             with dissolve
 
@@ -925,7 +925,7 @@ label find:
             play sound "audio/realitychoice.wav" fadeout 1.0
             scene white 
             with dissolve
-            #scene cutscene 
+            #scene cutscene: aurora putting red rose at funeral
             a "{glitch=5}\"I know this might not be the right timing, but I want to put this red rose here with her… \"{/glitch}"
         
             $ x[1] = 1
@@ -942,8 +942,7 @@ label find:
             play sound "audio/realitychoice.wav" fadeout 1.0
             scene white 
             with dissolve
-            #scene cutscene 
-
+            #scene cutscene: Stella reading this book 
             a "{glitch=5} \"Do not go gentle into that good night...\"{/glitch}"
 
             $ x[2] = 1
@@ -960,7 +959,10 @@ label find:
 
             """
             play sound "audio/realitychoice.wav" fadeout 1.0
-            #scene cutscene 
+            #scene cutscene: dual
+            scene white 
+            with dissolve
+            a "{glitch=5}\"Spell Duel\"...{/glitch}"
             scene white 
             with dissolve
             a "{glitch=5}\"Spell Duel\"...{/glitch}"
@@ -993,21 +995,24 @@ label found:
     Then, that one night... she didn't come back.""" 
 
     "The funeral... "
-    #scene
+    #scene cutscene
 
     "The day I had to sort out her things..."
-    a "{glitch=5} \"Stella... \"{/glitch}"
-    #scene 
+    a "{glitch=5} \"Do not go gentle... \"{/glitch}"
+    #scene cutscene 
 
     "And all the fun memories I had with her even before that fateful night..."
-    a "{glitch=5}\" You made this? Nah nah nah, I'm not eating or drinking anything Miss-Worst-Cook makes.\"{/glitch}"
-    #scene
+    #scene cutscene
+    s "I made this by myself! This time it's going to be good, trust me."
+    a "\" You made this? Nah nah nah, I'm not eating or drinking anything {glitch=5} Miss-Worst-Cook {/glitch} makes.\""
     
-    "Everything comes flooding back to me in a heartwrenching wave."
-
 
     scene white
     with dissolve
+
+    "Everything comes flooding back to me in a heartwrenching wave."
+
+
 
     play music "audio/realityending.wav" fadein 1.0 fadeout 1.0
 
@@ -1115,7 +1120,13 @@ label endCredits1:
 
     "Proof of Concept: Spell Duel" 
 
-    "Made by Diane, Kenneth and Leo"
+    "By Diane, Kenneth and Leo"
+
+    "Diane: \n UI Design and Development, \n Origiinal Soundtrack, \n Narrative Concept Design, \n Scene Art. "
+
+    "Kenneth: \n Character Art, \n Character Design, \n Narrative Concept Design, \n Development."
+
+    "Leo: \n Cutscene Art, \n Narrative Concept Design, \n and this guy is good at python. "
 
     "Thank you for playing. "
     return
@@ -1129,7 +1140,13 @@ label endCredits2:
 
     "Proof of Concept: Spell Duel" 
 
-    "Made by Diane, Kenneth and Leo"
+    "By Diane, Kenneth and Leo"
+
+    "Diane: \n UI Design and Development, \n Origiinal Soundtrack, \n Narrative Concept Design, \n Scene Art. "
+
+    "Kenneth: \n Character Art, \n Character Design, \n Narrative Concept Design and Development."
+
+    "Leo: \n Cutscene Art, \n Narrative Concept Design, \n and this guy is good at python."
 
     "Thank you for playing. "
     return

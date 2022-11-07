@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 53: invalid syntax
-    "audio/menumusicfast.wav" fadeout 1.0
-                               ^
+File "game/script.rpy", line 969: end of line expected.
+    with dissolve:
+                 ^
+
+File "game/script.rpy", line 1126: expected statement.
+    1
+     ^
+
+File "game/script.rpy", line 1146: expected statement.
+    1
+     ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Nov  6 17:59:28 2022
+Sun Nov  6 22:15:49 2022
