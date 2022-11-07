@@ -30,6 +30,7 @@ label start:
     "\"That was a good round.\""
     scene bcstart
     with fade
+    stop sound
     play music "audio/datingsim.wav" fadeout 1.0 
     show aurora_test
 
@@ -1132,6 +1133,11 @@ label found:
             "All that time trying to win her over, when we were already each others'. Those moments when she acted cold and unsure, she just wanted to help me. She wanted me to look beyond our comfortable fantasy."
             
     
+    scene white 
+    with dissolve
+    scene hug
+    with dissolve
+    
     a """
     It's scary to live in a reality without you.
 
@@ -1147,10 +1153,7 @@ label found:
 
     I'm always with you. In your heart, in your memories. In the worlds you dream about. In those silly pretend games we used to play.
     """
-    scene white 
-    with dissolve
-    scene hug
-    with dissolve
+
     "Through tears, I barely manage to choke out my words-"
 
     a "I love you."
