@@ -32,7 +32,7 @@ label start:
     with fade
     stop sound
     play music "audio/datingsim.wav" fadeout 1.0 
-    show aurora_test
+    show stella neutral 1
 
     """
     I wake up from that familiar dream, fluttering my eyelashes as the speckles of 
@@ -72,7 +72,7 @@ label start:
     Every shelf is full of large spell books and every bottle is teeming with all kinds of colorful
     and strange liquids. 
 
-    Two witch hats hang on the wall.
+    My witch hat, the one with the sun-shaped pin on top, hangs on the wall.
 
     Stella stands by the door, putting garden pruners and some elixir bottles into her bag.
     """
