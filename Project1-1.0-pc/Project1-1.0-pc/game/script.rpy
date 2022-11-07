@@ -32,7 +32,6 @@ label start:
     with fade
     stop sound
     play music "audio/datingsim.wav" fadeout 1.0 
-    show stella neutral 1
 
     """
     I wake up from that familiar dream, fluttering my eyelashes as the speckles of 
@@ -41,6 +40,8 @@ label start:
     My eyes open and I look at a figure sitting on the ledge of the window, 
     sorting through books and pages and little knick-knacks.
     """
+    show stella neutral
+    with dissolve
     s "Finally you're awake. I was starting to get worried."
 
     "So she says, with an all-too-obviously sarcastic grin on her face."
@@ -49,7 +50,7 @@ label start:
     s """
     Spell Duel? That silly childhood game?
 
-    Why are you bringing this up all of a sudden. Did that nap mess with your cognitive function?
+    Why're you bringing this up all of a sudden? Did that nap mess with your cognitive function?
 
     Haha, you're still the same as when we were kids.
     """
@@ -63,7 +64,11 @@ label start:
     She comes closer and reaches out to playfully hit me on the shoulder.
 
     The small physical contact shocks me back into reality.
+    """
+    hide stella neutral
+    with dissolve
 
+    """
     I can hear the comforting bubbling, fizzling, and whistling of pots, potions, and cauldrons
     in the humble cabin. 
 
@@ -73,9 +78,10 @@ label start:
     and strange liquids. 
 
     My witch hat, the one with the sun-shaped pin on top, hangs on the wall.
-
-    Stella stands by the door, putting garden pruners and some elixir bottles into her bag.
     """
+    show stella neutral
+    with moveinright
+    "Stella stands by the door, putting garden pruners and some elixir bottles into her bag."
 
     a "Those bottles... are you going to collect the ingredients for that potion today?"
 
@@ -92,7 +98,7 @@ label start:
     menu ("", screen = "option"):
         "Let me come with you!":
             a "I want to go with you!"
-            s "Are you sure?" #SHOW HER SMIRKING
+            s "Are you sure?" 
             s "You seemed pretty tired earlier."
             a "I'm not! I want to go with you. Let's go!"
             jump gettingReadyForPotion
@@ -104,11 +110,15 @@ label start:
             s "You realize you can go out and do things without me, right? We're not kids anymore."
             "She gives me a symathetic smile"
             a "Its not I can't go out without you or anything... I just like spending time with you."
+            show stella flushed
+            with dissolve
             s "Haha, alright. Come on then!"
             jump gettingReadyForPotion
 
 label gettingReadyForPotion:
-    "I get up quickly and brush off my dress before rushing to Stella's side by the door." #SHES WEARING A DRESS,, MAKE SURE TO UPDATE
+    "I get up quickly and brush off my dress before rushing to Stella's side by the door."
+    show stella sad
+    with dissolve
 
     """
     Stella doesn't seem as enthusiastic as I would like her to be. Instead, she looks a little torn.
@@ -116,10 +126,16 @@ label gettingReadyForPotion:
     But that expression only lasts a few seconds before she looks at me and smiles.
     """
 
+    show stella neutral
+    with dissolve
     s "You really can't live without me can you, Aurora? You don't to follow me around all day like a pet."
-    """
-    She lightly taps my nose with the tip of her finger.
+    
+    "She lightly taps my nose with the tip of her finger."
 
+    show stella flushed
+    with dissolve
+
+    """
     She teases me, but I don't think she really understands the extent of my feelings for her.
 
     Perhaps today I can make those feelings clear to her.
@@ -132,7 +148,10 @@ label gettingReadyForPotion:
     and even though she can appear dismissive sometimes, she's usually just shy.
 
     Or perhaps there is some other reason why she's so anxious about our relationship.
-
+    """
+    hide stella flushed
+    with moveoutright
+    """
     We walk out the door.
     """
     jump pomegranatePotion
@@ -161,6 +180,8 @@ label pomegranatePotion:
 
     I stop my eyes from wandering around at the beautiful environment and focus my attention on Stella once more.
     """
+    show stella neutral
+    with dissolve
 
     a "So, what was this potion for again?"
     s "I don't know... that's what we're here to find out."
@@ -179,6 +200,8 @@ label pomegranatePotion:
     """
 
     a "That... is a really twisted love story."
+    show stella flushed
+    with dissolve
 
     s """
     Exactly! I want to find out more about this dark and powerful fruit.
@@ -213,10 +236,12 @@ label pomegranatePotion:
 
     The extract is mixed with a few other strange ingredients from Stella's bag and the liquid inside the glass bottle turns into a deep crimson color. It glistens in the sunlight like a rare jewel.
 
-    The way Stella holds it up makes the potion look beautiful and tempting, fleeting and temporary.
+    The way Stella holds it up makes the potion look beautiful and tempting. Fleeting and temporary.
     """
 
     a "Are you trying to trick me into drinking a potion that will also bind me to you forever?"
+    show stella sad
+    with dissolve
 
     "Stella's previously elated expression dims down just slightly, as if trying to hide something."
     
@@ -224,11 +249,15 @@ label pomegranatePotion:
 
     menu ("", screen = "option"):
         "...":
+            show stella flushed
+            with dissolve
             "Stella notices your concern and quickly shakes her dimmed expression off of her face. She laughs off the tension."
 
             s "Haha, of course you shouldn't want to spend eternity with me. Persephone also fell into that fate by accident, what sane person would make that kind of choice?"
              
         "What's wrong?":
+            show stella sad
+            with dissolve
             a "What's wrong?"
             "Stella looks away and pouts."
             s "Nothing! I guess you wouldn't want to spend eternity with me, and I wouldn't want to do that with you either!"
@@ -252,6 +281,11 @@ label pomegranatePotion:
             jump dontDrinkThePotion
 
 label drinkThePotion:
+    hide stella sad
+    with dissolve
+
+    hide stella flushed
+    with dissolve
     
     play music "audio/datingsim3.wav" fadein 1.0 fadeout 1.0
 
@@ -264,6 +298,8 @@ label drinkThePotion:
     I pull my lips away from the bottle, a burning sensation in my throat. The aftertaste is even more bitter, something I didn't even think was possible.
     """
     a "*COUGH* *COUGH* *COUGH*"
+    show stella sad
+    with dissolve
     s "Aurora! What's wrong with you! I didn't expect you to actually drink it!"
 
     """
@@ -282,14 +318,20 @@ label drinkThePotion:
             s "Why did you drink it! Anyone in their right mind wouldn't try something like that!"
             s "We're lucky it didn't actually do anything... what if you grew a tail or something?"
             a "Then it would've been worth it to aid you in your experiments."
-            s "Oh, be serious! You're still so childish." #show her smiling
+            show stella neutral
+            with fade
+            s "Be serious! You're still so childish." #show her smiling
 
         "Lie and say it tasted good":
             a "Yummm... this is definetely one of your better potions."
             s "Don't lie to me! You almost just choked to death!"
             a "Hahaha. I would drink it all over again just for you!"
+            show stella flushed
+            with fade
             s "Don't say things like that! It's embarassing..."
 
+    show stella flushed
+    with fade
     """
     Stella launches herself into my arms, trapping me in a tight embrace.
 
@@ -302,28 +344,28 @@ label dontDrinkThePotion:
     play music "audio/cognitiveerror.wav" fadein 1.0 fadeout 1.0
     $ realitypoints += 1
     a "{glitch=5}\"I'm not eating or drinking anything Miss-Worst-Cook makes.\"{/glitch}"
+    show stella sad
+    with fade
     s "..."
     "There is an unbearable silence for a few moments. Stella looks at me blankly, as if I have somehow stopped time and frozen her in this moment."
     "Why did I say that?"
     "Where did that come from?"
     a "Stella... I-"
+    hide stella
+    with fade
     "The usual soft whistles of the wind traveling through the trees' branches suddenly turns harsh and loud."
     "The strange winds create an almost omniscient resonation within the pomegranate trees. "
     "Leaves fall down from the treetops and swirl like strange musical notes falling off the staff. The foliage dances a strange waltz mid air."
     "I look around, unsure of what caused this interruption. Nothing like this ever happens in this peaceful, quiet world that Stella and I live in. It's unnerving, and I feel myself getting cold and clammy."
     "I turn to Stella, wanting to see her reaction to this strange event... but she just stands there, smiling."
+    show stella neutral
+    with dissolve
     "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. "
     "...The same smile that she would give me as kids when we had a good round of Spell Duel."
     "Her reaction confuses me, it's as if she's completely unfazed by the sudden change in our environment."
-    "But before I can say anything else, she is already walking away, her wild silver waves bouncing slightly behind her."
+    "But before I can say anything else, she is already walking away, her silver strands bouncing slightly behind her."
     "The wind has stopped."
     jump roseGarden
-
-    #a "No way! No matter how much I love you, I'm not drinking that..."
-    #a "I don't even know what it's supposed to do."
-    #s "I thought so! You've been a bit of a coward ever since we were kids. Haha"
-    #"Her concerning expression goes away, and she has immediately gone back to teasing me."
-    #a "On second thought, maybe I will take a sip! You'll feel sorry when I become invisible or start to grow extra limbs."
 
 label roseGarden:
     scene black
@@ -331,8 +373,9 @@ label roseGarden:
     scene bcevent2
     with fade
     play music "audio/datingsim2.wav" fadeout 1.0 fadein 1.0
-    #start of rose garden/ event 2
-    #INCLUDE TRANSITION FROM EVENT 1 TO EVENT 2
+
+
+
     """
     We walk back to the cabin toward the rose garden that Stella has grown and tended to for years.
 
@@ -340,13 +383,17 @@ label roseGarden:
     """
 
     if fantasypoints >= 1:
+        show stella flushed
+        with dissolve
         """
         
-        From where I am standing, I can see her ear burning red... 
+        From where I'm standing I can see her ears burning red... 
         
         Oh, Stella, and her cute shyness. 
         """
     elif fantasypoints == 0:
+        show stella sad
+        with dissolve
         """
         I really want to talk about that strange gust of wind, but Stella seems caught up in her own thoughts.
 
@@ -354,12 +401,13 @@ label roseGarden:
         """
 
     """
-    It's a good thing that there's only a small walk before we reach the garden in no time. 
+    It's a good thing that there's only a small walk before we reach the garden. 
 
     The sunlight reflects off of the pure-white roses and hits me in the eye. Without realizing it, a single tear streams down my face.
     """
 
-
+    show stella neutral
+    with fade
     s "What's wrong? Is the state of my garden that bad?" #shes smiling
     "I wipe away the tear and laugh. The usual Stella is back."
     a "It's nothing. It's probably just the pollen."
@@ -369,10 +417,16 @@ label roseGarden:
         "Grab the watering can":
             "I grab the nearby watering can and start watering the rose bushes without missing another beat."
             a "It's fine, see? I can still work."
+            show stella flushed
+            with fade
             s "Okay then, as long as you're useful." #smiling
+    hide stella
+    with moveinright
     "I keep watering the bushes, watching the clear dew form on top of the rose petals. The drops of water catch the light beautifully, absorbing the subtle tones of the sky."
     "Stella only grows red and white roses. She doesn't even grow any other flowers unless she needs something for a specific spell or potion. She likes to keep her garden simple, which I find ironic considering the complexity of her emotions."
     "While I water the roses, Stella mixes some of her potions in the soil. A while ago she figured out a way to make a potion that replaces fertilizer."
+    show stella neutral
+    with fade
     "I watch as she takes a loose chunk of her silver hair and swipes it elegantly behind her ear. She looks so natural in a sea of roses, each flower enhancing her natural beauty."
     "The deep floral scent and the classic beauty of the roses combined with incoming sunset make for such a romantic environment."
     "I'll take advantage of this opportunity."
@@ -380,6 +434,8 @@ label roseGarden:
         "You look beautiful.":
             a "Even among this sea of roses you manage to be the most beautiful."
     "I pluck a rose from its bush and hold it out toward Stella, motioning her to accept it."
+    show stella flushed
+    with fade
     s "Why are you saying things like this all of a sudden..."
     a "Sorry, but it's true. I can't help myself."
     "She looks away shyly, embarassed by my boldness."
@@ -387,32 +443,37 @@ label roseGarden:
     a "How come? I think you match their beauty perfectly."
     "She looks down at the rose in my fingers: A vibrant red rose in full bloom."
     s "Haha, the red roses are so bright and full of life. They're bold and their meaning is never questioned."
+    show stella sad
+    with fade
     s "Meanwhile I'm dull and insecure. And I have a hard time dealing with the kind of passion a red rose brings."
     menu ("", screen = "option"):
         "I like you the way you are.":
             a "I like you exactly the way you are. You don't need to change anything."
         "Good thing I prefer white roses.":
             a "It's a good thing I prefer white roses to red ones, then."
-            #stella blushing
+    show stella flushed
+    with fade        
     s "Stop that...you're just trying to make me feel better."
     a "Either way, as long as it's working."
     "I watch her as she presses the backs of her hands to her face, trying to cool down her flushed cheeks."
+
     a """
     Each rose has it's own charm.
 
     Actually, I remember since we were younger you've always preferred white roses.
 
-    Remember that time we had a fight over which color rose was prettier? Hahah, things used to be so much simpler.
+    Remember that time we had a fight over which color rose was prettier? Hahah, things used to be much simpler.
     """
     "Stella brings her face away from her hands and chuckles fondly at the memory."
     s "Yup, you really wanted to be right back then."
     a "I take back what I said back then, white roses are definetely prettier. They look better on you."
     s "Stoppp！All you do is tease me. It's like you enjoy seeing me embarassed."
     "Her smile is much brighter than it was just a few moments before as she pushes me on the shoulder gently."
+
     a """
     Not only that, but white roses are more elegant, more delicate, harder to care for.
     
-    You have to be more careful with them, because the smallest actions can blemish their petals.
+    You have to be more careful with them because the smallest actions can blemish their petals.
     """
     s "Alright, alright, I get it. You can stop teasing me now."
     a """
@@ -422,7 +483,9 @@ label roseGarden:
     """
     s "Stop it already!"
     "She finally takes the red rose from my hand and glances away quickly as if trying to shake the blush away from her cheeks."
-    "She bends down briefly and plucks a white rose, holding both of our cut flowers in her hand."
+    "She bends down briefly and plucks a white rose, holding both of our cut flowers in her hands."
+    show stella neutral
+    with fade
 
     s "Tell me... If you were to pick just one of these flowers, which one would you choose?"
     """
@@ -459,11 +522,15 @@ label takeWhiteRose:
     $ fantasypoints += 1
     "I wrap my fingers around hers, taking the white rose in my hand."
     a "What kind of question is that? Of course I'd pick the white rose. The one that reminds me the most of you."
+    show stella flushed
+    with fade
     "The flush in Stella's cheeks comes back in a sharp wave. Her affectionate eyes soften, yet there is a sense of subtle complicated emotions behind her silver irises that I can't quite read."
     "We stand in silence for only a few moments, my hands still wrapped around hers, until she drops her head on my shoulder and whispers."
     s "I'm happy... that you're choosing me like this. But..."
     "But?"
     s "But you shouldn't act like this anymore. When will you understand..."
+    show stella sad
+    with fade
     "Her soft voice trails off in defeat. I can barely make out what she says."
     "Her strange habit of suddenly speaking in riddles always comes at the worst time. How am I supposed to decipher what she means? How am I supposed to decipher her heart?"
     menu ("", screen = "option"):
@@ -472,22 +539,29 @@ label takeWhiteRose:
     "Her head is still hanging on my shoulder. Her hands are uncharacteristically cold."
     s "Stop talking. You really haven't changed a bit since then..."
     "Among the rose-filled pasture, she is still the only thing I can see."
+    hide stella
+    with dissolve
     jump event3
 
 label takeRedRose:
     stop sound
     play music "audio/cognitiveerror.wav" fadein 1.0 fadeout 1.0
     $ realitypoints += 1
-    #JKLFDLJDSF
+    hide stella
+    with dissolve
     "My vision blurs, a throbbing headache appears. I can't think."
     a "{glitch=5}\"I know this might not be the right timing, but I want to- ... -this red rose here.\"{/glitch}"
     "I don't feel my mouth move, but words come out. With my fists I attempt to rub out whatever has overtaken my vision."
+    show stella neutral
+    with dissolve
     "When I open my eyes I see Stella staring back at me, a dumbfounded expression on her delicate face."
+    
     s "What did you just say?"
     "Wait... was that voice me? Did I say that? I don't know what came over me, or why my head still throbs."
     "Stella's expression softens. She gives me an understanding smile."
     if realitypoints > 1:
-        #CHOSE REALITY OPTION BEFORE
+        show stella flushed
+        with dissolve
         "It's that warm smile again. That familiar, comforting smile."
         "Neither of us say anything more."
         "That same tune that appeared in the forest appears again, the strange wind moving away the clouds from the sky."
@@ -497,10 +571,13 @@ label takeRedRose:
         "The harsh light blinds me again and I instincively bring up my hands to shield my eyes. I tear up again. The headache worsens."
         "Rose stems growing and thinning, curling around each other, cutting each other with their thorns."
         "I'm overwhelmed, afraid. Was this all triggered by a single red rose? What does this have to do with the previous event in the forest?"
+        hide stella
+        with easeoutright
         "Through blurry and wavering eyes I look at Stella, who has already turned and started walking toward the cabin."
-        "She turns her head over her shoulder, silver hair swaying gently."
     elif realitypoints== 1:
         #FIRST TIME CHOOSING REALITY OPTION
+        show stella flushed
+        with dissolve
         "Her smile is a familiar one: the kind of smile she gives me when I correctly guess the next ingredient in a potion, or when I bring her something she needs before she asks for it. "
         "The same smile that she would give me as kids after a good round of Spell Duel."
         "The harsh light from the sky reflects off of the white roses, blinding me again."
@@ -510,14 +587,16 @@ label takeRedRose:
         "The landscape around me seems to distort: rose stems growing and thinning, curling around each other, cutting each other with their thorns."
         "I hear sounds and see things I've never experienced before in Stella and I's quiet world."
         "I'm overwhelmed, afraid. Was this all triggered by a single red rose?"
+        hide stella
+        with easeoutright
         "Through blurry and wavering eyes I look at Stella, who has already turned and started walking toward the cabin."
-        "She turns her head over her shoulder, silver hair swaying gently."
 
     "Did I make her upset? Should I have chosen the white rose instead? What triggers her strange behavior?"
     "There are too many feelings... too many questions. "
     "But one thing I know for sure. Stella would not do anything to harm me."
     "The wind has gone and the distortion has ceased: reverting back to the world I'm used to. "
     "I go back inside after Stella, deciding to lie down for a while."
+    hide stella
     jump event3
 
 label event3:
@@ -532,11 +611,15 @@ label event3:
     "I don't know how long I slept, but the window displays the somber darkness outside. It must\'ve been a considerate amount."
     "Today's events completely exhausted me."
     "The cabin is completely dark except for the flickering flame of a single white candle."
+    show stella neutral
+    with dissolve
     "I can barely make out Stella's face: one side cast in a warm light, the other completely hidden in the darkness."
     "Stella sits at the windowsill, her nose in yet another book: a small hardcover collection of existing poems that she bound together herself."
 
     s "You're awake. I have something to tell you."
     "She closes the book and leaves it on the windowsill."
+    show stella sad
+    with dissolve
     s "I... have to leave now."
 
     
@@ -552,15 +635,23 @@ label event3:
     menu ("", screen = "option"):
         "Are you okay?":
             a "Stella? Is everything alright?"
+            show stella neutral
+            with dissolve
             s "I'm okay."
             "She has already decided what she wants to do. There's nothing I can say to convince her to stay."
             a "I don't know where you're going... but I want to come with you."
             "I have to go with her. Wherever she goes I have to be by her side. The thought of her leaving gives me a desperate ache in my chest."
         "Can I come with you?":
             a "Stella? Can I at least come with you?"
+    show stella sad
+    with dissolve
     s "... I know you need me. I know it's just been us for a long time. But... I have to do this. I've been putting it off for too long. We have been putting it off for too long." #empahses on we
     "She continues staring into the starry night, and I can spot moisture on her cheek."
+    show stella crying
+    with dissolve
     s "Goodbye."
+    hide stella
+    with easeoutright
     "Without another word she rushes out the door, her long skirt swaying behind her."
     stop music
     play sound "audio/majorchoice.wav" fadeout 1.0
@@ -574,9 +665,11 @@ label event3:
 
 
 label firstMenu :
+    show stella crying
+    with dissolve
     menu ("", screen = "option_onlyreality"): 
         "Run after her":
-            #"I can't let her leave like this."T
+            #"I can't let her leave like this."
             jump firstMenu
         "{glitch=5}Do not go gentle into that good night{/glitch}": #only available with 1 reality point
             stop sound
@@ -592,6 +685,8 @@ label firstMenu :
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
             $ canchoosereality += 1
+            hide stella
+            with dissolve
             jump event3Part2
 
 label secondMenu:
@@ -618,6 +713,8 @@ label thirdMenu:
         "{glitch=5}\"Do not go gentle into that good night\"{/glitch}": #only available with 1 reality point
             stop sound
             play music "audio/cognitiveerror.wav" fadein 1.0 fadeout 1.0
+            show stella crying
+            with dissolve
             "Softly, to myself, I speak the opening line to a poem that I somehow know."
             "‘’{glitch=5} Do not go gentle into that good night.‘’{/glitch}"
             "I say as I watch her back, her hat bouncing with every step."
@@ -628,6 +725,8 @@ label thirdMenu:
             "What am I doing? "
             "The headache returns, the twisted tune teasing at my ear. Outside, the wind howls, banging branches across our window."
             "It's all too much. I need to wake up from this dream."
+            hide stella
+            with dissolve
             $ canchoosereality += 1
             jump event3Part2
             #event3Part2
@@ -649,21 +748,24 @@ label thirdMenu:
           #  jump realityEnding
 
 label event3Part2:
+    hide stella
+    with dissolve
     
     "Panicking, I pick up the candle that's burning on the windowsill and run out after her."
     "..."
     "She's always been fast and elusive. I sprint after her as best as I can, but it takes me a while before I reach out for her shoulder and force her to stop running."
     
     a "Stella! Please! At least... let me speak."
+    show stella crying
+    with dissolve
     "I'm completely out of breath. My chest heaves up and down, our faces illuminated by that dim candle in my hand."
     "Poor Stella, usually so cool and collected, now a sobbing mess. All the emotions she has repressed all this time force their way out and seep from her face."
 
     menu ("", screen = "option"):
         "What do you mean you \"have\" to do this?":
             a "What did you mean by you \"have\" to do this?"
-            a "You \"have\" to leave me? You \"have\" to leave me alone? What kind of sick tragedy have you been planning in your head?" #emphasis on putting this off
+            a "You \"have\" to leave me? You \"have\" to leave me alone? What kind of sick tragedy have you been planning in your head?"
             if realitypoints >= 1:
-                #look around. do u not see how strange and twisted this world is
                 s """
                 Look around you. This darkness, that horrible feeling in your chest, the twisted way this world reacts to certain things.
 
@@ -685,7 +787,6 @@ label event3Part2:
                 """
 
             elif realitypoints == 0:
-                #... i cant explain it to you. you dont get it. you wont see the things you dont want to see
                 s """
                 ... I...
 
@@ -723,6 +824,8 @@ label event3Part2:
 
             "I love you enough to let you go": #ONLY AVAILABLE WITH 1 REALITY POINT AT LEAST
                 if canchoosereality == 1:
+                    show stella crying
+                    with dissolve
                     
                     play music "audio/menumusic.wav" fadein 1.0 fadeout 1.0
 
@@ -802,7 +905,7 @@ label toRealityEnding:
     """
     No. 
     
-    There is something wrong with... what I am doing.
+    There is something wrong with... what I'm doing.
 
     After this day we spent together, after all the strange words that popped out of my mouth... 
     
@@ -826,6 +929,8 @@ label toRealityEnding:
     a "I don't want you to leave. I can't imagine my life without you. But... I know I have to let you go. You have to do what you think is right."
 
     "The leaves gently rustle, providing a soothing accompaniment."
+    show stella crying smile
+    with dissolve
 
     s """
     I love you, Aurora.
@@ -833,10 +938,12 @@ label toRealityEnding:
     You know I've always loved you.
 
     I loved being by your side every second. No matter what world we live in, or how far apart we are, just know that I love you.
-                    """
+    """
 
     "She looks down into her hands and cries softly."
     s "Honestly... I don't want to leave you either. It's a comforting world, where everything is safe and still. But I'm leaving because I love you." 
+    show stella crying
+    with dissolve
     s "I want you to see the full truth."
 
     """
@@ -873,6 +980,8 @@ label fantasyEnding:
     with fade 
     stop music
     play sound "audio/fantasyending.mp3" fadein 1.0 fadeout 1.0
+    show stella crying
+    with dissolve
     """
     Stella sniffles, deep pools of tears flooding her silver eyes.
 
@@ -884,12 +993,16 @@ label fantasyEnding:
     "Stella wipes her tears away with her sleeve and collects herself. I try and do the same, taking deep breaths."
     "Slowly, she takes the candle from my hand and puts it on the ground. Then, she extends her left hand. It itches closer and closer until her fingers graze my right hand."
     "Timidly, almost unsuredly, she grabs my hand, intertwining her cold fingers with mine."
+    show stella crying smile
+    with dissolve
     s "Ok then. Let's go."
     "Her smile is a sweet and timid one, one backed up with countless emotions. She's complicated, she's hard to understand, but I love her. And this is the version of her that I love."
     "I smile back, blinking away the tears."
     "A headache flushes over me, and somehwere in the distance a distorted flute plays. The wind starts to act up, shaking the tree leaves violently."
     "But none of that matters now. It will all be over soon."
     a "Lead the way."
+    hide stella
+    with dissolve
 
     scene black
     with dissolve
@@ -1037,7 +1150,8 @@ label found:
 
     I've always loved her. Even back then. Although that love bloomed into something new as we got older.
 
-    Then, that one night... she didn't come back.""" 
+    Then, that one night... she didn't come back.
+    """ 
 
     "The funeral... "
     scene white 
@@ -1072,6 +1186,8 @@ label found:
     "Everything comes flooding back to me in a heartwrenching wave."
 
     "Before I know it, there she is. Standing in front of me as some kind of ghostly apparition."
+    show stella crying smile
+    with dissolve
 
 
     play music "audio/lastgoodbyeslow.wav" fadein 1.0 fadeout 1.0
@@ -1088,6 +1204,8 @@ label found:
     s "You can't live like this anymore."
     s "I'm glad you made the right choice. Even if you didn't know what it meant, or where it would take you. Deep down you had the will to exit that fantasy, to come back, to get over me."
     s "Daydreaming and enjoying our youth is fun when we're together, but you shouldn't throw away your future for me."
+    show stella crying
+    with dissolve
 
     menu ("", screen = "option_afterwaking"):
         "I didn't get to tell you how I feel about you.":
@@ -1101,6 +1219,8 @@ label found:
 
             Please, return fully to the real world. Grow up, build a future for yourself. Remember me, and use me as a reason to move forward instead of a reason to stay in the past.
             """
+            show stella crying smile
+            with dissolve
             "It hurts to hear. This is the end. No more strange potions and mythology stories."
             "The life that we had built for ourselves, or rather the life that I built for ourselves, had come crashing down."
             "I have to face the reality of what happened. I sob, clutching my chest, but I know Stella is right. It's time to move on."
@@ -1110,6 +1230,8 @@ label found:
         
         "Is that why you were so distant to me?":
             a "Is that why you were cold toward me? Why you made it so difficult to win you over?"
+            show stella crying
+            with dissolve
 
             s """
             I'm sorry. Maybe I didn't do it in the best way. I just want you to be healthy.
@@ -1183,7 +1305,7 @@ label endCredits1:
 
     "Proof of Concept: Spell Duel" 
 
-    "By Diane, Kenneth and Leo"
+    "By Diane, Kenneth, and Leo"
 
     "Diane: \n UI Design and Development, Original Soundtrack, \n Scene Art, Narrative Concept Design and Development. "
 
@@ -1203,7 +1325,7 @@ label endCredits2:
 
     "Proof of Concept: Spell Duel" 
 
-    "By Diane, Kenneth and Leo"
+    "By Diane, Kenneth, and Leo"
 
     "Diane: \n UI Design and Development, Original Soundtrack, \n Scene Art, Narrative Concept Design and Development. "
 
