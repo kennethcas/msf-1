@@ -392,7 +392,7 @@ label roseGarden:
         Oh, Stella, and her cute shyness. 
         """
     elif fantasypoints == 0:
-        show stella sad
+        show stella neutral
         with dissolve
         """
         I really want to talk about that strange gust of wind, but Stella seems caught up in her own thoughts.
@@ -665,8 +665,6 @@ label event3:
 
 
 label firstMenu :
-    show stella crying
-    with dissolve
     menu ("", screen = "option_onlyreality"): 
         "Run after her":
             #"I can't let her leave like this."
