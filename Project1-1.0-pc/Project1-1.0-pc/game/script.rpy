@@ -1066,11 +1066,11 @@ label find:
             a """
             One of those small hardcover bound notebooks with a ribbon bookmark.
 
-            I open it up to the bookmarked page, revealing a pressed white rose.
+            I open it up to the bookmarked page, revealing a pressed rose petal.
 
             The fragrance of the rose has almost worn off.
 
-            A funeral rose...?
+            A red rose...?
 
             """
             play sound "audio/realitychoice.wav" fadeout 1.0
