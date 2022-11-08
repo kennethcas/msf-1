@@ -319,7 +319,7 @@ label drinkThePotion:
             s "We're lucky it didn't actually do anything... what if you grew a tail or something?"
             a "Then it would've been worth it to aid you in your experiments."
             show stella neutral
-            with fade
+            with dissolve
             s "Be serious! You're still so childish." #show her smiling
 
         "Lie and say it tasted good":
@@ -327,11 +327,11 @@ label drinkThePotion:
             s "Don't lie to me! You almost just choked to death!"
             a "Hahaha. I would drink it all over again just for you!"
             show stella flushed
-            with fade
+            with dissolve
             s "Don't say things like that! It's embarassing..."
 
     show stella flushed
-    with fade
+    with dissolve
     """
     Stella launches herself into my arms, trapping me in a tight embrace.
 
@@ -345,14 +345,14 @@ label dontDrinkThePotion:
     $ realitypoints += 1
     a "{glitch=5}\"I'm not eating or drinking anything Miss-Worst-Cook makes.\"{/glitch}"
     show stella sad
-    with fade
+    with dissolve
     s "..."
     "There is an unbearable silence for a few moments. Stella looks at me blankly, as if I have somehow stopped time and frozen her in this moment."
     "Why did I say that?"
     "Where did that come from?"
     a "Stella... I-"
     hide stella
-    with fade
+    with dissolve
     "The usual soft whistles of the wind traveling through the trees' branches suddenly turns harsh and loud."
     "The strange winds create an almost omniscient resonation within the pomegranate trees. "
     "Leaves fall down from the treetops and swirl like strange musical notes falling off the staff. The foliage dances a strange waltz mid air."
@@ -407,7 +407,7 @@ label roseGarden:
     """
 
     show stella neutral
-    with fade
+    with dissolve
     s "What's wrong? Is the state of my garden that bad?" #shes smiling
     "I wipe away the tear and laugh. The usual Stella is back."
     a "It's nothing. It's probably just the pollen."
@@ -418,7 +418,7 @@ label roseGarden:
             "I grab the nearby watering can and start watering the rose bushes without missing another beat."
             a "It's fine, see? I can still work."
             show stella flushed
-            with fade
+            with dissolve
             s "Okay then, as long as you're useful." #smiling
     hide stella
     with moveinright
@@ -426,7 +426,7 @@ label roseGarden:
     "Stella only grows red and white roses. She doesn't even grow any other flowers unless she needs something for a specific spell or potion. She likes to keep her garden simple, which I find ironic considering the complexity of her emotions."
     "While I water the roses, Stella mixes some of her potions in the soil. A while ago she figured out a way to make a potion that replaces fertilizer."
     show stella neutral
-    with fade
+    with dissolve
     "I watch as she takes a loose chunk of her silver hair and swipes it elegantly behind her ear. She looks so natural in a sea of roses, each flower enhancing her natural beauty."
     "The deep floral scent and the classic beauty of the roses combined with incoming sunset make for such a romantic environment."
     "I'll take advantage of this opportunity."
@@ -435,7 +435,7 @@ label roseGarden:
             a "Even among this sea of roses you manage to be the most beautiful."
     "I pluck a rose from its bush and hold it out toward Stella, motioning her to accept it."
     show stella flushed
-    with fade
+    with dissolve
     s "Why are you saying things like this all of a sudden..."
     a "Sorry, but it's true. I can't help myself."
     "She looks away shyly, embarassed by my boldness."
@@ -444,7 +444,7 @@ label roseGarden:
     "She looks down at the rose in my fingers: A vibrant red rose in full bloom."
     s "Haha, the red roses are so bright and full of life. They're bold and their meaning is never questioned."
     show stella sad
-    with fade
+    with dissolve
     s "Meanwhile I'm dull and insecure. And I have a hard time dealing with the kind of passion a red rose brings."
     menu ("", screen = "option"):
         "I like you the way you are.":
@@ -452,7 +452,7 @@ label roseGarden:
         "Good thing I prefer white roses.":
             a "It's a good thing I prefer white roses to red ones, then."
     show stella flushed
-    with fade        
+    with dissolve      
     s "Stop that...you're just trying to make me feel better."
     a "Either way, as long as it's working."
     "I watch her as she presses the backs of her hands to her face, trying to cool down her flushed cheeks."
@@ -485,7 +485,7 @@ label roseGarden:
     "She finally takes the red rose from my hand and glances away quickly as if trying to shake the blush away from her cheeks."
     "She bends down briefly and plucks a white rose, holding both of our cut flowers in her hands."
     show stella neutral
-    with fade
+    with dissolve
 
     s "Tell me... If you were to pick just one of these flowers, which one would you choose?"
     """
@@ -523,14 +523,14 @@ label takeWhiteRose:
     "I wrap my fingers around hers, taking the white rose in my hand."
     a "What kind of question is that? Of course I'd pick the white rose. The one that reminds me the most of you."
     show stella flushed
-    with fade
+    with dissolve
     "The flush in Stella's cheeks comes back in a sharp wave. Her affectionate eyes soften, yet there is a sense of subtle complicated emotions behind her silver irises that I can't quite read."
     "We stand in silence for only a few moments, my hands still wrapped around hers, until she drops her head on my shoulder and whispers."
     s "I'm happy... that you're choosing me like this. But..."
     "But?"
     s "But you shouldn't act like this anymore. When will you understand..."
     show stella sad
-    with fade
+    with dissolve
     "Her soft voice trails off in defeat. I can barely make out what she says."
     "Her strange habit of suddenly speaking in riddles always comes at the worst time. How am I supposed to decipher what she means? How am I supposed to decipher her heart?"
     menu ("", screen = "option"):
