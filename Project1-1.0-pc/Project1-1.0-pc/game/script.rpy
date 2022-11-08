@@ -467,7 +467,7 @@ label roseGarden:
     "Stella brings her face away from her hands and chuckles fondly at the memory."
     s "Yup, you really wanted to be right back then."
     a "I take back what I said back then, white roses are definetely prettier. They look better on you."
-    s "Stoppp！All you do is tease me. It's like you enjoy seeing me embarassed."
+    s "Stop it! All you do is tease me. It's like you enjoy seeing me embarassed."
     "Her smile is much brighter than it was just a few moments before as she pushes me on the shoulder gently."
 
     a """
